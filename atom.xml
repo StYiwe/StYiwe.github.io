@@ -40,30 +40,6 @@
   </entry>
   
   <entry>
-    <title>测试</title>
-    <link href="http://example.com/2021/01/26/firsttestblog/"/>
-    <id>http://example.com/2021/01/26/firsttestblog/</id>
-    <published>2021-01-26T03:08:24.000Z</published>
-    <updated>2021-01-28T08:23:39.958Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://tva1.sinaimg.cn/large/0081Kckwgy1gl2gkurjdbj30yp0u04qq.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    
-    <category term="test" scheme="http://example.com/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
     <link href="http://example.com/2021/01/26/hello-world/"/>
     <id>http://example.com/2021/01/26/hello-world/</id>
