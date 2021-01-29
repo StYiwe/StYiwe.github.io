@@ -367,14 +367,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -571,6 +571,30 @@ tags:
 ---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>为了新建文章方便，可以修改下文章模板，把希望带的字段加进去，路径是<code>/scaffolds/post.md</code></p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4e2xsfwhj30zm0eywi3.jpg" alt="image-20210129110944377"></p>
+<h4 id="八-增加百度和谷歌的搜索引擎验证"><a href="#八-增加百度和谷歌的搜索引擎验证" class="headerlink" title="八.增加百度和谷歌的搜索引擎验证"></a>八.增加百度和谷歌的搜索引擎验证</h4><p>1.验证站点，此处以<code>HTML标签验证</code>的方法验证</p>
+<ul>
+<li><p>百度验证</p>
+<p>首先打开<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/linksubmit/url">百度搜索引擎验证</a>，输入博客网址，按提示走，选择<code>HTML便签验证</code>，然后将下方的代码复制下来，网页先不要关</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4otwl53oj31gi0omwiq.jpg" alt="image-20210129172136201"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4ovqudt3j31ag0u0gqq.jpg" alt="image-20210129172325055"></p>
+</li>
+</ul>
+<ul>
+<li><p>谷歌验证</p>
+<p>打开<a target="_blank" rel="noopener" href="https://search.google.com/search-console/welcome?hl=zh-CN&utm_source=wmx&utm_medium=deprecation-pane&utm_content=home">谷歌搜索引擎验证</a>,输入博客地址</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4p0k1txsj310d0u0q85.jpg" alt="image-20210129172802516"></p>
+<p>下一步中，选择其他验证方法的<code>HTML标记</code>，复制<code>meta</code>中的代码</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4p2xyeqwj30u013i44s.jpg" alt="image-20210129173020146"></p>
+</li>
+</ul>
+<ul>
+<li><p>打开本地博客主题下的<code>layout/_partial</code> 文件夹，有一个名为<code>head</code>的文件，将上面获得的两行代码粘贴到<code>&lt;head&gt;&lt;/head&gt;</code>之间，保存文件，然后分别执行以下命令部署到Github服务器</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+sudo hexo g
+sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>然后分别点击刚才百度、谷歌的验证按钮进行站点验证</p>
+</li>
+</ul>
 <blockquote>
 <p>本文参考了一下文章：</p>
 <p>[@gsl的mac 搭建基于Hexo-Github的Blog](mac 搭建基于Hexo-Github的Blog)</p>
@@ -1054,7 +1078,7 @@ tags:
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.3k</span>&nbsp;字
+                class="white-color">1.5k</span>&nbsp;字
             
             
             
