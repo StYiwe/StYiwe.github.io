@@ -6,7 +6,7 @@
   <link href="https://styiwe.github.io/atom.xml" rel="self"/>
   
   <link href="https://styiwe.github.io/"/>
-  <updated>2021-01-26T02:10:28.303Z</updated>
+  <updated>2021-01-29T06:43:33.284Z</updated>
   <id>https://styiwe.github.io/</id>
   
   <author>
@@ -17,23 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://styiwe.github.io/2021/01/26/hello-world/"/>
-    <id>https://styiwe.github.io/2021/01/26/hello-world/</id>
-    <published>2021-01-26T02:10:28.303Z</published>
-    <updated>2021-01-26T02:10:28.303Z</updated>
+    <title>Mac下搭建基于Hexo + Github的个人博客</title>
+    <link href="https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/"/>
+    <id>https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/</id>
+    <published>2021-01-29T06:41:56.000Z</published>
+    <updated>2021-01-29T06:43:33.284Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近心血来潮，想搭建个人博客，就把搭建过程整理了一下，顺便进行记录，以备将来查看&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;一-创建GitHub仓库，配置SSH&quot;&gt;&lt;a href=&quot;#一-创建GitHub仓库，配置SSH&quot;</summary>
         
       
     
     
     
+    <category term="工具使用" scheme="https://styiwe.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+    <category term="hexo" scheme="https://styiwe.github.io/tags/hexo/"/>
     
   </entry>
   
