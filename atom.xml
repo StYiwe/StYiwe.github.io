@@ -3,11 +3,11 @@
   <title>九点烟</title>
   
   <subtitle>九点烟</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://styiwe.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://styiwe.github.io/"/>
   <updated>2021-01-28T08:30:09.433Z</updated>
-  <id>http://example.com/</id>
+  <id>https://styiwe.github.io/</id>
   
   <author>
     <name>逸之</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>测试</title>
-    <link href="http://example.com/2021/01/28/ce-shi/"/>
-    <id>http://example.com/2021/01/28/ce-shi/</id>
+    <link href="https://styiwe.github.io/2021/01/28/ce-shi/"/>
+    <id>https://styiwe.github.io/2021/01/28/ce-shi/</id>
     <published>2021-01-28T08:29:08.000Z</published>
     <updated>2021-01-28T08:30:09.433Z</updated>
     
@@ -35,14 +35,14 @@
     
     
     
-    <category term="测试" scheme="http://example.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    <category term="测试" scheme="https://styiwe.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2021/01/26/hello-world/"/>
-    <id>http://example.com/2021/01/26/hello-world/</id>
+    <link href="https://styiwe.github.io/2021/01/26/hello-world/"/>
+    <id>https://styiwe.github.io/2021/01/26/hello-world/</id>
     <published>2021-01-26T02:10:28.303Z</published>
     <updated>2021-01-26T02:10:28.303Z</updated>
     
