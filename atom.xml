@@ -6,7 +6,7 @@
   <link href="https://styiwe.github.io/atom.xml" rel="self"/>
   
   <link href="https://styiwe.github.io/"/>
-  <updated>2021-02-01T08:06:37.802Z</updated>
+  <updated>2021-02-01T08:39:24.340Z</updated>
   <id>https://styiwe.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记录码云上Git的使用</title>
+    <link href="https://styiwe.github.io/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/"/>
+    <id>https://styiwe.github.io/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/</id>
+    <published>2021-02-01T08:34:56.000Z</published>
+    <updated>2021-02-01T08:39:24.340Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;已在码云上创建了仓库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;添加项目到仓库中&quot;&gt;&lt;a href=&quot;#添加项目到仓库中&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="工具使用" scheme="https://styiwe.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+    <category term="Git" scheme="https://styiwe.github.io/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS 接入VK登录</title>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="iOS获取设备型号, 九点烟">
+    <meta name="keywords" content="记录码云上Git的使用, 九点烟">
     <meta name="description" content="寻常巷陌，人道寄奴曾住">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>iOS获取设备型号 | 九点烟</title>
+    <title>记录码云上Git的使用 | 九点烟</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -207,12 +207,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">iOS获取设备型号</h1>
+                    <h1 class="description center-align post-title">记录码云上Git的使用</h1>
                 </div>
             </div>
         </div>
@@ -328,8 +328,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/">
-                                <span class="chip bg-color">获取系统参数</span>
+                            <a href="/tags/Git/">
+                                <span class="chip bg-color">Git</span>
                             </a>
                         
                     </div>
@@ -340,8 +340,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Objective-C%E7%AC%94%E8%AE%B0/" class="post-category">
-                                Objective-C笔记
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
+                                工具使用
                             </a>
                         
                     </div>
@@ -367,14 +367,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    581
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    2 分
                 </div>
                 
 
@@ -397,155 +397,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="iOS获取设备型号"><a href="#iOS获取设备型号" class="headerlink" title="iOS获取设备型号"></a>iOS获取设备型号</h1><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F; 需要#import &quot;sys&#x2F;utsname.h&quot;
-+ (NSString *)getDeviceInfo &#123;
-    
-    struct utsname systemInfo;
-    uname(&amp;systemInfo);
-    &#x2F;&#x2F; 获取设备标识Identifier
-    NSString *platform &#x3D; [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
-    
-    &#x2F;&#x2F;iPhone
-    if ([platform isEqualToString:@&quot;iPhone1,1&quot;]) return @&quot;iPhone 2G&quot;;
-    if ([platform isEqualToString:@&quot;iPhone1,2&quot;]) return @&quot;iPhone 3G&quot;;
-    if ([platform isEqualToString:@&quot;iPhone2,1&quot;]) return @&quot;iPhone 3GS&quot;;
-    if ([platform isEqualToString:@&quot;iPhone3,1&quot;]) return @&quot;iPhone 4&quot;;
-    if ([platform isEqualToString:@&quot;iPhone3,2&quot;]) return @&quot;iPhone 4&quot;;
-    if ([platform isEqualToString:@&quot;iPhone3,3&quot;]) return @&quot;iPhone 4&quot;;
-    if ([platform isEqualToString:@&quot;iPhone4,1&quot;]) return @&quot;iPhone 4S&quot;;
-    if ([platform isEqualToString:@&quot;iPhone5,1&quot;]) return @&quot;iPhone 5&quot;;
-    if ([platform isEqualToString:@&quot;iPhone5,2&quot;]) return @&quot;iPhone 5&quot;;
-    if ([platform isEqualToString:@&quot;iPhone5,3&quot;]) return @&quot;iPhone 5c&quot;;
-    if ([platform isEqualToString:@&quot;iPhone5,4&quot;]) return @&quot;iPhone 5c&quot;;
-    if ([platform isEqualToString:@&quot;iPhone6,1&quot;]) return @&quot;iPhone 5s&quot;;
-    if ([platform isEqualToString:@&quot;iPhone6,2&quot;]) return @&quot;iPhone 5s&quot;;
-    if ([platform isEqualToString:@&quot;iPhone7,2&quot;]) return @&quot;iPhone 6&quot;;
-    if ([platform isEqualToString:@&quot;iPhone7,1&quot;]) return @&quot;iPhone 6 Plus&quot;;
-    if ([platform isEqualToString:@&quot;iPhone8,1&quot;]) return @&quot;iPhone 6s&quot;;
-    if ([platform isEqualToString:@&quot;iPhone8,2&quot;]) return @&quot;iPhone 6s Plus&quot;;
-    if ([platform isEqualToString:@&quot;iPhone8,4&quot;]) return @&quot;iPhone SE&quot;;
-    if ([platform isEqualToString:@&quot;iPhone9,1&quot;]) return @&quot;iPhone 7&quot;;
-    if ([platform isEqualToString:@&quot;iPhone9,3&quot;]) return @&quot;iPhone 7&quot;;
-    if ([platform isEqualToString:@&quot;iPhone9,2&quot;]) return @&quot;iPhone 7 Plus&quot;;
-    if ([platform isEqualToString:@&quot;iPhone9,4&quot;]) return @&quot;iPhone 7 Plus&quot;;
-    if ([platform isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;iPhone 8&quot;;
-    if ([platform isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;iPhone 8&quot;;
-    if ([platform isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;iPhone 8 Plus&quot;;
-    if ([platform isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;iPhone 8 Plus (A1897)&quot;;
-    if ([platform isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;iPhone X&quot;;
-    if ([platform isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;iPhone X&quot;;
-    if ([platform isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;
-    if ([platform isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;
-    if ([platform isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;
-    if ([platform isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;;
-    if ([platform isEqualToString:@&quot;iPhone12,1&quot;]) return @&quot;iPhone 11&quot;;
-    if ([platform isEqualToString:@&quot;iPhone12,3&quot;]) return @&quot;iPhone 11 Pro&quot;;
-    if ([platform isEqualToString:@&quot;iPhone12,5&quot;]) return @&quot;iPhone 11 Pro Max&quot;;
-    if ([platform isEqualToString:@&quot;iPhone12,8&quot;]) return @&quot;iPhone SE (2nd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPhone13,1&quot;]) return @&quot;iPhone 12 mini&quot;;
-    if ([platform isEqualToString:@&quot;iPhone13,2&quot;]) return @&quot;iPhone 12&quot;;
-    if ([platform isEqualToString:@&quot;iPhone13,3&quot;]) return @&quot;iPhone 12 Pro&quot;;
-    if ([platform isEqualToString:@&quot;iPhone13,4&quot;]) return @&quot;iPhone 12 Pro Max&quot;;
-
-    
-    &#x2F;&#x2F;iPad
-    if ([platform isEqualToString:@&quot;iPad1,1&quot;])   return @&quot;iPad&quot;;
-    if ([platform isEqualToString:@&quot;iPad2,1&quot;])   return @&quot;iPad 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad2,2&quot;])   return @&quot;iPad 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad2,3&quot;])   return @&quot;iPad 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad2,4&quot;])   return @&quot;iPad 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad3,1&quot;])   return @&quot;iPad (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad3,2&quot;])   return @&quot;iPad (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad3,3&quot;])   return @&quot;iPad (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad3,4&quot;])   return @&quot;iPad (4th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad3,5&quot;])   return @&quot;iPad (4th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad3,6&quot;])   return @&quot;iPad (4th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad6,11&quot;])  return @&quot;iPad (5th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad6,12&quot;])  return @&quot;iPad (5th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,5&quot;])   return @&quot;iPad (6th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,6&quot;])   return @&quot;iPad (6th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,11&quot;])  return @&quot;iPad (7th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,12&quot;])  return @&quot;iPad (7th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad11,6&quot;])  return @&quot;iPad (8th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad11,7&quot;])  return @&quot;iPad (8th generation)&quot;;
-    
-    
-    &#x2F;&#x2F;iPad Air
-    if ([platform isEqualToString:@&quot;iPad4,1&quot;])   return @&quot;iPad Air&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,2&quot;])   return @&quot;iPad Air&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,3&quot;])   return @&quot;iPad Air&quot;;
-    if ([platform isEqualToString:@&quot;iPad5,3&quot;])   return @&quot;iPad Air 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad5,4&quot;])   return @&quot;iPad Air 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad11,3&quot;])  return @&quot;iPad Air (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad11,4&quot;])  return @&quot;iPad Air (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad13,1&quot;])  return @&quot;iPad Air (4th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad13,2&quot;])  return @&quot;iPad Air (4th generation)&quot;;
-    
-    &#x2F;&#x2F;iPad mini
-    if ([platform isEqualToString:@&quot;iPad2,5&quot;])   return @&quot;iPad mini&quot;;
-    if ([platform isEqualToString:@&quot;iPad2,6&quot;])   return @&quot;iPad mini&quot;;
-    if ([platform isEqualToString:@&quot;iPad2,7&quot;])   return @&quot;iPad mini 1&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,4&quot;])   return @&quot;iPad mini 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,5&quot;])   return @&quot;iPad mini 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,6&quot;])   return @&quot;iPad mini 2&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,7&quot;])   return @&quot;iPad mini 3&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,8&quot;])   return @&quot;iPad mini 3&quot;;
-    if ([platform isEqualToString:@&quot;iPad4,9&quot;])   return @&quot;iPad mini 3&quot;;
-    if ([platform isEqualToString:@&quot;iPad5,1&quot;])   return @&quot;iPad mini 4&quot;;
-    if ([platform isEqualToString:@&quot;iPad5,2&quot;])   return @&quot;iPad mini 4&quot;;
-    if ([platform isEqualToString:@&quot;iPad11,1&quot;])  return @&quot;iPad mini 5&quot;;
-    if ([platform isEqualToString:@&quot;iPad11,2&quot;])  return @&quot;iPad mini 5&quot;;
-    
-    &#x2F;&#x2F; iPad Pro
-    if ([platform isEqualToString:@&quot;iPad6,3&quot;])    return @&quot;iPad Pro (9.7-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad6,4&quot;])    return @&quot;iPad Pro (9.7-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad6,7&quot;])    return @&quot;iPad Pro (12.9-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad6,8&quot;])    return @&quot;iPad Pro (12.9-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,1&quot;])    return @&quot;iPad Pro (12.9-inch) (2nd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,2&quot;])    return @&quot;iPad Pro (12.9-inch) (2nd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,3&quot;])  return @&quot;iPad Pro (10.5 inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad7,4&quot;])  return @&quot;iPad Pro (10.5-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,1&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,2&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,3&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,4&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,5&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,6&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,7&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,8&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,9&quot;])  return @&quot;iPad Pro (11-inch) (2nd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,10&quot;])  return @&quot;iPad Pro (11-inch) (2nd generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,11&quot;])  return @&quot;iPad Pro (12.9-inch) (4th generation)&quot;;
-    if ([platform isEqualToString:@&quot;iPad8,12&quot;])  return @&quot;iPad Pro (12.9-inch) (4th generation)&quot;;
-  
-  	&#x2F;&#x2F;iPod Touch
-    if ([platform isEqualToString:@&quot;iPod1,1&quot;])   return @&quot;iPod Touch&quot;;
-    if ([platform isEqualToString:@&quot;iPod2,1&quot;])   return @&quot;iPod Touch 2&quot;;
-    if ([platform isEqualToString:@&quot;iPod3,1&quot;])   return @&quot;iPod Touch 3&quot;;
-    if ([platform isEqualToString:@&quot;iPod4,1&quot;])   return @&quot;iPod Touch 4)&quot;;
-    if ([platform isEqualToString:@&quot;iPod5,1&quot;])   return @&quot;iPod Touch 5&quot;;
-    if ([platform isEqualToString:@&quot;iPod7,1&quot;])   return @&quot;iPod Touch 6&quot;;
-    if ([platform isEqualToString:@&quot;iPod9,1&quot;])   return @&quot;iPod Touch 7&quot;;
-
-    &#x2F;&#x2F; Apple Watch
-    if ([platform isEqualToString:@&quot;Watch1,1&quot;])   return @&quot;Apple Watch&quot;;
-    if ([platform isEqualToString:@&quot;Watch1,2&quot;])   return @&quot;Apple Watch&quot;;
-    if ([platform isEqualToString:@&quot;Watch2,6&quot;])   return @&quot;Apple Watch Series 1&quot;;
-    if ([platform isEqualToString:@&quot;Watch2,7&quot;])   return @&quot;Apple Watch Series 1&quot;;
-    if ([platform isEqualToString:@&quot;Watch2,3&quot;])   return @&quot;Apple Watch Series 2&quot;;
-    if ([platform isEqualToString:@&quot;Watch2,4&quot;])   return @&quot;Apple Watch Series 2&quot;;
-    if ([platform isEqualToString:@&quot;Watch3,1&quot;])   return @&quot;Apple Watch Series 3&quot;;
-    if ([platform isEqualToString:@&quot;Watch3,2&quot;])   return @&quot;Apple Watch Series 3&quot;;
-    if ([platform isEqualToString:@&quot;Watch3,3&quot;])   return @&quot;Apple Watch Series 3&quot;;
-    if ([platform isEqualToString:@&quot;Watch3,4&quot;])   return @&quot;Apple Watch Series 3&quot;;
-
-  	&#x2F;&#x2F; 模拟器
-    if ([platform isEqualToString:@&quot;i386&quot;])   return @&quot;iPhone Simulator&quot;;
-    if ([platform isEqualToString:@&quot;x86_64&quot;])  return @&quot;iPhone Simulator&quot;;
-    
-    return platform;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>iOS设备参照<a target="_blank" rel="noopener" href="https://www.theiphonewiki.com/wiki/Models#iPhone">网址</a></p>
+                <blockquote>
+<p>已在码云上创建了仓库</p>
+</blockquote>
+<h4 id="添加项目到仓库中"><a href="#添加项目到仓库中" class="headerlink" title="添加项目到仓库中"></a>添加项目到仓库中</h4><blockquote>
+<p>1.cd 你要上传的项目的文件夹路径<br>2.git全局设置<br>git config –global user.name “user.name”//码云用户名<br>git config –global user.email “user.email”//码云账号<br>3.git init//初始化一个git 仓库<br>4.touch README.md//创建帮助文件<br>5.git add -A//添加所有文件<br>6.git commit -a -m”注释内容”//添加注释<br>7. git remote add origin “上面复制的路径”(你的远程仓库地址，即是码云的项目地址)//和远程仓库进行关联<br>8. git push origin master 或 git push -u origin master//上传仓库到码云</p>
+</blockquote>
+<p>注：若push失败，则需先从码云上将你建的空项目拉取到本地，先执行git pull origin master，再执行git push -u origin master 若任然push失败，则使用此命令 git push –force origin master</p>
+<p>成功上传后刷新码云界面，即可看到项目上传到码云^_^</p>
+<p>(如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push。</p>
+<pre class="line-numbers language-none"><code class="language-none">$ git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>上面命令表示，将当前分支推送到origin主机的对应分支。</p>
+<p>如果当前分支只有一个追踪分支，那么主机名都可以省略。</p>
+<p>$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。</p>
+<p><code>$ git push -u origin master</code> 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用<code>git push</code>了。</p>
+<p>)</p>
+<p>顺带记录一些常用的git指令：</p>
+<p>git clone url(项目仓库地址) //克隆一个远程仓库，就是在本地建立一个新的项目。</p>
+<p><code>git pull origin master</code> //如果已经有一个项目，通过这条指令可以直接更新该项目</p>
+<h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><blockquote>
+<p>1.git pull origin master （必须要执行的）<br>2.git status<br>3.git add -A<br>4.git commit -a -m “填写修改的内容”<br>5.git push -u origin master</p>
+</blockquote>
+<h4 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h4><blockquote>
+<p>1.cd到存放项目的文件夹路径<br>2.git clone url(项目仓库地址)</p>
+</blockquote>
+<p>参考 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f38127104890">奔跑的喔汼</a></p>
 
                 
             </div>
@@ -572,7 +448,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://styiwe.github.io/2021/02/01/ios-huo-qu-she-bei-xing-hao/">https://styiwe.github.io/2021/02/01/ios-huo-qu-she-bei-xing-hao/</a>
+                    <a href="https://styiwe.github.io/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/">https://styiwe.github.io/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -610,8 +486,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/">
-                                    <span class="chip bg-color">获取系统参数</span>
+                                <a href="/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
                                 </a>
                             
                         </div>
@@ -783,40 +659,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/01/ios-chuang-jian-framework-bundle/">
+                <a href="/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="iOS创建Framework、Bundle">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="记录码云上Git的使用">
                         
-                        <span class="card-title">iOS创建Framework、Bundle</span>
+                        <span class="card-title">记录码云上Git的使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录下创建Framework、Bundle的过程
+                            码云上git的简单使用
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Objective-C%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    Objective-C笔记
+                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
+                                    工具使用
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Git/">
+                        <span class="chip bg-color">Git</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -828,19 +714,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/01/ios-workspace-de-chuang-jian-shi-yong/">
+                <a href="/2021/02/01/ios-jie-ru-vk-deng-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="iOS Workspace的创建使用">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="iOS 接入VK登录">
                         
-                        <span class="card-title">iOS Workspace的创建使用</span>
+                        <span class="card-title">iOS 接入VK登录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单记录下Workspace的创建
+                            在接入VK登录时候的一些总结
                         
                     </div>
                     <div class="publish-info">
@@ -862,8 +748,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Workspace/">
-                        <span class="chip bg-color">Workspace</span>
+                    <a href="/tags/VK/">
+                        <span class="chip bg-color">VK</span>
                     </a>
                     
                 </div>

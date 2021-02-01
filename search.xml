@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>记录码云上Git的使用</title>
+      <link href="2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/"/>
+      <url>2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>已在码云上创建了仓库</p></blockquote><h4 id="添加项目到仓库中"><a href="#添加项目到仓库中" class="headerlink" title="添加项目到仓库中"></a>添加项目到仓库中</h4><blockquote><p>1.cd 你要上传的项目的文件夹路径<br>2.git全局设置<br>git config –global user.name “user.name”//码云用户名<br>git config –global user.email “user.email”//码云账号<br>3.git init//初始化一个git 仓库<br>4.touch README.md//创建帮助文件<br>5.git add -A//添加所有文件<br>6.git commit -a -m”注释内容”//添加注释<br>7. git remote add origin “上面复制的路径”(你的远程仓库地址，即是码云的项目地址)//和远程仓库进行关联<br>8. git push origin master 或 git push -u origin master//上传仓库到码云</p></blockquote><p>注：若push失败，则需先从码云上将你建的空项目拉取到本地，先执行git pull origin master，再执行git push -u origin master 若任然push失败，则使用此命令 git push –force origin master</p><p>成功上传后刷新码云界面，即可看到项目上传到码云^_^</p><p>(如果当前分支与多个主机存在追踪关系，则可以使用-u选项指定一个默认主机，这样后面就可以不加任何参数使用git push。</p><pre class="line-numbers language-none"><code class="language-none">$ git push origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>上面命令表示，将当前分支推送到origin主机的对应分支。</p><p>如果当前分支只有一个追踪分支，那么主机名都可以省略。</p><p>$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。</p><p><code>$ git push -u origin master</code> 上面命令将本地的master分支推送到origin主机，同时指定origin为默认主机，后面就可以不加任何参数使用<code>git push</code>了。</p><p>)</p><p>顺带记录一些常用的git指令：</p><p>git clone url(项目仓库地址) //克隆一个远程仓库，就是在本地建立一个新的项目。</p><p><code>git pull origin master</code> //如果已经有一个项目，通过这条指令可以直接更新该项目</p><h4 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h4><blockquote><p>1.git pull origin master （必须要执行的）<br>2.git status<br>3.git add -A<br>4.git commit -a -m “填写修改的内容”<br>5.git push -u origin master</p></blockquote><h4 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h4><blockquote><p>1.cd到存放项目的文件夹路径<br>2.git clone url(项目仓库地址)</p></blockquote><p>参考 <a href="https://www.jianshu.com/p/f38127104890">奔跑的喔汼</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iOS 接入VK登录</title>
       <link href="2021/02/01/ios-jie-ru-vk-deng-lu/"/>
       <url>2021/02/01/ios-jie-ru-vk-deng-lu/</url>
