@@ -2,84 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://styiwe.github.io/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/</loc>
+    <loc>http://example.com/child/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/</loc>
     
     <lastmod>2021-02-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/</loc>
+    <loc>http://example.com/child/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/</loc>
     
     <lastmod>2021-02-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/2021/02/01/ios-chuang-jian-framework-bundle/</loc>
+    <loc>http://example.com/child/2021/02/01/ios-chuang-jian-framework-bundle/</loc>
     
     <lastmod>2021-02-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/2021/02/01/ios-jie-ru-vk-deng-lu/</loc>
+    <loc>http://example.com/child/2021/02/01/ios-jie-ru-vk-deng-lu/</loc>
     
     <lastmod>2021-02-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/2021/02/01/ios-workspace-de-chuang-jian-shi-yong/</loc>
+    <loc>http://example.com/child/2021/02/01/ios-workspace-de-chuang-jian-shi-yong/</loc>
     
     <lastmod>2021-02-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/2021/02/01/ios-huo-qu-she-bei-xing-hao/</loc>
+    <loc>http://example.com/child/2021/02/01/ios-huo-qu-she-bei-xing-hao/</loc>
     
     <lastmod>2021-02-01</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/friends/index.html</loc>
+    <loc>http://example.com/child/friends/index.html</loc>
     
     <lastmod>2021-01-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/contact/index.html</loc>
+    <loc>http://example.com/child/contact/index.html</loc>
     
     <lastmod>2021-01-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/tags/index.html</loc>
+    <loc>http://example.com/child/tags/index.html</loc>
     
     <lastmod>2021-01-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/categories/index.html</loc>
+    <loc>http://example.com/child/categories/index.html</loc>
     
     <lastmod>2021-01-28</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/404/index.html</loc>
+    <loc>http://example.com/child/404/index.html</loc>
     
     <lastmod>2021-01-26</lastmod>
     
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/about/index.html</loc>
+    <loc>http://example.com/child/about/index.html</loc>
     
     <lastmod>2021-01-26</lastmod>
     
@@ -87,7 +87,7 @@
   
 
   <url>
-    <loc>https://styiwe.github.io/</loc>
+    <loc>http://example.com/child</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -95,35 +95,35 @@
 
   
   <url>
-    <loc>https://styiwe.github.io/tags/hexo/</loc>
+    <loc>http://example.com/child/tags/hexo/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/tags/Workspace/</loc>
+    <loc>http://example.com/child/tags/Workspace/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/tags/VK/</loc>
+    <loc>http://example.com/child/tags/VK/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/tags/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/</loc>
+    <loc>http://example.com/child/tags/%E8%8E%B7%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/tags/Git/</loc>
+    <loc>http://example.com/child/tags/Git/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -132,14 +132,14 @@
 
   
   <url>
-    <loc>https://styiwe.github.io/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</loc>
+    <loc>http://example.com/child/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://styiwe.github.io/categories/Objective-C%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://example.com/child/categories/Objective-C%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2021-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

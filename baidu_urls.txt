@@ -1,3 +1,3 @@
-https://styiwe.github.io/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/
-https://styiwe.github.io/2021/02/01/ios-jie-ru-vk-deng-lu/
-https://styiwe.github.io/2021/02/01/ios-chuang-jian-framework-bundle/
+http://example.com/child/2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/
+http://example.com/child/2021/02/01/ios-jie-ru-vk-deng-lu/
+http://example.com/child/2021/02/01/ios-chuang-jian-framework-bundle/
