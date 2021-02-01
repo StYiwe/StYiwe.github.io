@@ -6,7 +6,7 @@
   <link href="https://styiwe.github.io/atom.xml" rel="self"/>
   
   <link href="https://styiwe.github.io/"/>
-  <updated>2021-02-01T07:52:27.554Z</updated>
+  <updated>2021-02-01T08:00:24.303Z</updated>
   <id>https://styiwe.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS VK接入</title>
+    <link href="https://styiwe.github.io/2021/02/01/ios-vk-jie-ru/"/>
+    <id>https://styiwe.github.io/2021/02/01/ios-vk-jie-ru/</id>
+    <published>2021-02-01T07:58:11.000Z</published>
+    <updated>2021-02-01T08:00:24.303Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;VK接入&quot;&gt;&lt;a href=&quot;#VK接入&quot; class=&quot;headerlink&quot; title=&quot;VK接入&quot;&gt;&lt;/a&gt;VK接入&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Objective-C笔记" scheme="https://styiwe.github.io/categories/Objective-C%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="VK" scheme="https://styiwe.github.io/tags/VK/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS创建Framework、Bundle</title>
