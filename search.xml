@@ -4,6 +4,106 @@
   
     
     <entry>
+      <title>iOS 删除第三方库里的i386、x86_64等文件</title>
+      <link href="2021/02/01/ios-shan-chu-di-san-fang-ku-li-de-i386-x86-64-deng-wen-jian/"/>
+      <url>2021/02/01/ios-shan-chu-di-san-fang-ku-li-de-i386-x86-64-deng-wen-jian/</url>
+      
+        <content type="html"><![CDATA[<h4 id="删除第三方库里的i386、x86-64等文件"><a href="#删除第三方库里的i386、x86-64等文件" class="headerlink" title="删除第三方库里的i386、x86_64等文件"></a>删除第三方库里的i386、x86_64等文件</h4><p>1.打开终端，cd到该库里</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn85d9wybmj30vi02kgls.jpg" alt="image-20201202143623694"></p><p>2.用命令<code>lipo -info AppsFlyerLib</code>查询该库是否包含i386等</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn85d4tp2qj30va01e3ye.jpg" alt="image-20201202143756972"></p><p>3.用命令<code>lipo -remove i386 AppsFlyerLib -o AppsFlyerLib</code>移除对应的文件</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn85d06cptj30v401sq2w.jpg" alt="image-20201202143951284"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> i386、x86_64 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iOS添加第三方库后遇到Library not loaded的处理</title>
+      <link href="2021/02/01/ios-tian-jia-di-san-fang-ku-hou-yu-dao-library-not-loaded-de-chu-li/"/>
+      <url>2021/02/01/ios-tian-jia-di-san-fang-ku-hou-yu-dao-library-not-loaded-de-chu-li/</url>
+      
+        <content type="html"><![CDATA[<h4 id="参考了其他文章解决的问题，为了加深印象，故记录一下"><a href="#参考了其他文章解决的问题，为了加深印象，故记录一下" class="headerlink" title="参考了其他文章解决的问题，为了加深印象，故记录一下"></a>参考了其他文章解决的问题，为了加深印象，故记录一下</h4><h5 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn859v017ij30yg04atb2.jpg" alt="报错内容"></p><h5 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h5><ul><li>在build Phases添加New Copy Files Phase，然后把Destination改为frameworks，然后再加上所需的framework</li></ul><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn859z7hswj30ul0diwir.jpg" alt="解决思路"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Library-not-loaded </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iOS 隐藏状态栏的问题</title>
+      <link href="2021/02/01/ios-yin-cang-zhuang-tai-lan-de-wen-ti/"/>
+      <url>2021/02/01/ios-yin-cang-zhuang-tai-lan-de-wen-ti/</url>
+      
+        <content type="html"><![CDATA[<h3 id="隐藏状态栏的问题"><a href="#隐藏状态栏的问题" class="headerlink" title="隐藏状态栏的问题"></a>隐藏状态栏的问题</h3><h5 id="1-项目设置了隐藏状态栏，但调用第三方SDK时却显示状态栏的解决方法"><a href="#1-项目设置了隐藏状态栏，但调用第三方SDK时却显示状态栏的解决方法" class="headerlink" title="1.项目设置了隐藏状态栏，但调用第三方SDK时却显示状态栏的解决方法"></a>1.项目设置了隐藏状态栏，但调用第三方SDK时却显示状态栏的解决方法</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn855mveenj30yg0cnt9b.jpg" alt="image-20201224114027971"></p><p><code>解决:</code></p><p>-&gt; 在<code>info.plist</code>中添加<code>View controller-based status bar appearance</code>并设置为<code>NO</code></p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn855qdt6mj30yg0bv40a.jpg" alt="image-20201224114335310"></p><blockquote><p><code>View controller-based status bar appearance</code>设置为<code>NO</code>，表示接收全局配置；设置为<code>YES</code>，表示控制器各自配置，需要配合下面代码使用</p><pre class="line-numbers language-none"><code class="language-none">- (BOOL)prefersStatusBarHidden &#123;    return YES;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> status bar </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Transporter卡在验证中的解决思路</title>
+      <link href="2021/02/01/transporter-qia-zai-yan-zheng-zhong-de-jie-jue-si-lu/"/>
+      <url>2021/02/01/transporter-qia-zai-yan-zheng-zhong-de-jie-jue-si-lu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Transporter卡在验证中的解决思路"><a href="#Transporter卡在验证中的解决思路" class="headerlink" title="Transporter卡在验证中的解决思路"></a>Transporter卡在验证中的解决思路</h1><blockquote><p>记录一次Transporter的使用，主要是这台机器第一次使用Transporter，结果一直卡在验证阶段，期间各种找资料，各种尝试，折腾了两天时间。在此记录下解决过程，以备不时之需。</p></blockquote><h4 id="前因："><a href="#前因：" class="headerlink" title="前因："></a>前因：</h4><blockquote><p>找资料后的结果是Transporter在第一次使用的时候<code>com.apple.amp.itmstransporter</code>文件夹下是没什么内容的，需要下载东西，而这个网速是很慢的，特别是没翻墙的情况下，所以导致一直卡在验证中。</p></blockquote><h4 id="尝试了多种方法解决这个下载的问题"><a href="#尝试了多种方法解决这个下载的问题" class="headerlink" title="尝试了多种方法解决这个下载的问题"></a>尝试了多种方法解决这个下载的问题</h4><ul><li><p>用别人提供的<code>com.apple.amp.itmstransporter</code>文件夹下的内容去做替换，步骤如下：</p><blockquote><p>1.打开访达 -&gt; 前往 -&gt; 前往文件夹，也可以使用快捷键<code>shift</code>+<code>command</code>+<code>G</code></p><p>2.输入<code>/用户/styiwe/资源库/Caches/com.apple.amp.itmstransporter/</code>，前往该文件夹进行替换</p><p>3.找到文件夹下的<code>obr</code> -&gt; <code>2.0.0</code> -&gt; <code>repository.xml</code>，可以选择用文本编辑打开该文件，将里面的用户名替换为本机的用户名（如果不清楚电脑用户名的，可以打开终端查看）</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn851h7zahj30yg0skn4w.jpg" alt="image-20200924141543174"></p></blockquote></li><li><p>自己下载<code>com.apple.amp.itmstransporter</code>内容</p><blockquote><p>打开终端，输入<code>/Applications/Transporter.app/Contents/itms/bin/iTMSTransporter</code>便会自动下载（我的是在有科学上网的情况下下载的，过一会就下载好了，如果没有的话可能需要点时间）</p></blockquote></li><li><p>拿可以正常上传的机器的文件夹下的内容替换</p><blockquote><p>在可以正常使用Transporter的机器上打开访达，前往文件夹<code>/用户/styiwe/资源库/Caches/com.apple.amp.itmstransporter/</code>，将<code>com.apple.amp.itmstransporter</code>文件夹的内容复制粘贴过来（==注：我在使用的时候发现，该文件夹复制后的大小和在可用的机器上查看的大小不一致，会少几M，这也导致了该方法还是有可能无效==）</p></blockquote></li></ul><h4 id="最后经过多次的探索，发现以下步骤可以解决我的困惑"><a href="#最后经过多次的探索，发现以下步骤可以解决我的困惑" class="headerlink" title="最后经过多次的探索，发现以下步骤可以解决我的困惑"></a>最后经过多次的探索，发现以下步骤可以解决我的困惑</h4><p>1.打开终端，输入<code>/Applications/Transporter.app/Contents/itms/bin/iTMSTransporter</code>,下载所需文件，下载完后应该都可以正常使用了</p><p>2.该步骤对大部分人可能不需要，第一步下载完后再进行上传，<code>com.apple.amp.itmstransporter</code>还会进行添加一些文件的操作，这一步一般不会出问题。但我的情况比较特殊，才导致一直无法解决问题，因为条件限制，需要使用指定的网络进行操作，但可能该网络有问题，反正就是上传还是卡在验证中，后面我就切换帐号和网络进行操作，没想到一下就好了，<code>com.apple.amp.itmstransporter</code>文件夹下也添加了必须的文件。然后我就切换回那个帐号和网络，就可以正常上传了。</p><h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><ul><li><p>虽然可以正常上传了，但报了一个错误，记录下：</p><blockquote><p>Cannot proceed with delivery: an existing transporter instance is currently uploading this package</p><p>Failed to obtain exclusive lock on token file. Please ensure the following file is not locked by another process: /Users/styiwe/Library/Caches/com.apple.amp.itmstransporter/UploadTokens/MacBook-Pro.local_L2D9LYB2YR_1531987923.itmsp.token</p></blockquote><p>没办法交付，其实是<code>UploadTokens</code>文件下存在多个待交付的文件，可能是我一直解决这个问题所产生的</p></li></ul><p>==解决：==</p><p>同样是前往到文件夹，<code>/用户/styiwe/资源库/Caches/com.apple.amp.itmstransporter/UploadTokens/</code>，将该文件夹下的内容都删了，然后再次提交</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn851opc5ej30nu06w3yv.jpg" alt="image-20200924144147520"></p><p><code>网络好很重要</code></p><p>简单记录下，方便以后查找</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题总结 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Transporter </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记录码云上Git的使用</title>
       <link href="2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/"/>
       <url>2021/02/01/ji-lu-ma-yun-shang-git-de-shi-yong/</url>
