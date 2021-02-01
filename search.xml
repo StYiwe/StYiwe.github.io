@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>iOS创建Framework、Bundle</title>
+      <link href="2021/02/01/ios-chuang-jian-framework-bundle/"/>
+      <url>2021/02/01/ios-chuang-jian-framework-bundle/</url>
+      
+        <content type="html"><![CDATA[<h1 id="iOS创建Framework、Bundle"><a href="#iOS创建Framework、Bundle" class="headerlink" title="iOS创建Framework、Bundle"></a>iOS创建Framework、Bundle</h1><h2 id="创建Framework"><a href="#创建Framework" class="headerlink" title="创建Framework"></a>创建Framework</h2><h4 id="1-打开Xcode，新建工程（快捷键，shift-command-N），选择Framework，点击Next，输入工程名"><a href="#1-打开Xcode，新建工程（快捷键，shift-command-N），选择Framework，点击Next，输入工程名" class="headerlink" title="1.打开Xcode，新建工程（快捷键，shift+command+N），选择Framework，点击Next，输入工程名"></a>1.打开Xcode，新建工程（快捷键，shift+command+N），选择Framework，点击Next，输入工程名</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn82tc3lljj30yg0ot405.jpg" alt="image-20201009103603437"></p><h4 id="2-进行配置，在TARGETS-gt-Build-Settings中设置相关内容"><a href="#2-进行配置，在TARGETS-gt-Build-Settings中设置相关内容" class="headerlink" title="2.进行配置，在TARGETS-&gt;Build Settings中设置相关内容"></a>2.进行配置，在TARGETS-&gt;Build Settings中设置相关内容</h4><ul><li><p>Build Active Architecture Only 设置成<code>No</code>，意思是当前打包的.framework支持所有设备，否则只能用当前版本的模拟器或真机运行</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn82uezrroj30yg0eldhb.jpg" alt="image-20201009104328909"></p></li><li><p>Dead Code Stripping 可以设置为No，该选项是编译优化，包瘦身，<code>可不改</code>。Mach-O Type 选中<code>Static Library</code>(静态库)</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn82ujnwkzj30yg0lxq5i.jpg" alt="image-20201009105201021"></p></li><li><p>设置framework最低支持版本，不支持mac的话可以把勾去掉</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn82uo689oj30yg0jp75e.jpg" alt="image-20201009105502010"></p></li></ul><ul><li><p>在TARGETS-&gt;Build Phases中，将需要暴露出来的文件放在Public中，不想呈现出来的文件放在Project中即可，可以不必放在Private中</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn82utxbifj30yg0jzmye.jpg" alt="image-20201009110148456"></p></li><li><p>导入需要被外部引用的头文件</p><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn82v03em3j30yg0jnjtq.jpg" alt="image-20201009113448333"></p></li><li><p>编译运行，使用快捷键<code>command</code>+<code>B</code>即可，如果想要切换debug、release模式的话可以使用快捷键<code>shift</code>+<code>command</code>+<code>,</code></p></li></ul><blockquote><p>如此编译出来的只是适合当前选择的真机或者模拟器，后续再进行合成的操作的记录</p></blockquote><h2 id="创建Bundle"><a href="#创建Bundle" class="headerlink" title="创建Bundle"></a>创建Bundle</h2><blockquote><p>可以像创建framework一样单独创建一个工程，新建工程（<code>shift</code>+<code>command</code>+<code>N</code>），选择<code>macOS</code>，选择<code>Bundle</code>，这里主要记录在framework工程中创建bundle</p></blockquote><h3 id="在framework工程中创建bundle"><a href="#在framework工程中创建bundle" class="headerlink" title="在framework工程中创建bundle"></a>在framework工程中创建bundle</h3><h4 id="1-如下图，点击Next，输入工程名称，也就是bundle的名称"><a href="#1-如下图，点击Next，输入工程名称，也就是bundle的名称" class="headerlink" title="1.如下图，点击Next，输入工程名称，也就是bundle的名称"></a>1.如下图，点击Next，输入工程名称，也就是bundle的名称</h4><p><img src="https://upload-images.jianshu.io/upload_images/7919673-51c0f98ec3e639b9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201009112116499"></p><p>创建完后效果如下图</p><p><img src="https://upload-images.jianshu.io/upload_images/7919673-c0dd25c673893295.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201009112849472"></p><h4 id="2-Build-Settings修改一些配置"><a href="#2-Build-Settings修改一些配置" class="headerlink" title="2.Build Settings修改一些配置"></a>2.Build Settings修改一些配置</h4><ul><li><p>Base SDK 改为iOS</p><p><img src="https://upload-images.jianshu.io/upload_images/7919673-5031eb055147cc9b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201009114521240"></p></li><li><p>Enable Bitcode 改为No</p><p><img src="https://upload-images.jianshu.io/upload_images/7919673-d474405c541d4f96.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201009114820600"></p></li><li><p>Versioning System 改为None  (<code>为了去掉可执行文件exec</code>)</p><p><img src="https://upload-images.jianshu.io/upload_images/7919673-8feaa5e969317199.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201027173130821"></p></li><li><p>设置最低支持的版本</p><p><img src="https://upload-images.jianshu.io/upload_images/7919673-bccf7916eb06f076.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201009115304085"></p></li><li><p>添加文件，如下图，把xib、图片等拖到或者创建到该文件夹下就行</p><p><img src="https://upload-images.jianshu.io/upload_images/7919673-fee0453f9e65146a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image-20201009115605158"></p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Objective-C笔记 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iOS获取设备型号</title>
       <link href="2021/02/01/ios-huo-qu-she-bei-xing-hao/"/>
       <url>2021/02/01/ios-huo-qu-she-bei-xing-hao/</url>
