@@ -406,11 +406,11 @@
 </li>
 <li><p>配置SSH key</p>
 <p>输入命令</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;yourname&quot;
-git config --global user.email &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">git config --global user.name &quot;yourname&quot;
+git config --global user.email &quot;youremail&quot;</code></pre>
 <p><code>yourname和youremail分别对应github的用户名和邮箱</code></p>
 <p>然后开始生成密钥，输入命令</p>
-<pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;youremail&quot;</code></pre>
 <p>按提示回车、输入密码等即可生成SSH key，可以通过<code>~/.ssh/id_rsa.pub</code>可以获得SSH key</p>
 <p>如下图：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn13i35fpqj310c0sek8c.jpg" alt="image-20210126144700609"></p>
@@ -430,7 +430,7 @@ git config --global user.email &quot;youremail&quot;<span aria-hidden="true" cla
 <h4 id="二-安装博客需要的框架"><a href="#二-安装博客需要的框架" class="headerlink" title="二.安装博客需要的框架"></a>二.安装博客需要的框架</h4><ul>
 <li>安装 Homebrew</li>
 </ul>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;</code></pre>
 <p>如果出现错误<code>curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</code>，如下</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn02ievafjj30vo0km790.jpg" alt="image-20210125172705266"></p>
 <ul>
@@ -464,11 +464,11 @@ git config --global user.email &quot;youremail&quot;<span aria-hidden="true" cla
 </ul>
 <h4 id="四-安装博客相关插件"><a href="#四-安装博客相关插件" class="headerlink" title="四.安装博客相关插件"></a>四.安装博客相关插件</h4><ul>
 <li><p>自动部署到github的插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">npm install hexo-deployer-git --save</code></pre></li>
 <li><p>安装atom生成插件，便于感兴趣的小伙伴们订阅(RSS订阅)</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-feed --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">npm install hexo-generator-feed --save</code></pre>
 <p>然后在本地Blog根目录下的_config.yml文件中，添加以下配置</p>
-<pre class="line-numbers language-none"><code class="language-none"># Extensions
+<pre class="language-none"><code class="language-none"># Extensions
 ## Plugins: http:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;
 #RSS订阅
 plugin: -hexo-generator-feed
@@ -476,13 +476,13 @@ plugin: -hexo-generator-feed
 feed:
      type: atom
      path: atom.xml
-     limit: 20<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+     limit: 20</code></pre>
 <p>在主题目录下的_config.yml目录下，添加如下配置</p>
-<pre class="line-numbers language-none"><code class="language-none">rss: &#x2F;atom.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">rss: &#x2F;atom.xml</code></pre></li>
 <li><p>安装博客首页生成插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-index --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">npm install hexo-generator-index --save</code></pre></li>
 <li><p>安装tag生成插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-tag --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">npm install hexo-generator-tag --save</code></pre>
 <blockquote>
 <p>至此，需要安装的已安装完毕</p>
 </blockquote>
@@ -490,14 +490,14 @@ feed:
 </ul>
 <h4 id="五-创建博客、调试、发布"><a href="#五-创建博客、调试、发布" class="headerlink" title="五.创建博客、调试、发布"></a>五.创建博客、调试、发布</h4><ul>
 <li><p>由于之前已经创建过文件夹，这一步可以忽略，如果没有，可以执行如下命令来创建个文件夹</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo init Blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">hexo init Blog</code></pre></li>
 <li><p>撰写博客内容</p>
 <p><code>cd</code>到<code>Blog</code>文件夹下，执行命令</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo new testBlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">hexo new testBlog</code></pre>
 <p>其中<code>testBlog</code>是博客的名字，在<code>Blog/source/_posts</code>中就会新建个<code>testBlog.md</code>的文件，然后就可以编辑你的博客内容了</p>
 </li>
 <li><p>本地调试</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo server 或 sudo hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">sudo hexo server 或 sudo hexo s</code></pre>
 <p>然后可以访问<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>来查看结果，如下图所示</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn0xm8qbr8j30vo0km7hb.jpg" alt="image-20210126112324111"></p>
 </li>
@@ -505,7 +505,7 @@ feed:
 <ul>
 <li><p>安装发布插件</p>
 <p>在博客文件夹运行下面命令</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">npm install hexo-deployer-git --save</code></pre></li>
 <li><p>部署到github</p>
 <p>在<code>_config.yml</code>文件的最后一行修改配置</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn142i298kj311k0lmdk4.jpg" alt="image-20210126150638408"></p>
@@ -513,9 +513,9 @@ feed:
 </ul>
 <ul>
 <li><p>运行生成发布博客</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+<pre class="language-none"><code class="language-none">sudo hexo clean
 sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+sudo hexo d</code></pre>
 <blockquote>
 <p>其中  <code>hexo clean  </code> 清除之前生成的东西，也可以不加</p>
 <p><code>hexo g</code>  是 <code>hexo generate</code> 的缩写，生成静态文章</p>
@@ -537,8 +537,8 @@ sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>主题下载好后，打开<code>blog</code>文件夹的<code>_config.yml</code>，修改<code>theme</code>的内容，如下</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn170rv1juj30ys0esdiw.jpg" alt="image-20210126164846535"></p>
 <p>然后运行一下命令</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="language-none"><code class="language-none">sudo hexo g
+sudo hexo d</code></pre>
 <p>之后就可以看到修改过的新主题了</p>
 <blockquote>
 <p>同时该主题有很多插件可以使用，设置下就行，例如字数统计等，具体可以参考<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
@@ -550,13 +550,13 @@ sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>​    Front-matter选项详解</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn3jhazvurj30u01c7b29.jpg" alt="image-20210128173056574"></p>
 <p>​    最简示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">---
+<pre class="language-none"><code class="language-none">---
 title: typora-vue-theme主题介绍
 date: 2018-09-07 09:25:00
 ---
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>​    最全示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">---
+<pre class="language-none"><code class="language-none">---
 title: typora-vue-theme主题介绍
 date: 2018-09-07 09:25:00
 author: 赵奇
@@ -572,7 +572,7 @@ categories: Markdown
 tags:
   - Typora
   - Markdown
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+---</code></pre>
 <p>​    为了新建文章方便，可以修改下文章模板，把希望带的字段加进去，路径是<code>/scaffolds/post.md</code></p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4e2xsfwhj30zm0eywi3.jpg" alt="image-20210129110944377"></p>
 <ul>
@@ -581,11 +581,11 @@ tags:
 <blockquote>
 <p>在博客的根目录下新建一个文件夹<code>scripts</code>(如果有就不用新建），在此目录下新建一个Javascript文件，文件名据说可随意命名，这里命名为<code>auto_open.js</code></p>
 <p>js文件里添加如下内容：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"> <span class="token operator">></span><span class="token keyword">var</span> exec <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"> <span class="token operator">></span><span class="token keyword">var</span> exec <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
  <span class="token operator">></span>hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
 <span class="token comment">// 请将 Typora 替换为你用的Markdown 编辑器</span>
 <span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'open -a "Typora.app" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token operator">></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ <span class="token operator">></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>重新部署后，新建文章就可以打开编辑器了</p>
 </blockquote>
 </li>
@@ -608,32 +608,32 @@ tags:
 </ul>
 <ul>
 <li><p>打开本地博客主题下的<code>layout/_partial</code> 文件夹，有一个名为<code>head</code>的文件，将上面获得的两行代码粘贴到<code>&lt;head&gt;&lt;/head&gt;</code>之间，保存文件，然后分别执行以下命令部署到Github服务器</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+<pre class="language-none"><code class="language-none">sudo hexo clean
 sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+sudo hexo d</code></pre></li>
 <li><p>然后分别点击刚才百度、谷歌的验证按钮进行站点验证</p>
 </li>
 </ul>
 <p>2.生成站点地图</p>
 <ul>
 <li><p>安装<code>sitemap</code>插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-sitemap --save
-npm install hexo-generator-baidu-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<pre class="language-none"><code class="language-none">npm install hexo-generator-sitemap --save
+npm install hexo-generator-baidu-sitemap --save</code></pre></li>
 <li><p>打开本地博客目录下的<code>_config.yml</code>文件，修改url参数为你的博客的首页地址</p>
-<pre class="line-numbers language-none"><code class="language-none">url: http:&#x2F;&#x2F;jonzzs.cn # 修改成你博客的首页地址
+<pre class="language-none"><code class="language-none">url: http:&#x2F;&#x2F;jonzzs.cn # 修改成你博客的首页地址
 root: &#x2F;
 permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;
-permalink_defaults:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+permalink_defaults:</code></pre></li>
 <li><p>添加以下配置</p>
-<pre class="line-numbers language-none"><code class="language-none"># 自动生成sitemap
+<pre class="language-none"><code class="language-none"># 自动生成sitemap
 sitemap: 
   path: sitemap.xml
 baidusitemap: 
-  path: baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  path: baidusitemap.xml</code></pre></li>
 <li><p>重新部署到github</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+<pre class="language-none"><code class="language-none">sudo hexo clean
 sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+sudo hexo d</code></pre>
 
 
 </li>
@@ -650,26 +650,26 @@ sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>在进行操作前，先在<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/linksubmit/url">百度搜索平台</a>处获取相关信息，<code>注册的域名</code>和<code>token</code>，如下图</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9c261vlnj31k30u011r.jpg" alt="image-20210202174734658"></p>
 <p>在根目录下，安装插件，使用以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-baidu-url-submit --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-bash" data-language="bash"><code class="language-bash">npm install hexo-baidu-url-submit --save</code></pre>
 <p>然后，修改根目录下的<code>_config.yml</code>文件，增加如下内容</p>
-<pre class="line-numbers language-none"><code class="language-none">baidu_url_submit:
+<pre class="language-none"><code class="language-none">baidu_url_submit:
   count: 3 ## 提交最新的3个链接
   host: https:&#x2F;&#x2F;***.github.io ## 在百度站长平台中注册的域名
   token: &#96;上一步中获取的token&#96; ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
-  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里</code></pre>
 <p>最后，加入新的deployer:</p>
-<pre class="line-numbers language-none"><code class="language-none">deploy:
+<pre class="language-none"><code class="language-none">deploy:
 - type: git ## 这是原来的deployer
   repo: https:&#x2F;&#x2F;github.com&#x2F;yourusername&#x2F;yourusername.github.com.git  &#x2F;&#x2F;自己的Github仓库地址
   branch: master
-- type: baidu_url_submitter ## 这是新加的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+- type: baidu_url_submitter ## 这是新加的</code></pre>
 <p>执行hexo deploy的时候，新的连接就会被推送了</p>
 </li>
 </ul>
 <ul>
 <li><p>百度自动推送</p>
 <p>安装自动推送JS代码的网页，在页面被访问时，页面url将立即被推送给百度，修改主题目录下的<code>layout/post.ejs</code>文件，添加如下代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<pre class="language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
 <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> bp <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> curProtocol <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -682,7 +682,7 @@ sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span
     <span class="token keyword">var</span> s <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     s<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>bp<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
 
 
 </li>

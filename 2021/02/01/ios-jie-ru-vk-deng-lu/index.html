@@ -404,12 +404,12 @@
 <h4 id="2-获取SDK，在github上下载的工程打开进行编译获取对应的framework"><a href="#2-获取SDK，在github上下载的工程打开进行编译获取对应的framework" class="headerlink" title="2.获取SDK，在github上下载的工程打开进行编译获取对应的framework"></a>2.获取SDK，在github上下载的工程打开进行编译获取对应的framework</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn83b4qi7pj30qg0ry425.jpg" alt="image-20201222171049124"></p>
 <h4 id="3-将SDK加入项目中"><a href="#3-将SDK加入项目中" class="headerlink" title="3.将SDK加入项目中"></a>3.将SDK加入项目中</h4><ul>
 <li><p>将下列代码加到<code>info.plist</code>中</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&lt;key&gt;LSApplicationQueriesSchemes&lt;&#x2F;key&gt;
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">&lt;key&gt;LSApplicationQueriesSchemes&lt;&#x2F;key&gt;
 &lt;array&gt;
     &lt;string&gt;vk&lt;&#x2F;string&gt;
     &lt;string&gt;vk-share&lt;&#x2F;string&gt;
     &lt;string&gt;vkauthorize&lt;&#x2F;string&gt;
-&lt;&#x2F;array&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&lt;&#x2F;array&gt;</code></pre>
 <p>添加成功后如下所示</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn83bdr77yj30wg0bi0u3.jpg" alt="image-20201222171425705"></p>
 </li>
@@ -419,7 +419,7 @@
 </ul>
 <ul>
 <li><p>在需要调用的地方导入<code>#import &lt;VKSdkFramework/VKSdkFramework.h&gt;</code></p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import &lt;VKSdkFramework&#x2F;VKSdkFramework.h&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">#import &lt;VKSdkFramework&#x2F;VKSdkFramework.h&gt;</code></pre>
 
 
 </li>
@@ -427,19 +427,19 @@
 <ul>
 <li><p>SDK初始化</p>
 <p>1.将代码放入应用程序委托方法里</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;NSString *,id&gt; *)options &#123;
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;NSString *,id&gt; *)options &#123;
     [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
     return YES;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 <p>注意：如果您已经添加了FaceBook SDK，并且返回了其中一种方法<code>[FBSDKDelegate ...]</code>，则可以对其进行处理</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation &#123;
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation &#123;
 
     [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     [VKSdk processOpenURL:url fromApplication:sourceApplication];
     return YES;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 <p>3.在需要调用的页面</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (**void**)viewDidLoad &#123;
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">- (**void**)viewDidLoad &#123;
 	[super viewDidLoad];
 
 	[[VKSdk initializeWithAppId:@&quot;3974615&quot;] registerDelegate:self];
@@ -455,13 +455,13 @@
             
         &#125;
     &#125;];
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 <p>4.添加delegate</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&lt;VKSdkUIDelegate,VKSdkDelegate&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">&lt;VKSdkUIDelegate,VKSdkDelegate&gt;</code></pre>
 <p>5.在点击VK登录的方法里调用如下方法</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">[VKSdk authorize:SCOPE];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">[VKSdk authorize:SCOPE];</code></pre>
 <p>6.实现代理方法</p>
-<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result &#123;
+<pre class="language-objective-c" data-language="objective-c"><code class="language-objective-c">- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result &#123;
     
     if (result.token) &#123;
         NSLog(@&quot;userid:%@&quot;,result.token.userId);
@@ -488,7 +488,7 @@
 
 - (void)vkSdkShouldPresentViewController:(UIViewController *)controller &#123;
     [self.navigationController.topViewController presentViewController:controller animated:YES completion:nil];
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;</code></pre>
 
 
 
