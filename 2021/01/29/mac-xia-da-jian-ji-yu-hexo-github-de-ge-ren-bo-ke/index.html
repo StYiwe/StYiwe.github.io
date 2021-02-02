@@ -367,14 +367,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -645,8 +645,50 @@ sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 </li>
 </ul>
 <p>4.百度推送</p>
-<p>==未完待续==</p>
-<p><code>这篇是window下的搭建教程，还没来得及操作，先记录下[Yafine的Hexo+github 搭建博客 (超级详细版，精细入微)](https://yafine-blog.cn/posts/4ab2.html)</code></p>
+<ul>
+<li><p>百度主动推送</p>
+<p>在进行操作前，先在<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/linksubmit/url">百度搜索平台</a>处获取相关信息，<code>注册的域名</code>和<code>token</code>，如下图</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9c261vlnj31k30u011r.jpg" alt="image-20210202174734658"></p>
+<p>在根目录下，安装插件，使用以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-baidu-url-submit --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后，修改根目录下的<code>_config.yml</code>文件，增加如下内容</p>
+<pre class="line-numbers language-none"><code class="language-none">baidu_url_submit:
+  count: 3 ## 提交最新的3个链接
+  host: https:&#x2F;&#x2F;***.github.io ## 在百度站长平台中注册的域名
+  token: &#96;上一步中获取的token&#96; ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后，加入新的deployer:</p>
+<pre class="line-numbers language-none"><code class="language-none">deploy:
+- type: git ## 这是原来的deployer
+  repo: https:&#x2F;&#x2F;github.com&#x2F;yourusername&#x2F;yourusername.github.com.git  &#x2F;&#x2F;自己的Github仓库地址
+  branch: master
+- type: baidu_url_submitter ## 这是新加的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>执行hexo deploy的时候，新的连接就会被推送了</p>
+</li>
+</ul>
+<ul>
+<li><p>百度自动推送</p>
+<p>安装自动推送JS代码的网页，在页面被访问时，页面url将立即被推送给百度，修改主题目录下的<code>layout/post.ejs</code>文件，添加如下代码：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> bp <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> curProtocol <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>curProtocol <span class="token operator">===</span> <span class="token string">'https'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        bp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://zz.bdstatic.com/linksubmit/push.js'</span><span class="token punctuation">;</span>        
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        bp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://push.zhanzhang.baidu.com/push.js'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">var</span> s <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>bp<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+</ul>
+<p><code>注：百度站点的验证可能需要比较久的时间</code></p>
+<p>这篇是window下的搭建教程，还没来得及操作，先记录下<a target="_blank" rel="noopener" href="https://yafine-blog.cn/posts/4ab2.html">Yafine的Hexo+github 搭建博客 (超级详细版，精细入微)</a></p>
 <blockquote>
 <p>本文参考了一下文章：</p>
 <p>[gsl的mac 搭建基于Hexo-Github的Blog](mac 搭建基于Hexo-Github的Blog)</p>
@@ -1191,7 +1233,7 @@ sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.3k</span>&nbsp;字
+                class="white-color">6.6k</span>&nbsp;字
             
             
             
