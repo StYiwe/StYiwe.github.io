@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Mac下搭建基于Hexo + Github的个人博客, 风露微">
+    <meta name="keywords" content="Swift UITableView的简单使用, 风露微">
     <meta name="description" content="寻常巷陌，人道寄奴曾住">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Mac下搭建基于Hexo + Github的个人博客 | 风露微</title>
+    <title>Swift UITableView的简单使用 | 风露微</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -207,12 +207,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mac下搭建基于Hexo + Github的个人博客</h1>
+                    <h1 class="description center-align post-title">Swift UITableView的简单使用</h1>
                 </div>
             </div>
         </div>
@@ -328,8 +328,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/Swift/">
+                                <span class="chip bg-color">Swift</span>
+                            </a>
+                        
+                            <a href="/tags/UITableView/">
+                                <span class="chip bg-color">UITableView</span>
                             </a>
                         
                     </div>
@@ -340,8 +344,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
-                                工具使用
+                            <a href="/categories/Swift%E7%AC%94%E8%AE%B0/" class="post-category">
+                                Swift笔记
                             </a>
                         
                     </div>
@@ -353,7 +357,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-29
+                    2021-02-03
                 </div>
                 
 
@@ -367,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2k
                 </div>
                 
 
@@ -397,344 +401,426 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>最近心血来潮，想搭建个人博客，就把搭建过程整理了一下，顺便进行记录，以备将来查看</p>
+                <h3 id="Swift-UITableView的简单使用"><a href="#Swift-UITableView的简单使用" class="headerlink" title="Swift - UITableView的简单使用"></a>Swift - UITableView的简单使用</h3><blockquote>
+<p> 记录整理下tableView的实现，方便日后查看。分为三部分进行记录学习：</p>
+<p> 1.使用UITableViewCell实现一个简单的tableView</p>
+<p> 2.使用自定义cell实现带索引列表的tableView</p>
+<p> 3.与UISearchBar的简单结合使用</p>
 </blockquote>
-<h4 id="一-创建GitHub仓库，配置SSH"><a href="#一-创建GitHub仓库，配置SSH" class="headerlink" title="一.创建GitHub仓库，配置SSH"></a>一.创建GitHub仓库，配置SSH</h4><ul>
-<li><p>创建仓库</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1381c1onj30wl0u0q9j.jpg" alt="image-20210126143721658"></p>
-</li>
-<li><p>配置SSH key</p>
-<p>输入命令</p>
-<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;yourname&quot;
-git config --global user.email &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p><code>yourname和youremail分别对应github的用户名和邮箱</code></p>
-<p>然后开始生成密钥，输入命令</p>
-<pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>按提示回车、输入密码等即可生成SSH key，可以通过<code>~/.ssh/id_rsa.pub</code>可以获得SSH key</p>
-<p>如下图：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn13i35fpqj310c0sek8c.jpg" alt="image-20210126144700609"></p>
-</li>
-</ul>
 <ul>
-<li><p>将获得的SSH key复制，打开<code>github</code> -&gt; <code>settings</code> -&gt; <code>SSH and GPG keys</code></p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn13nrzmdrj31m40s6tf7.jpg" alt="image-20210126145228894"></p>
-</li>
+<li>以下是Demo演示</li>
 </ul>
-<p>  <img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn13pom773j31lm0t4gq4.jpg" alt="image-20210126145418806"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1girgmkxg17g30b10nt1az.gif" alt="UITableView"></p>
 <ul>
-<li><p>输入<code>ssh -T git@github.com</code>查看是否成功，如下出现你的用户名就表示成功</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn145de99nj310202q40a.jpg" alt="image-20210126150923960"></p>
-</li>
+<li>以下是代码实现</li>
 </ul>
-<h4 id="二-安装博客需要的框架"><a href="#二-安装博客需要的框架" class="headerlink" title="二.安装博客需要的框架"></a>二.安装博客需要的框架</h4><ul>
-<li>安装 Homebrew</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>如果出现错误<code>curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</code>，如下</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn02ievafjj30vo0km790.jpg" alt="image-20210125172705266"></p>
-<ul>
-<li><p>错误原因：判定是DNS污染</p>
-</li>
-<li><p>解决办法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/i_CodeBoy/article/details/107386756">地址</a></p>
-<blockquote>
-<p>1.下载一个修改host的软件，例如<a target="_blank" rel="noopener" href="https://github.com/oldj/SwitchHosts/releases">switchhosts</a></p>
-<p>2.复制输入如下地址</p>
-<p>199.232.68.133 raw.githubusercontent.com<br>199.232.68.133 user-images.githubusercontent.com<br>199.232.68.133 avatars2.githubusercontent.com<br>199.232.68.133 avatars1.githubusercontent.com</p>
-<p>3.激活</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn02ukgyeij318g0qowhp.jpg" alt="image-20210125173849017"></p>
-</blockquote>
-</li>
-</ul>
-<p>命令行执行成功的话会下载东西，如下：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn0347ygloj30vo0kmqj2.jpg" alt="image-20210125174803049"></p>
-<h4 id="三-创建文件夹"><a href="#三-创建文件夹" class="headerlink" title="三.创建文件夹"></a>三.创建文件夹</h4><ul>
-<li><p>在需要的地方新建个空文件夹<code>blog</code></p>
-</li>
-<li><p>新建个终端窗口，<code>cd</code>到文件夹里</p>
-</li>
-<li><p>初始化，<code>hexo init</code>，如下所示</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn0wcl3qc9j30vo0km79o.jpg" alt="image-20210126103931937"></p>
-</li>
-</ul>
-<ul>
-<li><p>完成后文件夹会多一些文件，如下所示：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn0we9mbhzj31400eqn08.jpg" alt="image-20210126104108517"></p>
-</li>
-</ul>
-<h4 id="四-安装博客相关插件"><a href="#四-安装博客相关插件" class="headerlink" title="四.安装博客相关插件"></a>四.安装博客相关插件</h4><ul>
-<li><p>自动部署到github的插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>安装atom生成插件，便于感兴趣的小伙伴们订阅(RSS订阅)</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-feed --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后在本地Blog根目录下的_config.yml文件中，添加以下配置</p>
-<pre class="line-numbers language-none"><code class="language-none"># Extensions
-## Plugins: http:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;
-#RSS订阅
-plugin: -hexo-generator-feed
-#Feed Atom
-feed:
-     type: atom
-     path: atom.xml
-     limit: 20<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>在主题目录下的_config.yml目录下，添加如下配置</p>
-<pre class="line-numbers language-none"><code class="language-none">rss: &#x2F;atom.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>安装博客首页生成插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-index --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>安装tag生成插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-tag --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>至此，需要安装的已安装完毕</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="五-创建博客、调试、发布"><a href="#五-创建博客、调试、发布" class="headerlink" title="五.创建博客、调试、发布"></a>五.创建博客、调试、发布</h4><ul>
-<li><p>由于之前已经创建过文件夹，这一步可以忽略，如果没有，可以执行如下命令来创建个文件夹</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo init Blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>撰写博客内容</p>
-<p><code>cd</code>到<code>Blog</code>文件夹下，执行命令</p>
-<pre class="line-numbers language-none"><code class="language-none">hexo new testBlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>其中<code>testBlog</code>是博客的名字，在<code>Blog/source/_posts</code>中就会新建个<code>testBlog.md</code>的文件，然后就可以编辑你的博客内容了</p>
-</li>
-<li><p>本地调试</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo server 或 sudo hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后可以访问<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>来查看结果，如下图所示</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn0xm8qbr8j30vo0km7hb.jpg" alt="image-20210126112324111"></p>
-</li>
-</ul>
-<ul>
-<li><p>安装发布插件</p>
-<p>在博客文件夹运行下面命令</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>部署到github</p>
-<p>在<code>_config.yml</code>文件的最后一行修改配置</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn142i298kj311k0lmdk4.jpg" alt="image-20210126150638408"></p>
-</li>
-</ul>
-<ul>
-<li><p>运行生成发布博客</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
-sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>其中  <code>hexo clean  </code> 清除之前生成的东西，也可以不加</p>
-<p><code>hexo g</code>  是 <code>hexo generate</code> 的缩写，生成静态文章</p>
-<p><code>hexo d</code>  是 <code>hexo deploy</code>  的缩写，部署文章</p>
-</blockquote>
-</li>
-</ul>
-<p>稍等一会，在浏览器访问网址： <a target="_blank" rel="noopener" href="https://你的用户名.github.io/">https://你的用户名.github.io</a> 就会看到你的博客啦！！</p>
-<h4 id="六-自定义博客"><a href="#六-自定义博客" class="headerlink" title="六.自定义博客"></a>六.自定义博客</h4><h5 id="1-更换主题"><a href="#1-更换主题" class="headerlink" title="1.更换主题"></a>1.更换主题</h5><p>可以通过克隆的方式，把主题克隆到项目<code>/themes</code>路径下，Hexo也有很多<a target="_blank" rel="noopener" href="https://hexo.io/themes/">主题</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">next主题</a></p>
-<p>这里以<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">matery主题</a>为例</p>
-<p>在blog文件下运行下面命令，将主题克隆下来</p>
-<p><code>git clone https://github.com/blinkfox/hexo-theme-matery themes/matery </code></p>
-<p>结果如下：</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn16x67epsj30x40g4whh.jpg" alt="image-20210126164516111"></p>
-<blockquote>
-<p>其中<code>_config.yml</code>文件可以查看该主题的配置信息</p>
-</blockquote>
-<p>主题下载好后，打开<code>blog</code>文件夹的<code>_config.yml</code>，修改<code>theme</code>的内容，如下</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn170rv1juj30ys0esdiw.jpg" alt="image-20210126164846535"></p>
-<p>然后运行一下命令</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>之后就可以看到修改过的新主题了</p>
-<blockquote>
-<p>同时该主题有很多插件可以使用，设置下就行，例如字数统计等，具体可以参考<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
-</blockquote>
-<h4 id="七-文章相关设置"><a href="#七-文章相关设置" class="headerlink" title="七.文章相关设置"></a>七.文章相关设置</h4><ul>
-<li>使用<code>hexo new 文章名称</code>命令新建一个blog，顶部会<code>Front-matter</code>可以进行设置，非必填项，但<code>title</code>和<code>date</code>建议要有，如下</li>
-</ul>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn3jc9c5okj31ag07ijrr.jpg" alt="image-20210128172605319"></p>
-<p>​    Front-matter选项详解</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn3jhazvurj30u01c7b29.jpg" alt="image-20210128173056574"></p>
-<p>​    最简示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">---
-title: typora-vue-theme主题介绍
-date: 2018-09-07 09:25:00
----
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​    最全示例：</p>
-<pre class="line-numbers language-none"><code class="language-none">---
-title: typora-vue-theme主题介绍
-date: 2018-09-07 09:25:00
-author: 赵奇
-img: &#x2F;source&#x2F;images&#x2F;xxx.jpg
-top: true
-cover: true
-coverImg: &#x2F;images&#x2F;1.jpg
-password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
-toc: false
-mathjax: false
-summary: 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
-categories: Markdown
-tags:
-  - Typora
-  - Markdown
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​    为了新建文章方便，可以修改下文章模板，把希望带的字段加进去，路径是<code>/scaffolds/post.md</code></p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4e2xsfwhj30zm0eywi3.jpg" alt="image-20210129110944377"></p>
-<ul>
-<li><p>新建文章自动打开本地Markdown编辑器</p>
-<p>写文章时，在控制台执行<code>hexo new &quot;文章名&quot;</code>就会在<code>source/_posts/</code>下生成一篇新的<code>.md</code>文件，但需要手动打开，显得比较麻烦，可以通过以下方式设置成新建文章时自动打开编辑器</p>
-<blockquote>
-<p>在博客的根目录下新建一个文件夹<code>scripts</code>(如果有就不用新建），在此目录下新建一个Javascript文件，文件名据说可随意命名，这里命名为<code>auto_open.js</code></p>
-<p>js文件里添加如下内容：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"> <span class="token operator">></span><span class="token keyword">var</span> exec <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
- <span class="token operator">></span>hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-<span class="token comment">// 请将 Typora 替换为你用的Markdown 编辑器</span>
-<span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'open -a "Typora.app" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token operator">></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>重新部署后，新建文章就可以打开编辑器了</p>
-</blockquote>
-</li>
-</ul>
-<h4 id="八-增加百度和谷歌的搜索引擎验证"><a href="#八-增加百度和谷歌的搜索引擎验证" class="headerlink" title="八.增加百度和谷歌的搜索引擎验证"></a>八.增加百度和谷歌的搜索引擎验证</h4><p>1.验证站点，此处以<code>HTML标签验证</code>的方法验证</p>
-<ul>
-<li><p>百度验证</p>
-<p>首先打开<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/linksubmit/url">百度搜索引擎验证</a>，输入博客网址，按提示走，选择<code>HTML便签验证</code>，然后将下方的代码复制下来，网页先不要关</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4otwl53oj31gi0omwiq.jpg" alt="image-20210129172136201"></p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4ovqudt3j31ag0u0gqq.jpg" alt="image-20210129172325055"></p>
-</li>
-</ul>
-<ul>
-<li><p>谷歌验证</p>
-<p>打开<a target="_blank" rel="noopener" href="https://search.google.com/search-console/welcome?hl=zh-CN&utm_source=wmx&utm_medium=deprecation-pane&utm_content=home">谷歌搜索引擎验证</a>,输入博客地址</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4p0k1txsj310d0u0q85.jpg" alt="image-20210129172802516"></p>
-<p>下一步中，选择其他验证方法的<code>HTML标记</code>，复制<code>meta</code>中的代码</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4p2xyeqwj30u013i44s.jpg" alt="image-20210129173020146"></p>
-</li>
-</ul>
-<ul>
-<li><p>打开本地博客主题下的<code>layout/_partial</code> 文件夹，有一个名为<code>head</code>的文件，将上面获得的两行代码粘贴到<code>&lt;head&gt;&lt;/head&gt;</code>之间，保存文件，然后分别执行以下命令部署到Github服务器</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
-sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>然后分别点击刚才百度、谷歌的验证按钮进行站点验证</p>
-</li>
-</ul>
-<p>2.生成站点地图</p>
-<ul>
-<li><p>安装<code>sitemap</code>插件</p>
-<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-sitemap --save
-npm install hexo-generator-baidu-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>打开本地博客目录下的<code>_config.yml</code>文件，修改url参数为你的博客的首页地址</p>
-<pre class="line-numbers language-none"><code class="language-none">url: http:&#x2F;&#x2F;jonzzs.cn # 修改成你博客的首页地址
-root: &#x2F;
-permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;
-permalink_defaults:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>添加以下配置</p>
-<pre class="line-numbers language-none"><code class="language-none"># 自动生成sitemap
-sitemap: 
-  path: sitemap.xml
-baidusitemap: 
-  path: baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>重新部署到github</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
-sudo hexo g
-sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用UITableViewCell实现一个简单的tableView"><a href="#使用UITableViewCell实现一个简单的tableView" class="headerlink" title="使用UITableViewCell实现一个简单的tableView"></a>使用UITableViewCell实现一个简单的tableView</h4><pre class="line-numbers language-Swift" data-language="Swift"><code class="language-Swift">&#x2F;&#x2F;
+&#x2F;&#x2F;  TableView1.swift
+&#x2F;&#x2F;  UITableView
+&#x2F;&#x2F;
+&#x2F;&#x2F;  Created by StYiWe on 2020&#x2F;9&#x2F;14.
+&#x2F;&#x2F;  Copyright © 2020 stYiwe. All rights reserved.
+&#x2F;&#x2F;
+
+import UIKit
+
+class TableView1: UIViewController, UITableViewDelegate, UITableViewDataSource &#123;
+
+    &#x2F;&#x2F;tableView
+    var tableView &#x3D; UITableView()
+    
+    &#x2F;&#x2F;数据
+    var dataList: NSMutableArray &#x3D; []
+    
+    
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+
+        self.view.backgroundColor &#x3D; .white
+        self.title &#x3D; &quot;使用系统cell&quot;
+        
+        &#x2F;&#x2F;右上角编辑按钮
+        self.navigationItem.rightBarButtonItem &#x3D; UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editAction))
+        
+        &#x2F;&#x2F;数据
+        dataList &#x3D; NSMutableArray.init(array: [&quot;🐰&quot;, &quot;秃子&quot;, &quot;鹰酱&quot;, &quot;毛熊&quot;, &quot;棒子&quot;, &quot;脚盆鸡&quot;, &quot;高卢鸡&quot;, &quot;狗大户&quot;, &quot;🐫&quot;, &quot;沙某&quot;, &quot;河马&quot;])
+        
+        &#x2F;&#x2F;UI
+        createTableViewUI()
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 实例化tableView
+    func createTableViewUI() &#123;
+        tableView &#x3D; UITableView.init(frame: UIScreen.main.bounds, style: .plain)
+        tableView.delegate &#x3D; self
+        tableView.dataSource &#x3D; self
+        &#x2F;&#x2F;注册cell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: &quot;cellID&quot;)
+        &#x2F;&#x2F;去除分割线
+&#x2F;&#x2F;        tableView.separatorStyle &#x3D; .none
+        &#x2F;&#x2F;去掉多余的分割线
+        tableView.tableFooterView &#x3D; UIView()
+        
+        self.view.addSubview(tableView)
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 编辑
+    @objc func editAction() &#123;
+        &#x2F;&#x2F;设置可编辑
+        tableView.setEditing(true, animated: true)
+        
+        &#x2F;&#x2F;完成按钮
+        self.navigationItem.rightBarButtonItem &#x3D; UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 编辑完成
+    @objc func doneAction() &#123;
+        &#x2F;&#x2F;设置不可编辑
+        tableView.setEditing(false, animated: true)
+        
+        &#x2F;&#x2F;右上角编辑按钮
+        self.navigationItem.rightBarButtonItem &#x3D; UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editAction))
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 返回多少行
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;
+        return dataList.count
+    &#125;
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;
+        let cell &#x3D; tableView.dequeueReusableCell(withIdentifier: &quot;cellID&quot;, for: indexPath)
+        
+        cell.textLabel?.text &#x3D; dataList[indexPath.row] as? String
+        
+        return cell
+    &#125;
+
+    &#x2F;&#x2F;MARK: - 行高
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;
+        return 60
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 点击cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) &#123;
+        print(dataList[indexPath.row])
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 使cell的分割线与屏幕两端对齐
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) &#123;
+        if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) &#123;
+            cell.separatorInset &#x3D; .zero
+        &#125;
+        if cell.responds(to: #selector(setter: UITableViewCell.layoutMargins)) &#123;
+            cell.layoutMargins &#x3D; .zero
+        &#125;
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 设置编辑样式
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -&gt; UITableViewCell.EditingStyle &#123;
+        &#x2F;&#x2F;编辑的时候返回带有选择按钮的样式
+&#x2F;&#x2F;        return UITableViewCell.EditingStyle(rawValue: UITableViewCell.EditingStyle.RawValue(UInt8(UITableViewCell.EditingStyle.insert.rawValue) | UInt8(UITableViewCell.EditingStyle.delete.rawValue)))!
+        
+        &#x2F;&#x2F;添加
+&#x2F;&#x2F;        return .insert
+        
+        &#x2F;&#x2F;删除
+        return .delete
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 删除单元格
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) &#123;
+        if editingStyle &#x3D;&#x3D; .delete &#123;
+            print(&quot;要删除\(dataList[indexPath.row])&quot;)
+            
+            &#x2F;&#x2F;提示
+            let alertC &#x3D; UIAlertController.init(title: &quot;温馨提示&quot;, message: &quot;确定要删除\(dataList[indexPath.row])？&quot;, preferredStyle: .alert)
+            alertC.addAction(UIAlertAction.init(title: &quot;确定&quot;, style: .destructive, handler: &#123; (UIAlertAction) in
+                self.dataList.removeObject(at: indexPath.row)
+                tableView.reloadData()
+            &#125;))
+            
+            alertC.addAction(UIAlertAction.init(title: &quot;取消&quot;, style: .cancel, handler: nil))
+            
+            present(alertC, animated: true, completion: nil)
+        &#125;
+        
+        if editingStyle &#x3D;&#x3D; .insert &#123;
+            print(&quot;增加&quot;)
+        &#125;
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 允许排序
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -&gt; Bool &#123;
+        return true
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 排序
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) &#123;
+        
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+        dataList.exchangeObject(at: sourceIndexPath.row, withObjectAt: destinationIndexPath.row)
+        tableView.reloadData()
+    &#125;
+      
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-</li>
-</ul>
-<p>3.将站点地图提交到谷歌</p>
-<ul>
-<li><p>打开<a target="_blank" rel="noopener" href="https://search.google.com/search-console/sitemaps?resource_id=https://styiwe.github.io/">谷歌站点控制台</a>,输入<code>sitemap.xml</code>，提交</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4qej1xd6j32cc0l2tci.jpg" alt="image-20210129181603881"></p>
-</li>
-</ul>
-<p>4.百度推送</p>
-<ul>
-<li><p>百度主动推送</p>
-<p>在进行操作前，先在<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/linksubmit/url">百度搜索平台</a>处获取相关信息，<code>注册的域名</code>和<code>token</code>，如下图</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9c261vlnj31k30u011r.jpg" alt="image-20210202174734658"></p>
-<p>在根目录下，安装插件，使用以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-baidu-url-submit --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后，修改根目录下的<code>_config.yml</code>文件，增加如下内容</p>
-<pre class="line-numbers language-none"><code class="language-none">baidu_url_submit:
-  count: 3 ## 提交最新的3个链接
-  host: https:&#x2F;&#x2F;***.github.io ## 在百度站长平台中注册的域名
-  token: &#96;上一步中获取的token&#96; ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
-  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>最后，加入新的deployer:</p>
-<pre class="line-numbers language-none"><code class="language-none">deploy:
-- type: git ## 这是原来的deployer
-  repo: https:&#x2F;&#x2F;github.com&#x2F;yourusername&#x2F;yourusername.github.com.git  &#x2F;&#x2F;自己的Github仓库地址
-  branch: master
-- type: baidu_url_submitter ## 这是新加的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>执行hexo deploy的时候，新的连接就会被推送了</p>
-</li>
-</ul>
-<ul>
-<li><p>百度自动推送</p>
-<p>安装自动推送JS代码的网页，在页面被访问时，页面url将立即被推送给百度，修改主题目录下的<code>layout/post.ejs</code>文件，添加如下代码：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> bp <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> curProtocol <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>curProtocol <span class="token operator">===</span> <span class="token string">'https'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        bp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://zz.bdstatic.com/linksubmit/push.js'</span><span class="token punctuation">;</span>        
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        bp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://push.zhanzhang.baidu.com/push.js'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">var</span> s <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    s<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>bp<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用自定义cell实现带索引列表的tableView"><a href="#使用自定义cell实现带索引列表的tableView" class="headerlink" title="使用自定义cell实现带索引列表的tableView"></a>使用自定义cell实现带索引列表的tableView</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;
+&#x2F;&#x2F;  TableView2.swift
+&#x2F;&#x2F;  UITableView
+&#x2F;&#x2F;
+&#x2F;&#x2F;  Created by StYiWe on 2020&#x2F;9&#x2F;14.
+&#x2F;&#x2F;  Copyright © 2020 stYiwe. All rights reserved.
+&#x2F;&#x2F;
+
+import UIKit
+
+&#x2F;&#x2F;cell Identifier
+let cellID &#x3D; &quot;cellID&quot;
+
+class TableView2: UIViewController, UITableViewDelegate, UITableViewDataSource &#123;
+    
+    &#x2F;&#x2F;tableView
+    var tableView &#x3D; UITableView()
+    
+    &#x2F;&#x2F;数据
+    var dataList &#x3D; [String]()
+    
+    &#x2F;&#x2F;处理后的数据(根据首字母进行分组)
+    var resultDict &#x3D; [String : [String]]()
+    
+    &#x2F;&#x2F;组头标题数组
+    var sectionTitles &#x3D; [String]()
+    
+
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+
+        self.title &#x3D; &quot;带索引的UITableView&quot;
+        self.view.backgroundColor &#x3D; .white
+        
+        &#x2F;&#x2F;原始数据
+        dataList &#x3D; [&quot;🐰&quot;, &quot;秃子&quot;, &quot;鹰酱&quot;, &quot;毛熊&quot;, &quot;Cat&quot;, &quot;棒子&quot;, &quot;脚盆鸡&quot;, &quot;高卢鸡&quot;, &quot;狗大户&quot;, &quot;🐫&quot;, &quot;沙某&quot;, &quot;河马&quot;, &quot;Big Dog&quot;, &quot;Apple&quot;]
+        
+        &#x2F;&#x2F;数据处理
+        createResultDict()
+        
+        &#x2F;&#x2F;tableVIew
+        tableView &#x3D; UITableView.init(frame: UIScreen.main.bounds, style: .plain)
+        tableView.delegate &#x3D; self
+        tableView.dataSource &#x3D; self
+        &#x2F;&#x2F;去掉多余的分割线
+        tableView.tableFooterView &#x3D; UIView()
+        &#x2F;&#x2F;注册cell
+        tableView.register(UINib(nibName: &quot;TableView2Cell&quot;, bundle: nil), forCellReuseIdentifier: cellID)
+        self.view.addSubview(tableView)
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 数据处理，根据首字母进行分组
+    func createResultDict() &#123;
+        for str in dataList &#123;
+            &#x2F;&#x2F;获得首字母
+            let firstLetterIndex &#x3D; str.index(str.startIndex, offsetBy: 1)
+            var firstLetter &#x3D; String(str[..&lt;firstLetterIndex])
+            
+            &#x2F;&#x2F;转成大写字母
+            firstLetter &#x3D; firstletterFromString(str: firstLetter)
+            
+            if var values &#x3D; resultDict[firstLetter] &#123;
+                values.append(str)
+                resultDict[firstLetter] &#x3D; values
+            &#125; else &#123;
+                resultDict[firstLetter] &#x3D; [str]
+            &#125;
+            
+            &#x2F;&#x2F;组头标题
+            sectionTitles &#x3D; [String](resultDict.keys)
+            &#x2F;&#x2F;排序
+            sectionTitles &#x3D; sectionTitles.sorted(by: &#123;$0 &lt; $1&#125;)
+        &#125;
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 将中文转成大写字母
+    func firstletterFromString(str: String) -&gt; String &#123;
+        &#x2F;&#x2F;转变成可变字符串
+        let mutableStr &#x3D; NSMutableString.init(string: str)
+        
+        &#x2F;&#x2F;将中文转变成带声调的拼音
+        CFStringTransform(mutableStr as CFMutableString, nil, kCFStringTransformToLatin, false)
+        
+        &#x2F;&#x2F;去掉声调
+        let pyStr &#x3D; mutableStr.folding(options: .diacriticInsensitive, locale: .current)
+        
+        &#x2F;&#x2F;将拼音换成大写
+        let PYStr &#x3D; pyStr.uppercased()
+        
+        &#x2F;&#x2F;截取大写首字母
+        let index &#x3D; PYStr.index(PYStr.startIndex, offsetBy: 1)
+        let firstStr &#x3D; PYStr[..&lt;index]
+        
+        &#x2F;&#x2F;判断首字母是否为大写
+        let uppercaseLetter &#x3D; &quot;^[A-Z]$&quot;
+        let predicateLetter &#x3D; NSPredicate.init(format: &quot;SELF MATCHES %@&quot;, uppercaseLetter)
+        
+        return String(predicateLetter.evaluate(with: firstStr) ? firstStr : &quot;#&quot;)
+    &#125;
+    
+    
+    &#x2F;&#x2F;MARK: - 返回多少组
+    func numberOfSections(in tableView: UITableView) -&gt; Int &#123;
+        return sectionTitles.count
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 每组多少行
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;
+        let key &#x3D; sectionTitles[section]
+        guard let values &#x3D; resultDict[key] else &#123;
+            return 0
+        &#125;
+        return values.count
+    &#125;
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;
+        let cell &#x3D; tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TableView2Cell
+        
+        let key &#x3D; sectionTitles[indexPath.section]
+        let values &#x3D; resultDict[key]
+        
+        cell.titleLabel.text &#x3D; values?[indexPath.row]
+        
+        return cell
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 行高
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;
+        return 60
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - section标题
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -&gt; String? &#123;
+        return sectionTitles[section]
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 索引列表
+    func sectionIndexTitles(for tableView: UITableView) -&gt; [String]? &#123;
+        return sectionTitles
+    &#125;
+    
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-</li>
-</ul>
-<p><code>注：百度站点的验证可能需要比较久的时间</code></p>
-<h4 id="九-Hexo、homebrew操作指令"><a href="#九-Hexo、homebrew操作指令" class="headerlink" title="九.Hexo、homebrew操作指令"></a>九.Hexo、homebrew操作指令</h4><ul>
-<li><p>Hexo操作指令</p>
-<pre class="line-numbers language-none"><code class="language-none">$ hexo clean      #清理缓存
-$ hexo generate   #生成静态文件
-$ hexo server     #启动本地服务器
-$ hexo deploy    #部署
-或者
-$ hexo clean      #清理缓存
-$ hexo g          #生成静态文件
-$ hexo s          #启动本地服务器
-$ hexo d         #部署<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>homebrew操作指令</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 安装 homebrew
-$ ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;
-&#x2F;&#x2F; 卸载 homebrew
-$ ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;uninstall)&quot;
-&#x2F;&#x2F; 查看版本
-$ brew -v
-&#x2F;&#x2F; 下载软件：brew install 软件名
-如：$ brew install htop, 安装htop
-&#x2F;&#x2F; 如需要图形安装的软件 要加cask
-如：$ brew cask install google-chrome
-&#x2F;&#x2F; 卸载软件:brew uninstall 软件名
-如: $ brew cask uninstall google-chrome
-&#x2F;&#x2F; 软件搜索:brew search 软件名
-如: $ brew search google
-&#x2F;&#x2F; 列出已安装的包
-$ brew list
-&#x2F;&#x2F; 查看软件相关信息:brew info 软件名
-如：$ brew info google-chrome
-&#x2F;&#x2F; 删除 Homebrew下载的包
-$ brew cleanup
-&#x2F;&#x2F; 更新 Homebrew
-$ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="与UISearchBar一起使用"><a href="#与UISearchBar一起使用" class="headerlink" title="与UISearchBar一起使用"></a>与UISearchBar一起使用</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;
+&#x2F;&#x2F;  TableView3.swift
+&#x2F;&#x2F;  UITableView
+&#x2F;&#x2F;
+&#x2F;&#x2F;  Created by StYiWe on 2020&#x2F;9&#x2F;15.
+&#x2F;&#x2F;  Copyright © 2020 stYiwe. All rights reserved.
+&#x2F;&#x2F;
+
+import UIKit
+
+class TableView3: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate &#123;
+
+    &#x2F;&#x2F;searchBar
+    var searchBar : UISearchBar!
+    
+    &#x2F;&#x2F;tableView
+    var tableView : UITableView!
+    
+    &#x2F;&#x2F;数据
+    var dataList &#x3D; [&quot;🐰&quot;, &quot;秃子&quot;, &quot;鹰酱&quot;, &quot;毛熊&quot;, &quot;Cat&quot;, &quot;棒子&quot;, &quot;脚盆鸡&quot;, &quot;高卢鸡&quot;, &quot;狗大户&quot;, &quot;🐫&quot;, &quot;沙某&quot;, &quot;河马&quot;, &quot;Big Dog&quot;, &quot;Apple&quot;]
+    
+    &#x2F;&#x2F;搜索数据
+    var searchDataList: [String] &#x3D; []
+    
+    
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+        self.title &#x3D; &quot;与UISearchBar一起使用&quot;
+        self.view.backgroundColor &#x3D; .white
+        
+        &#x2F;&#x2F;搜索数据默认加载全部
+        searchDataList &#x3D; dataList
+        
+        &#x2F;&#x2F;UI
+        creatUI()
+        
+    &#125;
+    
+    func creatUI() &#123;
+        &#x2F;&#x2F;tableView
+        tableView &#x3D; UITableView.init(frame: UIScreen.main.bounds, style: .plain)
+        tableView.delegate &#x3D; self
+        tableView.dataSource &#x3D; self
+        tableView.tableFooterView &#x3D; UIView()
+        &#x2F;&#x2F;注册cell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: &quot;cellID&quot;)
+        self.view.addSubview(tableView)
+        
+        &#x2F;&#x2F;searchBar
+        searchBar &#x3D; UISearchBar.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 60))
+        &#x2F;&#x2F;显示取消按钮
+        searchBar.showsCancelButton &#x3D; true
+        searchBar.delegate &#x3D; self
+        tableView.tableHeaderView &#x3D; searchBar
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 取消搜索
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) &#123;
+        self.view.endEditing(true)
+        searchBar.text &#x3D; &quot;&quot;
+        searchDataList &#x3D; dataList
+        tableView.reloadData()
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 搜索代理，每次改变搜索内容都会调用
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) &#123;
+        print(&quot;搜索内容:\(searchText)&quot;)
+        &#x2F;&#x2F;没有搜索内容时显示全部数据
+        if searchText &#x3D;&#x3D; &quot;&quot; &#123;
+            searchDataList &#x3D; dataList
+        &#125; else &#123;
+            &#x2F;&#x2F;获取搜索栏文字，筛选后更新列表
+            let text &#x3D; searchText.trimmingCharacters(in: .whitespaces)
+            &#x2F;&#x2F;获取符合的数据
+            searchFilter(text: text)
+        &#125;
+        
+        tableView.reloadData()
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 添加一个筛选器方法:使用Swift数组系统filter方法,返回一个符合条件的新数组
+    func searchFilter(text: String) &#123;
+        searchDataList &#x3D; dataList.filter(&#123; (str) -&gt; Bool in
+            return str.localizedCaseInsensitiveContains(text)
+        &#125;)
+    &#125;
+    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;
+        return searchDataList.count
+    &#125;
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;
+        let cell &#x3D; tableView.dequeueReusableCell(withIdentifier: &quot;cellID&quot;, for: indexPath)
+        
+        cell.textLabel?.text &#x3D; searchDataList[indexPath.row]
+        
+        return cell
+    &#125;
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-
-
-</li>
-</ul>
-<p>这篇是window下的搭建教程，还没来得及操作，先记录下<a target="_blank" rel="noopener" href="https://yafine-blog.cn/posts/4ab2.html">Yafine的Hexo+github 搭建博客 (超级详细版，精细入微)</a></p>
-<blockquote>
-<p>本文参考了一下文章：</p>
-<p><a target="_blank" rel="noopener" href="https://gsl201600.github.io/2019/08/14/mac%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8EHexo-Github%E7%9A%84Blog/">gsl的mac 搭建基于Hexo-Github的Blog</a></p>
-<p><a target="_blank" rel="noopener" href="https://xiaopangzai.github.io/2019/10/18/GitHub%20Pages%20+%20Hexo%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2_Mac/">笑胖仔的GitHub Pages + Hexo免费搭建个人博客_Mac</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shwee/p/11421156.html">洪卫的Hexo+Github: 个人博客网站搭建完全教程(看这篇就够了)</a></p>
-</blockquote>
+<p>附上<a target="_blank" rel="noopener" href="https://github.com/StYiwe/swift.git">Demo</a></p>
 
                 
             </div>
@@ -761,7 +847,7 @@ $ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/">https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/</a>
+                    <a href="https://styiwe.github.io/2021/02/03/swift-uitableview-de-jian-dan-shi-yong/">https://styiwe.github.io/2021/02/03/swift-uitableview-de-jian-dan-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -799,8 +885,12 @@ $ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/Swift/">
+                                    <span class="chip bg-color">Swift</span>
+                                </a>
+                            
+                                <a href="/tags/UITableView/">
+                                    <span class="chip bg-color">UITableView</span>
                                 </a>
                             
                         </div>
@@ -976,31 +1066,31 @@ $ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/02/01/ios-workspace-de-chuang-jian-shi-yong/">
+                <a href="/2021/02/03/swift-uisearchcontroller-jian-dan-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="iOS Workspace的创建使用">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Swift UISearchController简单使用">
                         
-                        <span class="card-title">iOS Workspace的创建使用</span>
+                        <span class="card-title">Swift UISearchController简单使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单记录下Workspace的创建
+                            Swift UISearchController的使用
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-03
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Objective-C%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    Objective-C笔记
+                            <a href="/categories/Swift%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    Swift笔记
                                 </a>
                             
                             
@@ -1010,8 +1100,12 @@ $ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Workspace/">
-                        <span class="chip bg-color">Workspace</span>
+                    <a href="/tags/Swift/">
+                        <span class="chip bg-color">Swift</span>
+                    </a>
+                    
+                    <a href="/tags/UISearchController/">
+                        <span class="chip bg-color">UISearchController</span>
                     </a>
                     
                 </div>
@@ -1022,46 +1116,45 @@ $ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/">
+                <a href="/2021/02/01/ios-shan-chu-di-san-fang-ku-li-de-i386-x86-64-deng-wen-jian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Mac下搭建基于Hexo + Github的个人博客">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="iOS 删除第三方库里的i386、x86_64等文件">
                         
-                        <span class="card-title">Mac下搭建基于Hexo + Github的个人博客</span>
+                        <span class="card-title">iOS 删除第三方库里的i386、x86_64等文件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录下搭建个人博客的大概流程，也可以直接参考文章底部的链接，比较详尽
+                            i386、x86_64的删除
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/" class="post-category">
-                                    工具使用
+                            <a href="/categories/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-category">
+                                    问题总结
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/i386%E3%80%81x86-64/">
+                        <span class="chip bg-color">i386、x86_64</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="https://styiwe.github.io/atom.xml" rel="self"/>
   
   <link href="https://styiwe.github.io/"/>
-  <updated>2021-02-01T09:12:27.317Z</updated>
+  <updated>2021-02-03T07:10:54.819Z</updated>
   <id>https://styiwe.github.io/</id>
   
   <author>
@@ -15,6 +15,87 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Swift UIAlertController的简单使用</title>
+    <link href="https://styiwe.github.io/2021/02/03/swift-uialertcontroller-de-jian-dan-shi-yong/"/>
+    <id>https://styiwe.github.io/2021/02/03/swift-uialertcontroller-de-jian-dan-shi-yong/</id>
+    <published>2021-02-03T06:45:04.000Z</published>
+    <updated>2021-02-03T07:10:54.819Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Swift-UIAlertController的简单使用&quot;&gt;&lt;a href=&quot;#Swift-UIAlertController的简单使用&quot; class=&quot;headerlink&quot; title=&quot;Swift  -</summary>
+        
+      
+    
+    
+    
+    <category term="Swift笔记" scheme="https://styiwe.github.io/categories/Swift%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Swift" scheme="https://styiwe.github.io/tags/Swift/"/>
+    
+    <category term="UIAlertController" scheme="https://styiwe.github.io/tags/UIAlertController/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift UISearchController简单使用</title>
+    <link href="https://styiwe.github.io/2021/02/03/swift-uisearchcontroller-jian-dan-shi-yong/"/>
+    <id>https://styiwe.github.io/2021/02/03/swift-uisearchcontroller-jian-dan-shi-yong/</id>
+    <published>2021-02-03T06:41:19.000Z</published>
+    <updated>2021-02-03T06:44:08.355Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Swift-UISearchController的简单使用&quot;&gt;&lt;a href=&quot;#Swift-UISearchController的简单使用&quot; class=&quot;headerlink&quot; title=&quot;Swift -</summary>
+        
+      
+    
+    
+    
+    <category term="Swift笔记" scheme="https://styiwe.github.io/categories/Swift%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Swift" scheme="https://styiwe.github.io/tags/Swift/"/>
+    
+    <category term="UISearchController" scheme="https://styiwe.github.io/tags/UISearchController/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift UITableView的简单使用</title>
+    <link href="https://styiwe.github.io/2021/02/03/swift-uitableview-de-jian-dan-shi-yong/"/>
+    <id>https://styiwe.github.io/2021/02/03/swift-uitableview-de-jian-dan-shi-yong/</id>
+    <published>2021-02-03T06:25:23.000Z</published>
+    <updated>2021-02-03T06:39:23.056Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;Swift-UITableView的简单使用&quot;&gt;&lt;a href=&quot;#Swift-UITableView的简单使用&quot; class=&quot;headerlink&quot; title=&quot;Swift - UITableView的简单使用&quot;&gt;&lt;/a&gt;Swift -</summary>
+        
+      
+    
+    
+    
+    <category term="Swift笔记" scheme="https://styiwe.github.io/categories/Swift%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Swift" scheme="https://styiwe.github.io/tags/Swift/"/>
+    
+    <category term="UITableView" scheme="https://styiwe.github.io/tags/UITableView/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS 删除第三方库里的i386、x86_64等文件</title>
@@ -247,7 +328,7 @@
     <link href="https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/"/>
     <id>https://styiwe.github.io/2021/01/29/mac-xia-da-jian-ji-yu-hexo-github-de-ge-ren-bo-ke/</id>
     <published>2021-01-29T06:41:56.000Z</published>
-    <updated>2021-02-02T10:07:17.014Z</updated>
+    <updated>2021-02-03T07:17:43.794Z</updated>
     
     
       

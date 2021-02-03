@@ -1,3 +1,3 @@
-https://styiwe.github.io/2021/02/01/ios-shan-chu-di-san-fang-ku-li-de-i386-x86-64-deng-wen-jian/
-https://styiwe.github.io/2021/02/01/ios-tian-jia-di-san-fang-ku-hou-yu-dao-library-not-loaded-de-chu-li/
-https://styiwe.github.io/2021/02/01/ios-yin-cang-zhuang-tai-lan-de-wen-ti/
+https://styiwe.github.io/2021/02/03/swift-uialertcontroller-de-jian-dan-shi-yong/
+https://styiwe.github.io/2021/02/03/swift-uisearchcontroller-jian-dan-shi-yong/
+https://styiwe.github.io/2021/02/03/swift-uitableview-de-jian-dan-shi-yong/
