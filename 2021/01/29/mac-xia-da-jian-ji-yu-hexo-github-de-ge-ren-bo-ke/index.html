@@ -367,7 +367,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.5k
                 </div>
                 
 
@@ -389,6 +389,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -403,10 +406,11 @@
 </li>
 <li><p>配置SSH key</p>
 <p>输入命令</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">&quot;yourname&quot;</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> <span class="hljs-string">&quot;youremail&quot;</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;yourname&quot;
+git config --global user.email &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><code>yourname和youremail分别对应github的用户名和邮箱</code></p>
 <p>然后开始生成密钥，输入命令</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">ssh-keygen -<span class="hljs-built_in">t</span> rsa -C <span class="hljs-string">&quot;youremail&quot;</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C &quot;youremail&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>按提示回车、输入密码等即可生成SSH key，可以通过<code>~/.ssh/id_rsa.pub</code>可以获得SSH key</p>
 <p>如下图：</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn13i35fpqj310c0sek8c.jpg" alt="image-20210126144700609"></p>
@@ -426,7 +430,7 @@
 <h4 id="二-安装博客需要的框架"><a href="#二-安装博客需要的框架" class="headerlink" title="二.安装博客需要的框架"></a>二.安装博客需要的框架</h4><ul>
 <li>安装 Homebrew</li>
 </ul>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/bin/</span>bash -c <span class="hljs-string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;bash -c &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;HEAD&#x2F;install.sh)&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>如果出现错误<code>curl: (7) Failed to connect to raw.githubusercontent.com port 443: Connection refused</code>，如下</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn02ievafjj30vo0km790.jpg" alt="image-20210125172705266"></p>
 <ul>
@@ -460,17 +464,25 @@
 </ul>
 <h4 id="四-安装博客相关插件"><a href="#四-安装博客相关插件" class="headerlink" title="四.安装博客相关插件"></a>四.安装博客相关插件</h4><ul>
 <li><p>自动部署到github的插件</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>安装atom生成插件，便于感兴趣的小伙伴们订阅(RSS订阅)</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install hexo-generator-feed <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-feed --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后在本地Blog根目录下的_config.yml文件中，添加以下配置</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-meta"># Extensions</span><br><span class="hljs-meta">## Plugins: http:<span class="hljs-comment">//hexo.io/plugins/</span></span><br><span class="hljs-meta">#RSS订阅</span><br><span class="hljs-symbol">plugin:</span> -hexo-generator-feed<br><span class="hljs-meta">#Feed Atom</span><br><span class="hljs-symbol">feed:</span><br><span class="hljs-symbol">     type:</span> atom<br><span class="hljs-symbol">     path:</span> atom.xml<br><span class="hljs-symbol">     limit:</span> <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"># Extensions
+## Plugins: http:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;
+#RSS订阅
+plugin: -hexo-generator-feed
+#Feed Atom
+feed:
+     type: atom
+     path: atom.xml
+     limit: 20<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在主题目录下的_config.yml目录下，添加如下配置</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">rss:</span> /atom.xml<br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">rss: &#x2F;atom.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>安装博客首页生成插件</p>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fortran">npm install hexo-generator-<span class="hljs-built_in">index</span> --<span class="hljs-keyword">save</span><br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-index --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>安装tag生成插件</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">npm install hexo-generator-<span class="hljs-keyword">tag</span> <span class="hljs-title">--save</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-tag --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <blockquote>
 <p>至此，需要安装的已安装完毕</p>
 </blockquote>
@@ -478,14 +490,14 @@
 </ul>
 <h4 id="五-创建博客、调试、发布"><a href="#五-创建博客、调试、发布" class="headerlink" title="五.创建博客、调试、发布"></a>五.创建博客、调试、发布</h4><ul>
 <li><p>由于之前已经创建过文件夹，这一步可以忽略，如果没有，可以执行如下命令来创建个文件夹</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs csharp">hexo <span class="hljs-keyword">init</span> Blog<br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">hexo init Blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>撰写博客内容</p>
 <p><code>cd</code>到<code>Blog</code>文件夹下，执行命令</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">hexo <span class="hljs-keyword">new</span> testBlog<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">hexo new testBlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>其中<code>testBlog</code>是博客的名字，在<code>Blog/source/_posts</code>中就会新建个<code>testBlog.md</code>的文件，然后就可以编辑你的博客内容了</p>
 </li>
 <li><p>本地调试</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">sudo hexo <span class="hljs-keyword">server</span> 或 sudo hexo s<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo server 或 sudo hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后可以访问<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>来查看结果，如下图所示</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn0xm8qbr8j30vo0km7hb.jpg" alt="image-20210126112324111"></p>
 </li>
@@ -493,7 +505,7 @@
 <ul>
 <li><p>安装发布插件</p>
 <p>在博客文件夹运行下面命令</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>部署到github</p>
 <p>在<code>_config.yml</code>文件的最后一行修改配置</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn142i298kj311k0lmdk4.jpg" alt="image-20210126150638408"></p>
@@ -501,7 +513,9 @@
 </ul>
 <ul>
 <li><p>运行生成发布博客</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo hexo clean</span><br><span class="hljs-attribute">sudo hexo g</span><br><span class="hljs-attribute">sudo hexo d</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+sudo hexo g
+sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>其中  <code>hexo clean  </code> 清除之前生成的东西，也可以不加</p>
 <p><code>hexo g</code>  是 <code>hexo generate</code> 的缩写，生成静态文章</p>
@@ -523,7 +537,8 @@
 <p>主题下载好后，打开<code>blog</code>文件夹的<code>_config.yml</code>，修改<code>theme</code>的内容，如下</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn170rv1juj30ys0esdiw.jpg" alt="image-20210126164846535"></p>
 <p>然后运行一下命令</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo hexo g</span><br><span class="hljs-attribute">sudo hexo d</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo g
+sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>之后就可以看到修改过的新主题了</p>
 <blockquote>
 <p>同时该主题有很多插件可以使用，设置下就行，例如字数统计等，具体可以参考<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
@@ -535,9 +550,29 @@
 <p>​    Front-matter选项详解</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn3jhazvurj30u01c7b29.jpg" alt="image-20210128173056574"></p>
 <p>​    最简示例：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">typora-vue-theme主题介绍</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2018-09-07 09:25:00</span><br><span class="hljs-meta">---</span><br><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">---
+title: typora-vue-theme主题介绍
+date: 2018-09-07 09:25:00
+---
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​    最全示例：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">typora-vue-theme主题介绍</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2018-09-07 09:25:00</span><br><span class="hljs-attr">author:</span> <span class="hljs-string">赵奇</span><br><span class="hljs-attr">img:</span> <span class="hljs-string">/source/images/xxx.jpg</span><br><span class="hljs-attr">top:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">cover:</span> <span class="hljs-literal">true</span><br><span class="hljs-attr">coverImg:</span> <span class="hljs-string">/images/1.jpg</span><br><span class="hljs-attr">password:</span> <span class="hljs-string">8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</span><br><span class="hljs-attr">toc:</span> <span class="hljs-literal">false</span><br><span class="hljs-attr">mathjax:</span> <span class="hljs-literal">false</span><br><span class="hljs-attr">summary:</span> <span class="hljs-string">这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</span><br><span class="hljs-attr">categories:</span> <span class="hljs-string">Markdown</span><br><span class="hljs-attr">tags:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">Typora</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">Markdown</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">---
+title: typora-vue-theme主题介绍
+date: 2018-09-07 09:25:00
+author: 赵奇
+img: &#x2F;source&#x2F;images&#x2F;xxx.jpg
+top: true
+cover: true
+coverImg: &#x2F;images&#x2F;1.jpg
+password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
+toc: false
+mathjax: false
+summary: 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
+categories: Markdown
+tags:
+  - Typora
+  - Markdown
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​    为了新建文章方便，可以修改下文章模板，把希望带的字段加进去，路径是<code>/scaffolds/post.md</code></p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn4e2xsfwhj30zm0eywi3.jpg" alt="image-20210129110944377"></p>
 <ul>
@@ -546,7 +581,11 @@
 <blockquote>
 <p>在博客的根目录下新建一个文件夹<code>scripts</code>(如果有就不用新建），在此目录下新建一个Javascript文件，文件名据说可随意命名，这里命名为<code>auto_open.js</code></p>
 <p>js文件里添加如下内容：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"> &gt;<span class="hljs-keyword">var</span> exec = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;child_process&#x27;</span>).exec;<br> &gt;hexo.on(<span class="hljs-string">&#x27;new&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;<br><span class="hljs-comment">// 请将 Typora 替换为你用的Markdown 编辑器</span><br>exec(<span class="hljs-string">&#x27;open -a &quot;Typora.app&quot; &#x27;</span> + data.path);<br> &gt;&#125;);<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"> <span class="token operator">></span><span class="token keyword">var</span> exec <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'child_process'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
+ <span class="token operator">></span>hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+<span class="token comment">// 请将 Typora 替换为你用的Markdown 编辑器</span>
+<span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">'open -a "Typora.app" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token operator">></span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>重新部署后，新建文章就可以打开编辑器了</p>
 </blockquote>
 </li>
@@ -569,20 +608,32 @@
 </ul>
 <ul>
 <li><p>打开本地博客主题下的<code>layout/_partial</code> 文件夹，有一个名为<code>head</code>的文件，将上面获得的两行代码粘贴到<code>&lt;head&gt;&lt;/head&gt;</code>之间，保存文件，然后分别执行以下命令部署到Github服务器</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo hexo clean</span><br><span class="hljs-attribute">sudo hexo g</span><br><span class="hljs-attribute">sudo hexo d</span><br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+sudo hexo g
+sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>然后分别点击刚才百度、谷歌的验证按钮进行站点验证</p>
 </li>
 </ul>
 <p>2.生成站点地图</p>
 <ul>
 <li><p>安装<code>sitemap</code>插件</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>hexo-generator-sitemap --save<br>npm <span class="hljs-keyword">install </span>hexo-generator-<span class="hljs-keyword">baidu-sitemap </span>--save<br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-generator-sitemap --save
+npm install hexo-generator-baidu-sitemap --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>打开本地博客目录下的<code>_config.yml</code>文件，修改url参数为你的博客的首页地址</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-attr">url:</span> <span class="hljs-attr">http:</span><span class="hljs-comment">//jonzzs.cn # 修改成你博客的首页地址</span><br><span class="hljs-attr">root:</span> /<br><span class="hljs-attr">permalink:</span> :year<span class="hljs-regexp">/:month/</span>:day<span class="hljs-regexp">/:title/</span><br><span class="hljs-attr">permalink_defaults:</span><br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">url: http:&#x2F;&#x2F;jonzzs.cn # 修改成你博客的首页地址
+root: &#x2F;
+permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;
+permalink_defaults:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>添加以下配置</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-meta"># 自动生成sitemap</span><br><span class="hljs-symbol">sitemap:</span> <br><span class="hljs-symbol">  path:</span> sitemap.xml<br><span class="hljs-symbol">baidusitemap:</span> <br><span class="hljs-symbol">  path:</span> baidusitemap.xml<br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none"># 自动生成sitemap
+sitemap: 
+  path: sitemap.xml
+baidusitemap: 
+  path: baidusitemap.xml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>重新部署到github</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo hexo clean</span><br><span class="hljs-attribute">sudo hexo g</span><br><span class="hljs-attribute">sudo hexo d</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">sudo hexo clean
+sudo hexo g
+sudo hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
@@ -599,18 +650,39 @@
 <p>在进行操作前，先在<a target="_blank" rel="noopener" href="https://ziyuan.baidu.com/linksubmit/url">百度搜索平台</a>处获取相关信息，<code>注册的域名</code>和<code>token</code>，如下图</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn9c261vlnj31k30u011r.jpg" alt="image-20210202174734658"></p>
 <p>在根目录下，安装插件，使用以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-baidu-url-submit --save<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">npm install hexo-baidu-url-submit --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后，修改根目录下的<code>_config.yml</code>文件，增加如下内容</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">baidu_url_submit:</span><br><span class="hljs-symbol">  count:</span> <span class="hljs-number">3</span> <span class="hljs-meta">## 提交最新的3个链接</span><br><span class="hljs-symbol">  host:</span> https:<span class="hljs-comment">//***.github.io ## 在百度站长平台中注册的域名</span><br><span class="hljs-symbol">  token:</span> `上一步中获取的token` <span class="hljs-meta">## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!</span><br><span class="hljs-symbol">  path:</span> baidu_urls.txt <span class="hljs-meta">## 文本文档的地址， 新链接会保存在此文本文档里</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">baidu_url_submit:
+  count: 3 ## 提交最新的3个链接
+  host: https:&#x2F;&#x2F;***.github.io ## 在百度站长平台中注册的域名
+  token: &#96;上一步中获取的token&#96; ## 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最后，加入新的deployer:</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">deploy:<br>- type: git <span class="hljs-comment">## 这是原来的deployer</span><br>  repo: https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/yourusername/y</span>ourusername.github.com.git  <span class="hljs-regexp">//</span>自己的Github仓库地址<br>  branch: master<br>- type: baidu_url_submitter <span class="hljs-comment">## 这是新加的</span><br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">deploy:
+- type: git ## 这是原来的deployer
+  repo: https:&#x2F;&#x2F;github.com&#x2F;yourusername&#x2F;yourusername.github.com.git  &#x2F;&#x2F;自己的Github仓库地址
+  branch: master
+- type: baidu_url_submitter ## 这是新加的<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>执行hexo deploy的时候，新的连接就会被推送了</p>
 </li>
 </ul>
 <ul>
 <li><p>百度自动推送</p>
 <p>安装自动推送JS代码的网页，在页面被访问时，页面url将立即被推送给百度，修改主题目录下的<code>layout/post.ejs</code>文件，添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script&gt;<br>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;<br>    <span class="hljs-keyword">var</span> bp = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;script&#x27;</span>);<br>    <span class="hljs-keyword">var</span> curProtocol = <span class="hljs-built_in">window</span>.location.protocol.split(<span class="hljs-string">&#x27;:&#x27;</span>)[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">if</span> (curProtocol === <span class="hljs-string">&#x27;https&#x27;</span>) &#123;<br>        bp.src = <span class="hljs-string">&#x27;https://zz.bdstatic.com/linksubmit/push.js&#x27;</span>;        <br>    &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        bp.src = <span class="hljs-string">&#x27;http://push.zhanzhang.baidu.com/push.js&#x27;</span>;<br>    &#125;<br>    <span class="hljs-keyword">var</span> s = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">&quot;script&quot;</span>)[<span class="hljs-number">0</span>];<br>    s.parentNode.insertBefore(bp, s);<br>&#125;)();<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> bp <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'script'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> curProtocol <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>protocol<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>curProtocol <span class="token operator">===</span> <span class="token string">'https'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        bp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'https://zz.bdstatic.com/linksubmit/push.js'</span><span class="token punctuation">;</span>        
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        bp<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">'http://push.zhanzhang.baidu.com/push.js'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">var</span> s <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"script"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    s<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>bp<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 </li>
@@ -618,9 +690,38 @@
 <p><code>注：百度站点的验证可能需要比较久的时间</code></p>
 <h4 id="九-Hexo、homebrew操作指令"><a href="#九-Hexo、homebrew操作指令" class="headerlink" title="九.Hexo、homebrew操作指令"></a>九.Hexo、homebrew操作指令</h4><ul>
 <li><p>Hexo操作指令</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo clean      <span class="hljs-comment">#清理缓存</span><br><span class="hljs-variable">$ </span>hexo generate   <span class="hljs-comment">#生成静态文件</span><br><span class="hljs-variable">$ </span>hexo server     <span class="hljs-comment">#启动本地服务器</span><br><span class="hljs-variable">$ </span>hexo deploy    <span class="hljs-comment">#部署</span><br>或者<br><span class="hljs-variable">$ </span>hexo clean      <span class="hljs-comment">#清理缓存</span><br><span class="hljs-variable">$ </span>hexo g          <span class="hljs-comment">#生成静态文件</span><br><span class="hljs-variable">$ </span>hexo s          <span class="hljs-comment">#启动本地服务器</span><br><span class="hljs-variable">$ </span>hexo d         <span class="hljs-comment">#部署</span><br></code></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">$ hexo clean      #清理缓存
+$ hexo generate   #生成静态文件
+$ hexo server     #启动本地服务器
+$ hexo deploy    #部署
+或者
+$ hexo clean      #清理缓存
+$ hexo g          #生成静态文件
+$ hexo s          #启动本地服务器
+$ hexo d         #部署<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>homebrew操作指令</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">//</span> 安装 homebrew<br>$ ruby -e <span class="hljs-string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="hljs-regexp">//</span> 卸载 homebrew<br>$ ruby -e <span class="hljs-string">&quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)&quot;</span><br><span class="hljs-regexp">//</span> 查看版本<br>$ brew -v<br><span class="hljs-regexp">//</span> 下载软件：brew install 软件名<br>如：$ brew install htop, 安装htop<br><span class="hljs-regexp">//</span> 如需要图形安装的软件 要加cask<br>如：$ brew cask install google-chrome<br><span class="hljs-regexp">//</span> 卸载软件:brew uninstall 软件名<br>如: $ brew cask uninstall google-chrome<br><span class="hljs-regexp">//</span> 软件搜索:brew search 软件名<br>如: $ brew search google<br><span class="hljs-regexp">//</span> 列出已安装的包<br>$ brew list<br><span class="hljs-regexp">//</span> 查看软件相关信息:brew info 软件名<br>如：$ brew info google-chrome<br><span class="hljs-regexp">//</span> 删除 Homebrew下载的包<br>$ brew cleanup<br><span class="hljs-regexp">//</span> 更新 Homebrew<br>$ brew update<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 安装 homebrew
+$ ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;
+&#x2F;&#x2F; 卸载 homebrew
+$ ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;uninstall)&quot;
+&#x2F;&#x2F; 查看版本
+$ brew -v
+&#x2F;&#x2F; 下载软件：brew install 软件名
+如：$ brew install htop, 安装htop
+&#x2F;&#x2F; 如需要图形安装的软件 要加cask
+如：$ brew cask install google-chrome
+&#x2F;&#x2F; 卸载软件:brew uninstall 软件名
+如: $ brew cask uninstall google-chrome
+&#x2F;&#x2F; 软件搜索:brew search 软件名
+如: $ brew search google
+&#x2F;&#x2F; 列出已安装的包
+$ brew list
+&#x2F;&#x2F; 查看软件相关信息:brew info 软件名
+如：$ brew info google-chrome
+&#x2F;&#x2F; 删除 Homebrew下载的包
+$ brew cleanup
+&#x2F;&#x2F; 更新 Homebrew
+$ brew update<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1176,7 +1277,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             

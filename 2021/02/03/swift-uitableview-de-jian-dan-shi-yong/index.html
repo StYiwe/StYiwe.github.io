@@ -371,14 +371,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -392,6 +392,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -411,13 +414,410 @@
 <ul>
 <li>以下是代码实现</li>
 </ul>
-<h4 id="使用UITableViewCell实现一个简单的tableView"><a href="#使用UITableViewCell实现一个简单的tableView" class="headerlink" title="使用UITableViewCell实现一个简单的tableView"></a>使用UITableViewCell实现一个简单的tableView</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><code class="hljs Swift"><span class="hljs-comment">//</span><br><span class="hljs-comment">//  TableView1.swift</span><br><span class="hljs-comment">//  UITableView</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//  Created by StYiWe on 2020/9/14.</span><br><span class="hljs-comment">//  Copyright © 2020 stYiwe. All rights reserved.</span><br><span class="hljs-comment">//</span><br><br><span class="hljs-keyword">import</span> UIKit<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TableView1</span>: <span class="hljs-title">UIViewController</span>, <span class="hljs-title">UITableViewDelegate</span>, <span class="hljs-title">UITableViewDataSource</span> </span>&#123;<br><br>    <span class="hljs-comment">//tableView</span><br>    <span class="hljs-keyword">var</span> tableView <span class="hljs-operator">=</span> <span class="hljs-type">UITableView</span>()<br>    <br>    <span class="hljs-comment">//数据</span><br>    <span class="hljs-keyword">var</span> dataList: <span class="hljs-type">NSMutableArray</span> <span class="hljs-operator">=</span> []<br>    <br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-keyword">super</span>.viewDidLoad()<br><br>        <span class="hljs-keyword">self</span>.view.backgroundColor <span class="hljs-operator">=</span> .white<br>        <span class="hljs-keyword">self</span>.title <span class="hljs-operator">=</span> <span class="hljs-string">&quot;使用系统cell&quot;</span><br>        <br>        <span class="hljs-comment">//右上角编辑按钮</span><br>        <span class="hljs-keyword">self</span>.navigationItem.rightBarButtonItem <span class="hljs-operator">=</span> <span class="hljs-type">UIBarButtonItem</span>.<span class="hljs-keyword">init</span>(barButtonSystemItem: .edit, target: <span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(editAction))<br>        <br>        <span class="hljs-comment">//数据</span><br>        dataList <span class="hljs-operator">=</span> <span class="hljs-type">NSMutableArray</span>.<span class="hljs-keyword">init</span>(array: [<span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;秃子&quot;</span>, <span class="hljs-string">&quot;鹰酱&quot;</span>, <span class="hljs-string">&quot;毛熊&quot;</span>, <span class="hljs-string">&quot;棒子&quot;</span>, <span class="hljs-string">&quot;脚盆鸡&quot;</span>, <span class="hljs-string">&quot;高卢鸡&quot;</span>, <span class="hljs-string">&quot;狗大户&quot;</span>, <span class="hljs-string">&quot;🐫&quot;</span>, <span class="hljs-string">&quot;沙某&quot;</span>, <span class="hljs-string">&quot;河马&quot;</span>])<br>        <br>        <span class="hljs-comment">//UI</span><br>        createTableViewUI()<br>        <br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 实例化tableView</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">createTableViewUI</span><span class="hljs-params">()</span></span> &#123;<br>        tableView <span class="hljs-operator">=</span> <span class="hljs-type">UITableView</span>.<span class="hljs-keyword">init</span>(frame: <span class="hljs-type">UIScreen</span>.main.bounds, style: .plain)<br>        tableView.delegate <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        tableView.dataSource <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        <span class="hljs-comment">//注册cell</span><br>        tableView.register(<span class="hljs-type">UITableViewCell</span>.<span class="hljs-keyword">self</span>, forCellReuseIdentifier: <span class="hljs-string">&quot;cellID&quot;</span>)<br>        <span class="hljs-comment">//去除分割线</span><br><span class="hljs-comment">//        tableView.separatorStyle = .none</span><br>        <span class="hljs-comment">//去掉多余的分割线</span><br>        tableView.tableFooterView <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>()<br>        <br>        <span class="hljs-keyword">self</span>.view.addSubview(tableView)<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 编辑</span><br>    <span class="hljs-keyword">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">editAction</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-comment">//设置可编辑</span><br>        tableView.setEditing(<span class="hljs-literal">true</span>, animated: <span class="hljs-literal">true</span>)<br>        <br>        <span class="hljs-comment">//完成按钮</span><br>        <span class="hljs-keyword">self</span>.navigationItem.rightBarButtonItem <span class="hljs-operator">=</span> <span class="hljs-type">UIBarButtonItem</span>.<span class="hljs-keyword">init</span>(barButtonSystemItem: .done, target: <span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(doneAction))<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 编辑完成</span><br>    <span class="hljs-keyword">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">doneAction</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-comment">//设置不可编辑</span><br>        tableView.setEditing(<span class="hljs-literal">false</span>, animated: <span class="hljs-literal">true</span>)<br>        <br>        <span class="hljs-comment">//右上角编辑按钮</span><br>        <span class="hljs-keyword">self</span>.navigationItem.rightBarButtonItem <span class="hljs-operator">=</span> <span class="hljs-type">UIBarButtonItem</span>.<span class="hljs-keyword">init</span>(barButtonSystemItem: .edit, target: <span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(editAction))<br>        <br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 返回多少行</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="hljs-type">Int</span> &#123;<br>        <span class="hljs-keyword">return</span> dataList.count<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">UITableViewCell</span> &#123;<br>        <span class="hljs-keyword">let</span> cell <span class="hljs-operator">=</span> tableView.dequeueReusableCell(withIdentifier: <span class="hljs-string">&quot;cellID&quot;</span>, <span class="hljs-keyword">for</span>: indexPath)<br>        <br>        cell.textLabel<span class="hljs-operator">?</span>.text <span class="hljs-operator">=</span> dataList[indexPath.row] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span><br>        <br>        <span class="hljs-keyword">return</span> cell<br>    &#125;<br><br>    <span class="hljs-comment">//MARK: - 行高</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, heightForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">CGFloat</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">60</span><br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 点击cell</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, didSelectRowAt indexPath: IndexPath)</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(dataList[indexPath.row])<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 使cell的分割线与屏幕两端对齐</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)</span></span> &#123;<br>        <span class="hljs-keyword">if</span> cell.responds(to: <span class="hljs-keyword">#selector</span>(setter: <span class="hljs-type">UITableViewCell</span>.separatorInset)) &#123;<br>            cell.separatorInset <span class="hljs-operator">=</span> .zero<br>        &#125;<br>        <span class="hljs-keyword">if</span> cell.responds(to: <span class="hljs-keyword">#selector</span>(setter: <span class="hljs-type">UITableViewCell</span>.layoutMargins)) &#123;<br>            cell.layoutMargins <span class="hljs-operator">=</span> .zero<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 设置编辑样式</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">UITableViewCell</span>.<span class="hljs-type">EditingStyle</span> &#123;<br>        <span class="hljs-comment">//编辑的时候返回带有选择按钮的样式</span><br><span class="hljs-comment">//        return UITableViewCell.EditingStyle(rawValue: UITableViewCell.EditingStyle.RawValue(UInt8(UITableViewCell.EditingStyle.insert.rawValue) | UInt8(UITableViewCell.EditingStyle.delete.rawValue)))!</span><br>        <br>        <span class="hljs-comment">//添加</span><br><span class="hljs-comment">//        return .insert</span><br>        <br>        <span class="hljs-comment">//删除</span><br>        <span class="hljs-keyword">return</span> .delete<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 删除单元格</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)</span></span> &#123;<br>        <span class="hljs-keyword">if</span> editingStyle <span class="hljs-operator">==</span> .delete &#123;<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;要删除<span class="hljs-subst">\(dataList[indexPath.row])</span>&quot;</span>)<br>            <br>            <span class="hljs-comment">//提示</span><br>            <span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;温馨提示&quot;</span>, message: <span class="hljs-string">&quot;确定要删除<span class="hljs-subst">\(dataList[indexPath.row])</span>？&quot;</span>, preferredStyle: .alert)<br>            alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;确定&quot;</span>, style: .destructive, handler: &#123; (<span class="hljs-type">UIAlertAction</span>) <span class="hljs-keyword">in</span><br>                <span class="hljs-keyword">self</span>.dataList.removeObject(at: indexPath.row)<br>                tableView.reloadData()<br>            &#125;))<br>            <br>            alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;取消&quot;</span>, style: .cancel, handler: <span class="hljs-literal">nil</span>))<br>            <br>            present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br>        &#125;<br>        <br>        <span class="hljs-keyword">if</span> editingStyle <span class="hljs-operator">==</span> .insert &#123;<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;增加&quot;</span>)<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 允许排序</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, canMoveRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">Bool</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 排序</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath)</span></span> &#123;<br>        <br>        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)<br>        dataList.exchangeObject(at: sourceIndexPath.row, withObjectAt: destinationIndexPath.row)<br>        tableView.reloadData()<br>    &#125;<br>      <br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="使用UITableViewCell实现一个简单的tableView"><a href="#使用UITableViewCell实现一个简单的tableView" class="headerlink" title="使用UITableViewCell实现一个简单的tableView"></a>使用UITableViewCell实现一个简单的tableView</h4><pre class="line-numbers language-Swift" data-language="Swift"><code class="language-Swift">&#x2F;&#x2F;
+&#x2F;&#x2F;  TableView1.swift
+&#x2F;&#x2F;  UITableView
+&#x2F;&#x2F;
+&#x2F;&#x2F;  Created by StYiWe on 2020&#x2F;9&#x2F;14.
+&#x2F;&#x2F;  Copyright © 2020 stYiwe. All rights reserved.
+&#x2F;&#x2F;
+
+import UIKit
+
+class TableView1: UIViewController, UITableViewDelegate, UITableViewDataSource &#123;
+
+    &#x2F;&#x2F;tableView
+    var tableView &#x3D; UITableView()
+    
+    &#x2F;&#x2F;数据
+    var dataList: NSMutableArray &#x3D; []
+    
+    
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+
+        self.view.backgroundColor &#x3D; .white
+        self.title &#x3D; &quot;使用系统cell&quot;
+        
+        &#x2F;&#x2F;右上角编辑按钮
+        self.navigationItem.rightBarButtonItem &#x3D; UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editAction))
+        
+        &#x2F;&#x2F;数据
+        dataList &#x3D; NSMutableArray.init(array: [&quot;🐰&quot;, &quot;秃子&quot;, &quot;鹰酱&quot;, &quot;毛熊&quot;, &quot;棒子&quot;, &quot;脚盆鸡&quot;, &quot;高卢鸡&quot;, &quot;狗大户&quot;, &quot;🐫&quot;, &quot;沙某&quot;, &quot;河马&quot;])
+        
+        &#x2F;&#x2F;UI
+        createTableViewUI()
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 实例化tableView
+    func createTableViewUI() &#123;
+        tableView &#x3D; UITableView.init(frame: UIScreen.main.bounds, style: .plain)
+        tableView.delegate &#x3D; self
+        tableView.dataSource &#x3D; self
+        &#x2F;&#x2F;注册cell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: &quot;cellID&quot;)
+        &#x2F;&#x2F;去除分割线
+&#x2F;&#x2F;        tableView.separatorStyle &#x3D; .none
+        &#x2F;&#x2F;去掉多余的分割线
+        tableView.tableFooterView &#x3D; UIView()
+        
+        self.view.addSubview(tableView)
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 编辑
+    @objc func editAction() &#123;
+        &#x2F;&#x2F;设置可编辑
+        tableView.setEditing(true, animated: true)
+        
+        &#x2F;&#x2F;完成按钮
+        self.navigationItem.rightBarButtonItem &#x3D; UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 编辑完成
+    @objc func doneAction() &#123;
+        &#x2F;&#x2F;设置不可编辑
+        tableView.setEditing(false, animated: true)
+        
+        &#x2F;&#x2F;右上角编辑按钮
+        self.navigationItem.rightBarButtonItem &#x3D; UIBarButtonItem.init(barButtonSystemItem: .edit, target: self, action: #selector(editAction))
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 返回多少行
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;
+        return dataList.count
+    &#125;
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;
+        let cell &#x3D; tableView.dequeueReusableCell(withIdentifier: &quot;cellID&quot;, for: indexPath)
+        
+        cell.textLabel?.text &#x3D; dataList[indexPath.row] as? String
+        
+        return cell
+    &#125;
+
+    &#x2F;&#x2F;MARK: - 行高
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;
+        return 60
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 点击cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) &#123;
+        print(dataList[indexPath.row])
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 使cell的分割线与屏幕两端对齐
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) &#123;
+        if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) &#123;
+            cell.separatorInset &#x3D; .zero
+        &#125;
+        if cell.responds(to: #selector(setter: UITableViewCell.layoutMargins)) &#123;
+            cell.layoutMargins &#x3D; .zero
+        &#125;
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 设置编辑样式
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -&gt; UITableViewCell.EditingStyle &#123;
+        &#x2F;&#x2F;编辑的时候返回带有选择按钮的样式
+&#x2F;&#x2F;        return UITableViewCell.EditingStyle(rawValue: UITableViewCell.EditingStyle.RawValue(UInt8(UITableViewCell.EditingStyle.insert.rawValue) | UInt8(UITableViewCell.EditingStyle.delete.rawValue)))!
+        
+        &#x2F;&#x2F;添加
+&#x2F;&#x2F;        return .insert
+        
+        &#x2F;&#x2F;删除
+        return .delete
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 删除单元格
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) &#123;
+        if editingStyle &#x3D;&#x3D; .delete &#123;
+            print(&quot;要删除\(dataList[indexPath.row])&quot;)
+            
+            &#x2F;&#x2F;提示
+            let alertC &#x3D; UIAlertController.init(title: &quot;温馨提示&quot;, message: &quot;确定要删除\(dataList[indexPath.row])？&quot;, preferredStyle: .alert)
+            alertC.addAction(UIAlertAction.init(title: &quot;确定&quot;, style: .destructive, handler: &#123; (UIAlertAction) in
+                self.dataList.removeObject(at: indexPath.row)
+                tableView.reloadData()
+            &#125;))
+            
+            alertC.addAction(UIAlertAction.init(title: &quot;取消&quot;, style: .cancel, handler: nil))
+            
+            present(alertC, animated: true, completion: nil)
+        &#125;
+        
+        if editingStyle &#x3D;&#x3D; .insert &#123;
+            print(&quot;增加&quot;)
+        &#125;
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 允许排序
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -&gt; Bool &#123;
+        return true
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 排序
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) &#123;
+        
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+        dataList.exchangeObject(at: sourceIndexPath.row, withObjectAt: destinationIndexPath.row)
+        tableView.reloadData()
+    &#125;
+      
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="使用自定义cell实现带索引列表的tableView"><a href="#使用自定义cell实现带索引列表的tableView" class="headerlink" title="使用自定义cell实现带索引列表的tableView"></a>使用自定义cell实现带索引列表的tableView</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">//</span><br><span class="hljs-comment">//  TableView2.swift</span><br><span class="hljs-comment">//  UITableView</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//  Created by StYiWe on 2020/9/14.</span><br><span class="hljs-comment">//  Copyright © 2020 stYiwe. All rights reserved.</span><br><span class="hljs-comment">//</span><br><br><span class="hljs-keyword">import</span> UIKit<br><br><span class="hljs-comment">//cell Identifier</span><br><span class="hljs-keyword">let</span> cellID <span class="hljs-operator">=</span> <span class="hljs-string">&quot;cellID&quot;</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TableView2</span>: <span class="hljs-title">UIViewController</span>, <span class="hljs-title">UITableViewDelegate</span>, <span class="hljs-title">UITableViewDataSource</span> </span>&#123;<br>    <br>    <span class="hljs-comment">//tableView</span><br>    <span class="hljs-keyword">var</span> tableView <span class="hljs-operator">=</span> <span class="hljs-type">UITableView</span>()<br>    <br>    <span class="hljs-comment">//数据</span><br>    <span class="hljs-keyword">var</span> dataList <span class="hljs-operator">=</span> [<span class="hljs-type">String</span>]()<br>    <br>    <span class="hljs-comment">//处理后的数据(根据首字母进行分组)</span><br>    <span class="hljs-keyword">var</span> resultDict <span class="hljs-operator">=</span> [<span class="hljs-type">String</span> : [<span class="hljs-type">String</span>]]()<br>    <br>    <span class="hljs-comment">//组头标题数组</span><br>    <span class="hljs-keyword">var</span> sectionTitles <span class="hljs-operator">=</span> [<span class="hljs-type">String</span>]()<br>    <br><br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-keyword">super</span>.viewDidLoad()<br><br>        <span class="hljs-keyword">self</span>.title <span class="hljs-operator">=</span> <span class="hljs-string">&quot;带索引的UITableView&quot;</span><br>        <span class="hljs-keyword">self</span>.view.backgroundColor <span class="hljs-operator">=</span> .white<br>        <br>        <span class="hljs-comment">//原始数据</span><br>        dataList <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;秃子&quot;</span>, <span class="hljs-string">&quot;鹰酱&quot;</span>, <span class="hljs-string">&quot;毛熊&quot;</span>, <span class="hljs-string">&quot;Cat&quot;</span>, <span class="hljs-string">&quot;棒子&quot;</span>, <span class="hljs-string">&quot;脚盆鸡&quot;</span>, <span class="hljs-string">&quot;高卢鸡&quot;</span>, <span class="hljs-string">&quot;狗大户&quot;</span>, <span class="hljs-string">&quot;🐫&quot;</span>, <span class="hljs-string">&quot;沙某&quot;</span>, <span class="hljs-string">&quot;河马&quot;</span>, <span class="hljs-string">&quot;Big Dog&quot;</span>, <span class="hljs-string">&quot;Apple&quot;</span>]<br>        <br>        <span class="hljs-comment">//数据处理</span><br>        createResultDict()<br>        <br>        <span class="hljs-comment">//tableVIew</span><br>        tableView <span class="hljs-operator">=</span> <span class="hljs-type">UITableView</span>.<span class="hljs-keyword">init</span>(frame: <span class="hljs-type">UIScreen</span>.main.bounds, style: .plain)<br>        tableView.delegate <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        tableView.dataSource <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        <span class="hljs-comment">//去掉多余的分割线</span><br>        tableView.tableFooterView <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>()<br>        <span class="hljs-comment">//注册cell</span><br>        tableView.register(<span class="hljs-type">UINib</span>(nibName: <span class="hljs-string">&quot;TableView2Cell&quot;</span>, bundle: <span class="hljs-literal">nil</span>), forCellReuseIdentifier: cellID)<br>        <span class="hljs-keyword">self</span>.view.addSubview(tableView)<br>        <br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 数据处理，根据首字母进行分组</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">createResultDict</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-keyword">for</span> str <span class="hljs-keyword">in</span> dataList &#123;<br>            <span class="hljs-comment">//获得首字母</span><br>            <span class="hljs-keyword">let</span> firstLetterIndex <span class="hljs-operator">=</span> str.index(str.startIndex, offsetBy: <span class="hljs-number">1</span>)<br>            <span class="hljs-keyword">var</span> firstLetter <span class="hljs-operator">=</span> <span class="hljs-type">String</span>(str[<span class="hljs-operator">..&lt;</span>firstLetterIndex])<br>            <br>            <span class="hljs-comment">//转成大写字母</span><br>            firstLetter <span class="hljs-operator">=</span> firstletterFromString(str: firstLetter)<br>            <br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">var</span> values <span class="hljs-operator">=</span> resultDict[firstLetter] &#123;<br>                values.append(str)<br>                resultDict[firstLetter] <span class="hljs-operator">=</span> values<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                resultDict[firstLetter] <span class="hljs-operator">=</span> [str]<br>            &#125;<br>            <br>            <span class="hljs-comment">//组头标题</span><br>            sectionTitles <span class="hljs-operator">=</span> [<span class="hljs-type">String</span>](resultDict.keys)<br>            <span class="hljs-comment">//排序</span><br>            sectionTitles <span class="hljs-operator">=</span> sectionTitles.sorted(by: &#123;<span class="hljs-variable">$0</span> <span class="hljs-operator">&lt;</span> <span class="hljs-variable">$1</span>&#125;)<br>        &#125;<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 将中文转成大写字母</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">firstletterFromString</span><span class="hljs-params">(str: String)</span></span> -&gt; <span class="hljs-type">String</span> &#123;<br>        <span class="hljs-comment">//转变成可变字符串</span><br>        <span class="hljs-keyword">let</span> mutableStr <span class="hljs-operator">=</span> <span class="hljs-type">NSMutableString</span>.<span class="hljs-keyword">init</span>(string: str)<br>        <br>        <span class="hljs-comment">//将中文转变成带声调的拼音</span><br>        <span class="hljs-type">CFStringTransform</span>(mutableStr <span class="hljs-keyword">as</span> <span class="hljs-type">CFMutableString</span>, <span class="hljs-literal">nil</span>, kCFStringTransformToLatin, <span class="hljs-literal">false</span>)<br>        <br>        <span class="hljs-comment">//去掉声调</span><br>        <span class="hljs-keyword">let</span> pyStr <span class="hljs-operator">=</span> mutableStr.folding(options: .diacriticInsensitive, locale: .current)<br>        <br>        <span class="hljs-comment">//将拼音换成大写</span><br>        <span class="hljs-keyword">let</span> <span class="hljs-type">PYStr</span> <span class="hljs-operator">=</span> pyStr.uppercased()<br>        <br>        <span class="hljs-comment">//截取大写首字母</span><br>        <span class="hljs-keyword">let</span> index <span class="hljs-operator">=</span> <span class="hljs-type">PYStr</span>.index(<span class="hljs-type">PYStr</span>.startIndex, offsetBy: <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">let</span> firstStr <span class="hljs-operator">=</span> <span class="hljs-type">PYStr</span>[<span class="hljs-operator">..&lt;</span>index]<br>        <br>        <span class="hljs-comment">//判断首字母是否为大写</span><br>        <span class="hljs-keyword">let</span> uppercaseLetter <span class="hljs-operator">=</span> <span class="hljs-string">&quot;^[A-Z]$&quot;</span><br>        <span class="hljs-keyword">let</span> predicateLetter <span class="hljs-operator">=</span> <span class="hljs-type">NSPredicate</span>.<span class="hljs-keyword">init</span>(format: <span class="hljs-string">&quot;SELF MATCHES %@&quot;</span>, uppercaseLetter)<br>        <br>        <span class="hljs-keyword">return</span> <span class="hljs-type">String</span>(predicateLetter.evaluate(with: firstStr) <span class="hljs-operator">?</span> firstStr : <span class="hljs-string">&quot;#&quot;</span>)<br>    &#125;<br>    <br>    <br>    <span class="hljs-comment">//MARK: - 返回多少组</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">numberOfSections</span><span class="hljs-params">(<span class="hljs-keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="hljs-type">Int</span> &#123;<br>        <span class="hljs-keyword">return</span> sectionTitles.count<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 每组多少行</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="hljs-type">Int</span> &#123;<br>        <span class="hljs-keyword">let</span> key <span class="hljs-operator">=</span> sectionTitles[section]<br>        <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> values <span class="hljs-operator">=</span> resultDict[key] <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>        &#125;<br>        <span class="hljs-keyword">return</span> values.count<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">UITableViewCell</span> &#123;<br>        <span class="hljs-keyword">let</span> cell <span class="hljs-operator">=</span> tableView.dequeueReusableCell(withIdentifier: cellID, <span class="hljs-keyword">for</span>: indexPath) <span class="hljs-keyword">as!</span> <span class="hljs-type">TableView2Cell</span><br>        <br>        <span class="hljs-keyword">let</span> key <span class="hljs-operator">=</span> sectionTitles[indexPath.section]<br>        <span class="hljs-keyword">let</span> values <span class="hljs-operator">=</span> resultDict[key]<br>        <br>        cell.titleLabel.text <span class="hljs-operator">=</span> values<span class="hljs-operator">?</span>[indexPath.row]<br>        <br>        <span class="hljs-keyword">return</span> cell<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 行高</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, heightForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">CGFloat</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">60</span><br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - section标题</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, titleForHeaderInSection section: Int)</span></span> -&gt; <span class="hljs-type">String</span>? &#123;<br>        <span class="hljs-keyword">return</span> sectionTitles[section]<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 索引列表</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">sectionIndexTitles</span><span class="hljs-params">(<span class="hljs-keyword">for</span> tableView: UITableView)</span></span> -&gt; [<span class="hljs-type">String</span>]<span class="hljs-operator">?</span> &#123;<br>        <span class="hljs-keyword">return</span> sectionTitles<br>    &#125;<br>    <br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="使用自定义cell实现带索引列表的tableView"><a href="#使用自定义cell实现带索引列表的tableView" class="headerlink" title="使用自定义cell实现带索引列表的tableView"></a>使用自定义cell实现带索引列表的tableView</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;
+&#x2F;&#x2F;  TableView2.swift
+&#x2F;&#x2F;  UITableView
+&#x2F;&#x2F;
+&#x2F;&#x2F;  Created by StYiWe on 2020&#x2F;9&#x2F;14.
+&#x2F;&#x2F;  Copyright © 2020 stYiwe. All rights reserved.
+&#x2F;&#x2F;
+
+import UIKit
+
+&#x2F;&#x2F;cell Identifier
+let cellID &#x3D; &quot;cellID&quot;
+
+class TableView2: UIViewController, UITableViewDelegate, UITableViewDataSource &#123;
+    
+    &#x2F;&#x2F;tableView
+    var tableView &#x3D; UITableView()
+    
+    &#x2F;&#x2F;数据
+    var dataList &#x3D; [String]()
+    
+    &#x2F;&#x2F;处理后的数据(根据首字母进行分组)
+    var resultDict &#x3D; [String : [String]]()
+    
+    &#x2F;&#x2F;组头标题数组
+    var sectionTitles &#x3D; [String]()
+    
+
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+
+        self.title &#x3D; &quot;带索引的UITableView&quot;
+        self.view.backgroundColor &#x3D; .white
+        
+        &#x2F;&#x2F;原始数据
+        dataList &#x3D; [&quot;🐰&quot;, &quot;秃子&quot;, &quot;鹰酱&quot;, &quot;毛熊&quot;, &quot;Cat&quot;, &quot;棒子&quot;, &quot;脚盆鸡&quot;, &quot;高卢鸡&quot;, &quot;狗大户&quot;, &quot;🐫&quot;, &quot;沙某&quot;, &quot;河马&quot;, &quot;Big Dog&quot;, &quot;Apple&quot;]
+        
+        &#x2F;&#x2F;数据处理
+        createResultDict()
+        
+        &#x2F;&#x2F;tableVIew
+        tableView &#x3D; UITableView.init(frame: UIScreen.main.bounds, style: .plain)
+        tableView.delegate &#x3D; self
+        tableView.dataSource &#x3D; self
+        &#x2F;&#x2F;去掉多余的分割线
+        tableView.tableFooterView &#x3D; UIView()
+        &#x2F;&#x2F;注册cell
+        tableView.register(UINib(nibName: &quot;TableView2Cell&quot;, bundle: nil), forCellReuseIdentifier: cellID)
+        self.view.addSubview(tableView)
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 数据处理，根据首字母进行分组
+    func createResultDict() &#123;
+        for str in dataList &#123;
+            &#x2F;&#x2F;获得首字母
+            let firstLetterIndex &#x3D; str.index(str.startIndex, offsetBy: 1)
+            var firstLetter &#x3D; String(str[..&lt;firstLetterIndex])
+            
+            &#x2F;&#x2F;转成大写字母
+            firstLetter &#x3D; firstletterFromString(str: firstLetter)
+            
+            if var values &#x3D; resultDict[firstLetter] &#123;
+                values.append(str)
+                resultDict[firstLetter] &#x3D; values
+            &#125; else &#123;
+                resultDict[firstLetter] &#x3D; [str]
+            &#125;
+            
+            &#x2F;&#x2F;组头标题
+            sectionTitles &#x3D; [String](resultDict.keys)
+            &#x2F;&#x2F;排序
+            sectionTitles &#x3D; sectionTitles.sorted(by: &#123;$0 &lt; $1&#125;)
+        &#125;
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 将中文转成大写字母
+    func firstletterFromString(str: String) -&gt; String &#123;
+        &#x2F;&#x2F;转变成可变字符串
+        let mutableStr &#x3D; NSMutableString.init(string: str)
+        
+        &#x2F;&#x2F;将中文转变成带声调的拼音
+        CFStringTransform(mutableStr as CFMutableString, nil, kCFStringTransformToLatin, false)
+        
+        &#x2F;&#x2F;去掉声调
+        let pyStr &#x3D; mutableStr.folding(options: .diacriticInsensitive, locale: .current)
+        
+        &#x2F;&#x2F;将拼音换成大写
+        let PYStr &#x3D; pyStr.uppercased()
+        
+        &#x2F;&#x2F;截取大写首字母
+        let index &#x3D; PYStr.index(PYStr.startIndex, offsetBy: 1)
+        let firstStr &#x3D; PYStr[..&lt;index]
+        
+        &#x2F;&#x2F;判断首字母是否为大写
+        let uppercaseLetter &#x3D; &quot;^[A-Z]$&quot;
+        let predicateLetter &#x3D; NSPredicate.init(format: &quot;SELF MATCHES %@&quot;, uppercaseLetter)
+        
+        return String(predicateLetter.evaluate(with: firstStr) ? firstStr : &quot;#&quot;)
+    &#125;
+    
+    
+    &#x2F;&#x2F;MARK: - 返回多少组
+    func numberOfSections(in tableView: UITableView) -&gt; Int &#123;
+        return sectionTitles.count
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 每组多少行
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;
+        let key &#x3D; sectionTitles[section]
+        guard let values &#x3D; resultDict[key] else &#123;
+            return 0
+        &#125;
+        return values.count
+    &#125;
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;
+        let cell &#x3D; tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TableView2Cell
+        
+        let key &#x3D; sectionTitles[indexPath.section]
+        let values &#x3D; resultDict[key]
+        
+        cell.titleLabel.text &#x3D; values?[indexPath.row]
+        
+        return cell
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 行高
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;
+        return 60
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - section标题
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -&gt; String? &#123;
+        return sectionTitles[section]
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 索引列表
+    func sectionIndexTitles(for tableView: UITableView) -&gt; [String]? &#123;
+        return sectionTitles
+    &#125;
+    
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="与UISearchBar一起使用"><a href="#与UISearchBar一起使用" class="headerlink" title="与UISearchBar一起使用"></a>与UISearchBar一起使用</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">//</span><br><span class="hljs-comment">//  TableView3.swift</span><br><span class="hljs-comment">//  UITableView</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//  Created by StYiWe on 2020/9/15.</span><br><span class="hljs-comment">//  Copyright © 2020 stYiwe. All rights reserved.</span><br><span class="hljs-comment">//</span><br><br><span class="hljs-keyword">import</span> UIKit<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TableView3</span>: <span class="hljs-title">UIViewController</span>, <span class="hljs-title">UITableViewDelegate</span>, <span class="hljs-title">UITableViewDataSource</span>, <span class="hljs-title">UISearchBarDelegate</span> </span>&#123;<br><br>    <span class="hljs-comment">//searchBar</span><br>    <span class="hljs-keyword">var</span> searchBar : <span class="hljs-type">UISearchBar</span>!<br>    <br>    <span class="hljs-comment">//tableView</span><br>    <span class="hljs-keyword">var</span> tableView : <span class="hljs-type">UITableView</span>!<br>    <br>    <span class="hljs-comment">//数据</span><br>    <span class="hljs-keyword">var</span> dataList <span class="hljs-operator">=</span> [<span class="hljs-string">&quot;🐰&quot;</span>, <span class="hljs-string">&quot;秃子&quot;</span>, <span class="hljs-string">&quot;鹰酱&quot;</span>, <span class="hljs-string">&quot;毛熊&quot;</span>, <span class="hljs-string">&quot;Cat&quot;</span>, <span class="hljs-string">&quot;棒子&quot;</span>, <span class="hljs-string">&quot;脚盆鸡&quot;</span>, <span class="hljs-string">&quot;高卢鸡&quot;</span>, <span class="hljs-string">&quot;狗大户&quot;</span>, <span class="hljs-string">&quot;🐫&quot;</span>, <span class="hljs-string">&quot;沙某&quot;</span>, <span class="hljs-string">&quot;河马&quot;</span>, <span class="hljs-string">&quot;Big Dog&quot;</span>, <span class="hljs-string">&quot;Apple&quot;</span>]<br>    <br>    <span class="hljs-comment">//搜索数据</span><br>    <span class="hljs-keyword">var</span> searchDataList: [<span class="hljs-type">String</span>] <span class="hljs-operator">=</span> []<br>    <br>    <br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-keyword">super</span>.viewDidLoad()<br>        <span class="hljs-keyword">self</span>.title <span class="hljs-operator">=</span> <span class="hljs-string">&quot;与UISearchBar一起使用&quot;</span><br>        <span class="hljs-keyword">self</span>.view.backgroundColor <span class="hljs-operator">=</span> .white<br>        <br>        <span class="hljs-comment">//搜索数据默认加载全部</span><br>        searchDataList <span class="hljs-operator">=</span> dataList<br>        <br>        <span class="hljs-comment">//UI</span><br>        creatUI()<br>        <br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">creatUI</span><span class="hljs-params">()</span></span> &#123;<br>        <span class="hljs-comment">//tableView</span><br>        tableView <span class="hljs-operator">=</span> <span class="hljs-type">UITableView</span>.<span class="hljs-keyword">init</span>(frame: <span class="hljs-type">UIScreen</span>.main.bounds, style: .plain)<br>        tableView.delegate <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        tableView.dataSource <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        tableView.tableFooterView <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>()<br>        <span class="hljs-comment">//注册cell</span><br>        tableView.register(<span class="hljs-type">UITableViewCell</span>.<span class="hljs-keyword">self</span>, forCellReuseIdentifier: <span class="hljs-string">&quot;cellID&quot;</span>)<br>        <span class="hljs-keyword">self</span>.view.addSubview(tableView)<br>        <br>        <span class="hljs-comment">//searchBar</span><br>        searchBar <span class="hljs-operator">=</span> <span class="hljs-type">UISearchBar</span>.<span class="hljs-keyword">init</span>(frame: <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>, width: <span class="hljs-type">UIScreen</span>.main.bounds.size.width, height: <span class="hljs-number">60</span>))<br>        <span class="hljs-comment">//显示取消按钮</span><br>        searchBar.showsCancelButton <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><br>        searchBar.delegate <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>        tableView.tableHeaderView <span class="hljs-operator">=</span> searchBar<br>        <br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 取消搜索</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">searchBarCancelButtonClicked</span><span class="hljs-params">(<span class="hljs-keyword">_</span> searchBar: UISearchBar)</span></span> &#123;<br>        <span class="hljs-keyword">self</span>.view.endEditing(true)<br>        searchBar.text <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span><br>        searchDataList <span class="hljs-operator">=</span> dataList<br>        tableView.reloadData()<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 搜索代理，每次改变搜索内容都会调用</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">searchBar</span><span class="hljs-params">(<span class="hljs-keyword">_</span> searchBar: UISearchBar, textDidChange searchText: String)</span></span> &#123;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;搜索内容:<span class="hljs-subst">\(searchText)</span>&quot;</span>)<br>        <span class="hljs-comment">//没有搜索内容时显示全部数据</span><br>        <span class="hljs-keyword">if</span> searchText <span class="hljs-operator">==</span> <span class="hljs-string">&quot;&quot;</span> &#123;<br>            searchDataList <span class="hljs-operator">=</span> dataList<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">//获取搜索栏文字，筛选后更新列表</span><br>            <span class="hljs-keyword">let</span> text <span class="hljs-operator">=</span> searchText.trimmingCharacters(<span class="hljs-keyword">in</span>: .whitespaces)<br>            <span class="hljs-comment">//获取符合的数据</span><br>            searchFilter(text: text)<br>        &#125;<br>        <br>        tableView.reloadData()<br>    &#125;<br>    <br>    <span class="hljs-comment">//MARK: - 添加一个筛选器方法:使用Swift数组系统filter方法,返回一个符合条件的新数组</span><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">searchFilter</span><span class="hljs-params">(text: String)</span></span> &#123;<br>        searchDataList <span class="hljs-operator">=</span> dataList.filter(&#123; (str) -&gt; <span class="hljs-type">Bool</span> <span class="hljs-keyword">in</span><br>            <span class="hljs-keyword">return</span> str.localizedCaseInsensitiveContains(text)<br>        &#125;)<br>    &#125;<br>    <br><br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="hljs-type">Int</span> &#123;<br>        <span class="hljs-keyword">return</span> searchDataList.count<br>    &#125;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableView</span><span class="hljs-params">(<span class="hljs-keyword">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="hljs-type">UITableViewCell</span> &#123;<br>        <span class="hljs-keyword">let</span> cell <span class="hljs-operator">=</span> tableView.dequeueReusableCell(withIdentifier: <span class="hljs-string">&quot;cellID&quot;</span>, <span class="hljs-keyword">for</span>: indexPath)<br>        <br>        cell.textLabel<span class="hljs-operator">?</span>.text <span class="hljs-operator">=</span> searchDataList[indexPath.row]<br>        <br>        <span class="hljs-keyword">return</span> cell<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="与UISearchBar一起使用"><a href="#与UISearchBar一起使用" class="headerlink" title="与UISearchBar一起使用"></a>与UISearchBar一起使用</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;
+&#x2F;&#x2F;  TableView3.swift
+&#x2F;&#x2F;  UITableView
+&#x2F;&#x2F;
+&#x2F;&#x2F;  Created by StYiWe on 2020&#x2F;9&#x2F;15.
+&#x2F;&#x2F;  Copyright © 2020 stYiwe. All rights reserved.
+&#x2F;&#x2F;
+
+import UIKit
+
+class TableView3: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate &#123;
+
+    &#x2F;&#x2F;searchBar
+    var searchBar : UISearchBar!
+    
+    &#x2F;&#x2F;tableView
+    var tableView : UITableView!
+    
+    &#x2F;&#x2F;数据
+    var dataList &#x3D; [&quot;🐰&quot;, &quot;秃子&quot;, &quot;鹰酱&quot;, &quot;毛熊&quot;, &quot;Cat&quot;, &quot;棒子&quot;, &quot;脚盆鸡&quot;, &quot;高卢鸡&quot;, &quot;狗大户&quot;, &quot;🐫&quot;, &quot;沙某&quot;, &quot;河马&quot;, &quot;Big Dog&quot;, &quot;Apple&quot;]
+    
+    &#x2F;&#x2F;搜索数据
+    var searchDataList: [String] &#x3D; []
+    
+    
+    override func viewDidLoad() &#123;
+        super.viewDidLoad()
+        self.title &#x3D; &quot;与UISearchBar一起使用&quot;
+        self.view.backgroundColor &#x3D; .white
+        
+        &#x2F;&#x2F;搜索数据默认加载全部
+        searchDataList &#x3D; dataList
+        
+        &#x2F;&#x2F;UI
+        creatUI()
+        
+    &#125;
+    
+    func creatUI() &#123;
+        &#x2F;&#x2F;tableView
+        tableView &#x3D; UITableView.init(frame: UIScreen.main.bounds, style: .plain)
+        tableView.delegate &#x3D; self
+        tableView.dataSource &#x3D; self
+        tableView.tableFooterView &#x3D; UIView()
+        &#x2F;&#x2F;注册cell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: &quot;cellID&quot;)
+        self.view.addSubview(tableView)
+        
+        &#x2F;&#x2F;searchBar
+        searchBar &#x3D; UISearchBar.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 60))
+        &#x2F;&#x2F;显示取消按钮
+        searchBar.showsCancelButton &#x3D; true
+        searchBar.delegate &#x3D; self
+        tableView.tableHeaderView &#x3D; searchBar
+        
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 取消搜索
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) &#123;
+        self.view.endEditing(true)
+        searchBar.text &#x3D; &quot;&quot;
+        searchDataList &#x3D; dataList
+        tableView.reloadData()
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 搜索代理，每次改变搜索内容都会调用
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) &#123;
+        print(&quot;搜索内容:\(searchText)&quot;)
+        &#x2F;&#x2F;没有搜索内容时显示全部数据
+        if searchText &#x3D;&#x3D; &quot;&quot; &#123;
+            searchDataList &#x3D; dataList
+        &#125; else &#123;
+            &#x2F;&#x2F;获取搜索栏文字，筛选后更新列表
+            let text &#x3D; searchText.trimmingCharacters(in: .whitespaces)
+            &#x2F;&#x2F;获取符合的数据
+            searchFilter(text: text)
+        &#125;
+        
+        tableView.reloadData()
+    &#125;
+    
+    &#x2F;&#x2F;MARK: - 添加一个筛选器方法:使用Swift数组系统filter方法,返回一个符合条件的新数组
+    func searchFilter(text: String) &#123;
+        searchDataList &#x3D; dataList.filter(&#123; (str) -&gt; Bool in
+            return str.localizedCaseInsensitiveContains(text)
+        &#125;)
+    &#125;
+    
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;
+        return searchDataList.count
+    &#125;
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;
+        let cell &#x3D; tableView.dequeueReusableCell(withIdentifier: &quot;cellID&quot;, for: indexPath)
+        
+        cell.textLabel?.text &#x3D; searchDataList[indexPath.row]
+        
+        return cell
+    &#125;
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>附上<a target="_blank" rel="noopener" href="https://github.com/StYiwe/swift.git">Demo</a></p>
@@ -970,7 +1370,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             

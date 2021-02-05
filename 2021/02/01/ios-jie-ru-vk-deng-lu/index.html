@@ -367,7 +367,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    528
+                    520
                 </div>
                 
 
@@ -389,6 +389,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -401,7 +404,12 @@
 <h4 id="2-获取SDK，在github上下载的工程打开进行编译获取对应的framework"><a href="#2-获取SDK，在github上下载的工程打开进行编译获取对应的framework" class="headerlink" title="2.获取SDK，在github上下载的工程打开进行编译获取对应的framework"></a>2.获取SDK，在github上下载的工程打开进行编译获取对应的framework</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn83b4qi7pj30qg0ry425.jpg" alt="image-20201222171049124"></p>
 <h4 id="3-将SDK加入项目中"><a href="#3-将SDK加入项目中" class="headerlink" title="3.将SDK加入项目中"></a>3.将SDK加入项目中</h4><ul>
 <li><p>将下列代码加到<code>info.plist</code>中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">&lt;key&gt;LSApplicationQueriesSchemes&lt;&#x2F;key&gt;<br>&lt;array&gt;<br>    &lt;string&gt;vk&lt;&#x2F;string&gt;<br>    &lt;string&gt;vk-share&lt;&#x2F;string&gt;<br>    &lt;string&gt;vkauthorize&lt;&#x2F;string&gt;<br>&lt;&#x2F;array&gt;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&lt;key&gt;LSApplicationQueriesSchemes&lt;&#x2F;key&gt;
+&lt;array&gt;
+    &lt;string&gt;vk&lt;&#x2F;string&gt;
+    &lt;string&gt;vk-share&lt;&#x2F;string&gt;
+    &lt;string&gt;vkauthorize&lt;&#x2F;string&gt;
+&lt;&#x2F;array&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>添加成功后如下所示</p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn83bdr77yj30wg0bi0u3.jpg" alt="image-20201222171425705"></p>
 </li>
@@ -411,7 +419,7 @@
 </ul>
 <ul>
 <li><p>在需要调用的地方导入<code>#import &lt;VKSdkFramework/VKSdkFramework.h&gt;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">#import &lt;VKSdkFramework&#x2F;VKSdkFramework.h&gt;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">#import &lt;VKSdkFramework&#x2F;VKSdkFramework.h&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 </li>
@@ -419,17 +427,68 @@
 <ul>
 <li><p>SDK初始化</p>
 <p>1.将代码放入应用程序委托方法里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;NSString *,id&gt; *)options &#123;<br>    [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];<br>    return YES;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary&lt;NSString *,id&gt; *)options &#123;
+    [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+    return YES;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意：如果您已经添加了FaceBook SDK，并且返回了其中一种方法<code>[FBSDKDelegate ...]</code>，则可以对其进行处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation &#123;<br><br>    [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];<br>    [VKSdk processOpenURL:url fromApplication:sourceApplication];<br>    return YES;<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation &#123;
+
+    [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    [VKSdk processOpenURL:url fromApplication:sourceApplication];
+    return YES;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>3.在需要调用的页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">- (**void**)viewDidLoad &#123;<br>	[super viewDidLoad];<br><br>	[[VKSdk initializeWithAppId:@&quot;3974615&quot;] registerDelegate:self];<br>    [[VKSdk instance] setUiDelegate:self];<br>    SCOPE &#x3D; @[VK_PER_FRIENDS, VK_PER_EMAIL];<br>    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) &#123;<br>        NSLog(@&quot;state:%lu&quot;,(unsigned long)state);<br>        if (state &#x3D;&#x3D; VKAuthorizationAuthorized) &#123;<br>            NSLog(@&quot;可以登录&quot;);<br>            <br>        &#125; else if (error) &#123;<br>            NSLog(@&quot;发生错误:%@&quot;,error.description);<br>            <br>        &#125;<br>    &#125;];<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (**void**)viewDidLoad &#123;
+	[super viewDidLoad];
+
+	[[VKSdk initializeWithAppId:@&quot;3974615&quot;] registerDelegate:self];
+    [[VKSdk instance] setUiDelegate:self];
+    SCOPE &#x3D; @[VK_PER_FRIENDS, VK_PER_EMAIL];
+    [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) &#123;
+        NSLog(@&quot;state:%lu&quot;,(unsigned long)state);
+        if (state &#x3D;&#x3D; VKAuthorizationAuthorized) &#123;
+            NSLog(@&quot;可以登录&quot;);
+            
+        &#125; else if (error) &#123;
+            NSLog(@&quot;发生错误:%@&quot;,error.description);
+            
+        &#125;
+    &#125;];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>4.添加delegate</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">&lt;VKSdkUIDelegate,VKSdkDelegate&gt;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&lt;VKSdkUIDelegate,VKSdkDelegate&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>5.在点击VK登录的方法里调用如下方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">[VKSdk authorize:SCOPE];<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">[VKSdk authorize:SCOPE];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>6.实现代理方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result &#123;<br>    <br>    if (result.token) &#123;<br>        NSLog(@&quot;userid:%@&quot;,result.token.userId);<br>        NSLog(@&quot;accessToken:%@&quot;,result.token.accessToken);<br>        &#x2F;&#x2F;登录成功，获取到userId，执行后续操作（如登录等）<br>        <br>    &#125; else if (result.error) &#123;&#x2F;&#x2F;失败<br>        NSLog(@&quot;error:%@&quot;,result.error.description);<br>    &#125;<br>&#125;<br><br>- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError &#123;<br>    VKCaptchaViewController *vc &#x3D; [VKCaptchaViewController captchaControllerWithError:captchaError];<br>    [vc presentIn:self.navigationController.topViewController];<br>&#125;<br><br>- (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken &#123;<br>    [VKSdk authorize:SCOPE];<br>&#125;<br><br>- (void)vkSdkUserAuthorizationFailed &#123;<br>    NSLog(@&quot;failed&quot;);<br>&#125;<br><br>- (void)vkSdkShouldPresentViewController:(UIViewController *)controller &#123;<br>    [self.navigationController.topViewController presentViewController:controller animated:YES completion:nil];<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">- (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result &#123;
+    
+    if (result.token) &#123;
+        NSLog(@&quot;userid:%@&quot;,result.token.userId);
+        NSLog(@&quot;accessToken:%@&quot;,result.token.accessToken);
+        &#x2F;&#x2F;登录成功，获取到userId，执行后续操作（如登录等）
+        
+    &#125; else if (result.error) &#123;&#x2F;&#x2F;失败
+        NSLog(@&quot;error:%@&quot;,result.error.description);
+    &#125;
+&#125;
+
+- (void)vkSdkNeedCaptchaEnter:(VKError *)captchaError &#123;
+    VKCaptchaViewController *vc &#x3D; [VKCaptchaViewController captchaControllerWithError:captchaError];
+    [vc presentIn:self.navigationController.topViewController];
+&#125;
+
+- (void)vkSdkTokenHasExpired:(VKAccessToken *)expiredToken &#123;
+    [VKSdk authorize:SCOPE];
+&#125;
+
+- (void)vkSdkUserAuthorizationFailed &#123;
+    NSLog(@&quot;failed&quot;);
+&#125;
+
+- (void)vkSdkShouldPresentViewController:(UIViewController *)controller &#123;
+    [self.navigationController.topViewController presentViewController:controller animated:YES completion:nil];
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -970,7 +1029,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             

@@ -371,7 +371,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    297
+                    318
                 </div>
                 
 
@@ -393,6 +393,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -406,7 +409,20 @@
 <h4 id="UISearchController的初始化"><a href="#UISearchController的初始化" class="headerlink" title="UISearchController的初始化"></a>UISearchController的初始化</h4><ul>
 <li>代码如下</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">/// 初始化搜索控制器</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">initSearchController</span><span class="hljs-params">()</span></span> &#123;<br>    searchC <span class="hljs-operator">=</span> <span class="hljs-type">UISearchController</span>.<span class="hljs-keyword">init</span>(searchResultsController: <span class="hljs-literal">nil</span>)<br>    searchC.searchResultsUpdater <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span><br>    <span class="hljs-comment">//设置placeholder</span><br>    searchC.searchBar.placeholder <span class="hljs-operator">=</span> <span class="hljs-string">&quot;搜索内容&quot;</span><br>    <span class="hljs-comment">//设置为false，则搜索出来的内容可点击等操作</span><br>    searchC.obscuresBackgroundDuringPresentation <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment">//总是显示搜索框,如果不设置，会随着滚动而消失</span><br>    navigationItem.hidesSearchBarWhenScrolling <span class="hljs-operator">=</span> <span class="hljs-literal">false</span><br>    <span class="hljs-comment">//将搜索控制器加到导航栏上</span><br>    navigationItem.searchController <span class="hljs-operator">=</span> searchC<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;&#x2F; 初始化搜索控制器
+func initSearchController() &#123;
+    searchC &#x3D; UISearchController.init(searchResultsController: nil)
+    searchC.searchResultsUpdater &#x3D; self
+    &#x2F;&#x2F;设置placeholder
+    searchC.searchBar.placeholder &#x3D; &quot;搜索内容&quot;
+    &#x2F;&#x2F;设置为false，则搜索出来的内容可点击等操作
+    searchC.obscuresBackgroundDuringPresentation &#x3D; false
+    &#x2F;&#x2F;总是显示搜索框,如果不设置，会随着滚动而消失
+    navigationItem.hidesSearchBarWhenScrolling &#x3D; false
+    &#x2F;&#x2F;将搜索控制器加到导航栏上
+    navigationItem.searchController &#x3D; searchC
+
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>注：以下两个属性需要注意下</p>
 <p>//设置为false，则搜索出来的内容可点击等操作</p>
@@ -417,7 +433,13 @@
 <ul>
 <li>实现代理，进行实时搜索</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-comment">/// UISearchController代理，实时进行搜索</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateSearchResults</span><span class="hljs-params">(<span class="hljs-keyword">for</span> searchController: UISearchController)</span></span> &#123;<br>    searchArr <span class="hljs-operator">=</span> dataList.filter(&#123; (str) -&gt; <span class="hljs-type">Bool</span> <span class="hljs-keyword">in</span><br>        <span class="hljs-comment">//localizedCaseInsensitiveContains 返回不区分大小写，包含的数据</span><br>        <span class="hljs-keyword">return</span> str.localizedCaseInsensitiveContains(searchC.searchBar.text<span class="hljs-operator">!</span>)<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;&#x2F; UISearchController代理，实时进行搜索
+func updateSearchResults(for searchController: UISearchController) &#123;
+    searchArr &#x3D; dataList.filter(&#123; (str) -&gt; Bool in
+        &#x2F;&#x2F;localizedCaseInsensitiveContains 返回不区分大小写，包含的数据
+        return str.localizedCaseInsensitiveContains(searchC.searchBar.text!)
+    &#125;)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>这里使用了Swift数组自带filter方法,返回一个符合条件的新数组</p>
 </blockquote>
@@ -976,7 +998,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             

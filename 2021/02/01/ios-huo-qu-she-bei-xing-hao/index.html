@@ -389,12 +389,162 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="iOS获取设备型号"><a href="#iOS获取设备型号" class="headerlink" title="iOS获取设备型号"></a>iOS获取设备型号</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><code class="hljs objective-c">&#x2F;&#x2F; 需要#import &quot;sys&#x2F;utsname.h&quot;<br>+ (NSString *)getDeviceInfo &#123;<br>    <br>    struct utsname systemInfo;<br>    uname(&amp;systemInfo);<br>    &#x2F;&#x2F; 获取设备标识Identifier<br>    NSString *platform &#x3D; [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];<br>    <br>    &#x2F;&#x2F;iPhone<br>    if ([platform isEqualToString:@&quot;iPhone1,1&quot;]) return @&quot;iPhone 2G&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone1,2&quot;]) return @&quot;iPhone 3G&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone2,1&quot;]) return @&quot;iPhone 3GS&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone3,1&quot;]) return @&quot;iPhone 4&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone3,2&quot;]) return @&quot;iPhone 4&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone3,3&quot;]) return @&quot;iPhone 4&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone4,1&quot;]) return @&quot;iPhone 4S&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone5,1&quot;]) return @&quot;iPhone 5&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone5,2&quot;]) return @&quot;iPhone 5&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone5,3&quot;]) return @&quot;iPhone 5c&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone5,4&quot;]) return @&quot;iPhone 5c&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone6,1&quot;]) return @&quot;iPhone 5s&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone6,2&quot;]) return @&quot;iPhone 5s&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone7,2&quot;]) return @&quot;iPhone 6&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone7,1&quot;]) return @&quot;iPhone 6 Plus&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone8,1&quot;]) return @&quot;iPhone 6s&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone8,2&quot;]) return @&quot;iPhone 6s Plus&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone8,4&quot;]) return @&quot;iPhone SE&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone9,1&quot;]) return @&quot;iPhone 7&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone9,3&quot;]) return @&quot;iPhone 7&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone9,2&quot;]) return @&quot;iPhone 7 Plus&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone9,4&quot;]) return @&quot;iPhone 7 Plus&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;iPhone 8&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;iPhone 8&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;iPhone 8 Plus&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;iPhone 8 Plus (A1897)&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;iPhone X&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;iPhone X&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone12,1&quot;]) return @&quot;iPhone 11&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone12,3&quot;]) return @&quot;iPhone 11 Pro&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone12,5&quot;]) return @&quot;iPhone 11 Pro Max&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone12,8&quot;]) return @&quot;iPhone SE (2nd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone13,1&quot;]) return @&quot;iPhone 12 mini&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone13,2&quot;]) return @&quot;iPhone 12&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone13,3&quot;]) return @&quot;iPhone 12 Pro&quot;;<br>    if ([platform isEqualToString:@&quot;iPhone13,4&quot;]) return @&quot;iPhone 12 Pro Max&quot;;<br><br>    <br>    &#x2F;&#x2F;iPad<br>    if ([platform isEqualToString:@&quot;iPad1,1&quot;])   return @&quot;iPad&quot;;<br>    if ([platform isEqualToString:@&quot;iPad2,1&quot;])   return @&quot;iPad 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad2,2&quot;])   return @&quot;iPad 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad2,3&quot;])   return @&quot;iPad 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad2,4&quot;])   return @&quot;iPad 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad3,1&quot;])   return @&quot;iPad (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad3,2&quot;])   return @&quot;iPad (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad3,3&quot;])   return @&quot;iPad (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad3,4&quot;])   return @&quot;iPad (4th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad3,5&quot;])   return @&quot;iPad (4th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad3,6&quot;])   return @&quot;iPad (4th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad6,11&quot;])  return @&quot;iPad (5th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad6,12&quot;])  return @&quot;iPad (5th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,5&quot;])   return @&quot;iPad (6th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,6&quot;])   return @&quot;iPad (6th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,11&quot;])  return @&quot;iPad (7th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,12&quot;])  return @&quot;iPad (7th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad11,6&quot;])  return @&quot;iPad (8th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad11,7&quot;])  return @&quot;iPad (8th generation)&quot;;<br>    <br>    <br>    &#x2F;&#x2F;iPad Air<br>    if ([platform isEqualToString:@&quot;iPad4,1&quot;])   return @&quot;iPad Air&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,2&quot;])   return @&quot;iPad Air&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,3&quot;])   return @&quot;iPad Air&quot;;<br>    if ([platform isEqualToString:@&quot;iPad5,3&quot;])   return @&quot;iPad Air 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad5,4&quot;])   return @&quot;iPad Air 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad11,3&quot;])  return @&quot;iPad Air (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad11,4&quot;])  return @&quot;iPad Air (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad13,1&quot;])  return @&quot;iPad Air (4th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad13,2&quot;])  return @&quot;iPad Air (4th generation)&quot;;<br>    <br>    &#x2F;&#x2F;iPad mini<br>    if ([platform isEqualToString:@&quot;iPad2,5&quot;])   return @&quot;iPad mini&quot;;<br>    if ([platform isEqualToString:@&quot;iPad2,6&quot;])   return @&quot;iPad mini&quot;;<br>    if ([platform isEqualToString:@&quot;iPad2,7&quot;])   return @&quot;iPad mini 1&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,4&quot;])   return @&quot;iPad mini 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,5&quot;])   return @&quot;iPad mini 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,6&quot;])   return @&quot;iPad mini 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,7&quot;])   return @&quot;iPad mini 3&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,8&quot;])   return @&quot;iPad mini 3&quot;;<br>    if ([platform isEqualToString:@&quot;iPad4,9&quot;])   return @&quot;iPad mini 3&quot;;<br>    if ([platform isEqualToString:@&quot;iPad5,1&quot;])   return @&quot;iPad mini 4&quot;;<br>    if ([platform isEqualToString:@&quot;iPad5,2&quot;])   return @&quot;iPad mini 4&quot;;<br>    if ([platform isEqualToString:@&quot;iPad11,1&quot;])  return @&quot;iPad mini 5&quot;;<br>    if ([platform isEqualToString:@&quot;iPad11,2&quot;])  return @&quot;iPad mini 5&quot;;<br>    <br>    &#x2F;&#x2F; iPad Pro<br>    if ([platform isEqualToString:@&quot;iPad6,3&quot;])    return @&quot;iPad Pro (9.7-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad6,4&quot;])    return @&quot;iPad Pro (9.7-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad6,7&quot;])    return @&quot;iPad Pro (12.9-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad6,8&quot;])    return @&quot;iPad Pro (12.9-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,1&quot;])    return @&quot;iPad Pro (12.9-inch) (2nd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,2&quot;])    return @&quot;iPad Pro (12.9-inch) (2nd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,3&quot;])  return @&quot;iPad Pro (10.5 inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad7,4&quot;])  return @&quot;iPad Pro (10.5-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,1&quot;])  return @&quot;iPad Pro (11-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,2&quot;])  return @&quot;iPad Pro (11-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,3&quot;])  return @&quot;iPad Pro (11-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,4&quot;])  return @&quot;iPad Pro (11-inch)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,5&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,6&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,7&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,8&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,9&quot;])  return @&quot;iPad Pro (11-inch) (2nd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,10&quot;])  return @&quot;iPad Pro (11-inch) (2nd generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,11&quot;])  return @&quot;iPad Pro (12.9-inch) (4th generation)&quot;;<br>    if ([platform isEqualToString:@&quot;iPad8,12&quot;])  return @&quot;iPad Pro (12.9-inch) (4th generation)&quot;;<br>  <br>  	&#x2F;&#x2F;iPod Touch<br>    if ([platform isEqualToString:@&quot;iPod1,1&quot;])   return @&quot;iPod Touch&quot;;<br>    if ([platform isEqualToString:@&quot;iPod2,1&quot;])   return @&quot;iPod Touch 2&quot;;<br>    if ([platform isEqualToString:@&quot;iPod3,1&quot;])   return @&quot;iPod Touch 3&quot;;<br>    if ([platform isEqualToString:@&quot;iPod4,1&quot;])   return @&quot;iPod Touch 4)&quot;;<br>    if ([platform isEqualToString:@&quot;iPod5,1&quot;])   return @&quot;iPod Touch 5&quot;;<br>    if ([platform isEqualToString:@&quot;iPod7,1&quot;])   return @&quot;iPod Touch 6&quot;;<br>    if ([platform isEqualToString:@&quot;iPod9,1&quot;])   return @&quot;iPod Touch 7&quot;;<br><br>    &#x2F;&#x2F; Apple Watch<br>    if ([platform isEqualToString:@&quot;Watch1,1&quot;])   return @&quot;Apple Watch&quot;;<br>    if ([platform isEqualToString:@&quot;Watch1,2&quot;])   return @&quot;Apple Watch&quot;;<br>    if ([platform isEqualToString:@&quot;Watch2,6&quot;])   return @&quot;Apple Watch Series 1&quot;;<br>    if ([platform isEqualToString:@&quot;Watch2,7&quot;])   return @&quot;Apple Watch Series 1&quot;;<br>    if ([platform isEqualToString:@&quot;Watch2,3&quot;])   return @&quot;Apple Watch Series 2&quot;;<br>    if ([platform isEqualToString:@&quot;Watch2,4&quot;])   return @&quot;Apple Watch Series 2&quot;;<br>    if ([platform isEqualToString:@&quot;Watch3,1&quot;])   return @&quot;Apple Watch Series 3&quot;;<br>    if ([platform isEqualToString:@&quot;Watch3,2&quot;])   return @&quot;Apple Watch Series 3&quot;;<br>    if ([platform isEqualToString:@&quot;Watch3,3&quot;])   return @&quot;Apple Watch Series 3&quot;;<br>    if ([platform isEqualToString:@&quot;Watch3,4&quot;])   return @&quot;Apple Watch Series 3&quot;;<br><br>  	&#x2F;&#x2F; 模拟器<br>    if ([platform isEqualToString:@&quot;i386&quot;])   return @&quot;iPhone Simulator&quot;;<br>    if ([platform isEqualToString:@&quot;x86_64&quot;])  return @&quot;iPhone Simulator&quot;;<br>    <br>    return platform;<br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="iOS获取设备型号"><a href="#iOS获取设备型号" class="headerlink" title="iOS获取设备型号"></a>iOS获取设备型号</h1><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F; 需要#import &quot;sys&#x2F;utsname.h&quot;
++ (NSString *)getDeviceInfo &#123;
+    
+    struct utsname systemInfo;
+    uname(&amp;systemInfo);
+    &#x2F;&#x2F; 获取设备标识Identifier
+    NSString *platform &#x3D; [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+    
+    &#x2F;&#x2F;iPhone
+    if ([platform isEqualToString:@&quot;iPhone1,1&quot;]) return @&quot;iPhone 2G&quot;;
+    if ([platform isEqualToString:@&quot;iPhone1,2&quot;]) return @&quot;iPhone 3G&quot;;
+    if ([platform isEqualToString:@&quot;iPhone2,1&quot;]) return @&quot;iPhone 3GS&quot;;
+    if ([platform isEqualToString:@&quot;iPhone3,1&quot;]) return @&quot;iPhone 4&quot;;
+    if ([platform isEqualToString:@&quot;iPhone3,2&quot;]) return @&quot;iPhone 4&quot;;
+    if ([platform isEqualToString:@&quot;iPhone3,3&quot;]) return @&quot;iPhone 4&quot;;
+    if ([platform isEqualToString:@&quot;iPhone4,1&quot;]) return @&quot;iPhone 4S&quot;;
+    if ([platform isEqualToString:@&quot;iPhone5,1&quot;]) return @&quot;iPhone 5&quot;;
+    if ([platform isEqualToString:@&quot;iPhone5,2&quot;]) return @&quot;iPhone 5&quot;;
+    if ([platform isEqualToString:@&quot;iPhone5,3&quot;]) return @&quot;iPhone 5c&quot;;
+    if ([platform isEqualToString:@&quot;iPhone5,4&quot;]) return @&quot;iPhone 5c&quot;;
+    if ([platform isEqualToString:@&quot;iPhone6,1&quot;]) return @&quot;iPhone 5s&quot;;
+    if ([platform isEqualToString:@&quot;iPhone6,2&quot;]) return @&quot;iPhone 5s&quot;;
+    if ([platform isEqualToString:@&quot;iPhone7,2&quot;]) return @&quot;iPhone 6&quot;;
+    if ([platform isEqualToString:@&quot;iPhone7,1&quot;]) return @&quot;iPhone 6 Plus&quot;;
+    if ([platform isEqualToString:@&quot;iPhone8,1&quot;]) return @&quot;iPhone 6s&quot;;
+    if ([platform isEqualToString:@&quot;iPhone8,2&quot;]) return @&quot;iPhone 6s Plus&quot;;
+    if ([platform isEqualToString:@&quot;iPhone8,4&quot;]) return @&quot;iPhone SE&quot;;
+    if ([platform isEqualToString:@&quot;iPhone9,1&quot;]) return @&quot;iPhone 7&quot;;
+    if ([platform isEqualToString:@&quot;iPhone9,3&quot;]) return @&quot;iPhone 7&quot;;
+    if ([platform isEqualToString:@&quot;iPhone9,2&quot;]) return @&quot;iPhone 7 Plus&quot;;
+    if ([platform isEqualToString:@&quot;iPhone9,4&quot;]) return @&quot;iPhone 7 Plus&quot;;
+    if ([platform isEqualToString:@&quot;iPhone10,1&quot;]) return @&quot;iPhone 8&quot;;
+    if ([platform isEqualToString:@&quot;iPhone10,4&quot;]) return @&quot;iPhone 8&quot;;
+    if ([platform isEqualToString:@&quot;iPhone10,2&quot;]) return @&quot;iPhone 8 Plus&quot;;
+    if ([platform isEqualToString:@&quot;iPhone10,5&quot;]) return @&quot;iPhone 8 Plus (A1897)&quot;;
+    if ([platform isEqualToString:@&quot;iPhone10,3&quot;]) return @&quot;iPhone X&quot;;
+    if ([platform isEqualToString:@&quot;iPhone10,6&quot;]) return @&quot;iPhone X&quot;;
+    if ([platform isEqualToString:@&quot;iPhone11,2&quot;]) return @&quot;iPhone XS&quot;;
+    if ([platform isEqualToString:@&quot;iPhone11,4&quot;]) return @&quot;iPhone XS Max&quot;;
+    if ([platform isEqualToString:@&quot;iPhone11,6&quot;]) return @&quot;iPhone XS Max&quot;;
+    if ([platform isEqualToString:@&quot;iPhone11,8&quot;]) return @&quot;iPhone XR&quot;;
+    if ([platform isEqualToString:@&quot;iPhone12,1&quot;]) return @&quot;iPhone 11&quot;;
+    if ([platform isEqualToString:@&quot;iPhone12,3&quot;]) return @&quot;iPhone 11 Pro&quot;;
+    if ([platform isEqualToString:@&quot;iPhone12,5&quot;]) return @&quot;iPhone 11 Pro Max&quot;;
+    if ([platform isEqualToString:@&quot;iPhone12,8&quot;]) return @&quot;iPhone SE (2nd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPhone13,1&quot;]) return @&quot;iPhone 12 mini&quot;;
+    if ([platform isEqualToString:@&quot;iPhone13,2&quot;]) return @&quot;iPhone 12&quot;;
+    if ([platform isEqualToString:@&quot;iPhone13,3&quot;]) return @&quot;iPhone 12 Pro&quot;;
+    if ([platform isEqualToString:@&quot;iPhone13,4&quot;]) return @&quot;iPhone 12 Pro Max&quot;;
+
+    
+    &#x2F;&#x2F;iPad
+    if ([platform isEqualToString:@&quot;iPad1,1&quot;])   return @&quot;iPad&quot;;
+    if ([platform isEqualToString:@&quot;iPad2,1&quot;])   return @&quot;iPad 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad2,2&quot;])   return @&quot;iPad 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad2,3&quot;])   return @&quot;iPad 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad2,4&quot;])   return @&quot;iPad 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad3,1&quot;])   return @&quot;iPad (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad3,2&quot;])   return @&quot;iPad (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad3,3&quot;])   return @&quot;iPad (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad3,4&quot;])   return @&quot;iPad (4th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad3,5&quot;])   return @&quot;iPad (4th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad3,6&quot;])   return @&quot;iPad (4th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad6,11&quot;])  return @&quot;iPad (5th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad6,12&quot;])  return @&quot;iPad (5th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,5&quot;])   return @&quot;iPad (6th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,6&quot;])   return @&quot;iPad (6th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,11&quot;])  return @&quot;iPad (7th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,12&quot;])  return @&quot;iPad (7th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad11,6&quot;])  return @&quot;iPad (8th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad11,7&quot;])  return @&quot;iPad (8th generation)&quot;;
+    
+    
+    &#x2F;&#x2F;iPad Air
+    if ([platform isEqualToString:@&quot;iPad4,1&quot;])   return @&quot;iPad Air&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,2&quot;])   return @&quot;iPad Air&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,3&quot;])   return @&quot;iPad Air&quot;;
+    if ([platform isEqualToString:@&quot;iPad5,3&quot;])   return @&quot;iPad Air 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad5,4&quot;])   return @&quot;iPad Air 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad11,3&quot;])  return @&quot;iPad Air (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad11,4&quot;])  return @&quot;iPad Air (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad13,1&quot;])  return @&quot;iPad Air (4th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad13,2&quot;])  return @&quot;iPad Air (4th generation)&quot;;
+    
+    &#x2F;&#x2F;iPad mini
+    if ([platform isEqualToString:@&quot;iPad2,5&quot;])   return @&quot;iPad mini&quot;;
+    if ([platform isEqualToString:@&quot;iPad2,6&quot;])   return @&quot;iPad mini&quot;;
+    if ([platform isEqualToString:@&quot;iPad2,7&quot;])   return @&quot;iPad mini 1&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,4&quot;])   return @&quot;iPad mini 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,5&quot;])   return @&quot;iPad mini 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,6&quot;])   return @&quot;iPad mini 2&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,7&quot;])   return @&quot;iPad mini 3&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,8&quot;])   return @&quot;iPad mini 3&quot;;
+    if ([platform isEqualToString:@&quot;iPad4,9&quot;])   return @&quot;iPad mini 3&quot;;
+    if ([platform isEqualToString:@&quot;iPad5,1&quot;])   return @&quot;iPad mini 4&quot;;
+    if ([platform isEqualToString:@&quot;iPad5,2&quot;])   return @&quot;iPad mini 4&quot;;
+    if ([platform isEqualToString:@&quot;iPad11,1&quot;])  return @&quot;iPad mini 5&quot;;
+    if ([platform isEqualToString:@&quot;iPad11,2&quot;])  return @&quot;iPad mini 5&quot;;
+    
+    &#x2F;&#x2F; iPad Pro
+    if ([platform isEqualToString:@&quot;iPad6,3&quot;])    return @&quot;iPad Pro (9.7-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad6,4&quot;])    return @&quot;iPad Pro (9.7-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad6,7&quot;])    return @&quot;iPad Pro (12.9-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad6,8&quot;])    return @&quot;iPad Pro (12.9-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,1&quot;])    return @&quot;iPad Pro (12.9-inch) (2nd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,2&quot;])    return @&quot;iPad Pro (12.9-inch) (2nd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,3&quot;])  return @&quot;iPad Pro (10.5 inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad7,4&quot;])  return @&quot;iPad Pro (10.5-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,1&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,2&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,3&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,4&quot;])  return @&quot;iPad Pro (11-inch)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,5&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,6&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,7&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,8&quot;])  return @&quot;iPad Pro (12.9-inch) (3rd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,9&quot;])  return @&quot;iPad Pro (11-inch) (2nd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,10&quot;])  return @&quot;iPad Pro (11-inch) (2nd generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,11&quot;])  return @&quot;iPad Pro (12.9-inch) (4th generation)&quot;;
+    if ([platform isEqualToString:@&quot;iPad8,12&quot;])  return @&quot;iPad Pro (12.9-inch) (4th generation)&quot;;
+  
+  	&#x2F;&#x2F;iPod Touch
+    if ([platform isEqualToString:@&quot;iPod1,1&quot;])   return @&quot;iPod Touch&quot;;
+    if ([platform isEqualToString:@&quot;iPod2,1&quot;])   return @&quot;iPod Touch 2&quot;;
+    if ([platform isEqualToString:@&quot;iPod3,1&quot;])   return @&quot;iPod Touch 3&quot;;
+    if ([platform isEqualToString:@&quot;iPod4,1&quot;])   return @&quot;iPod Touch 4)&quot;;
+    if ([platform isEqualToString:@&quot;iPod5,1&quot;])   return @&quot;iPod Touch 5&quot;;
+    if ([platform isEqualToString:@&quot;iPod7,1&quot;])   return @&quot;iPod Touch 6&quot;;
+    if ([platform isEqualToString:@&quot;iPod9,1&quot;])   return @&quot;iPod Touch 7&quot;;
+
+    &#x2F;&#x2F; Apple Watch
+    if ([platform isEqualToString:@&quot;Watch1,1&quot;])   return @&quot;Apple Watch&quot;;
+    if ([platform isEqualToString:@&quot;Watch1,2&quot;])   return @&quot;Apple Watch&quot;;
+    if ([platform isEqualToString:@&quot;Watch2,6&quot;])   return @&quot;Apple Watch Series 1&quot;;
+    if ([platform isEqualToString:@&quot;Watch2,7&quot;])   return @&quot;Apple Watch Series 1&quot;;
+    if ([platform isEqualToString:@&quot;Watch2,3&quot;])   return @&quot;Apple Watch Series 2&quot;;
+    if ([platform isEqualToString:@&quot;Watch2,4&quot;])   return @&quot;Apple Watch Series 2&quot;;
+    if ([platform isEqualToString:@&quot;Watch3,1&quot;])   return @&quot;Apple Watch Series 3&quot;;
+    if ([platform isEqualToString:@&quot;Watch3,2&quot;])   return @&quot;Apple Watch Series 3&quot;;
+    if ([platform isEqualToString:@&quot;Watch3,3&quot;])   return @&quot;Apple Watch Series 3&quot;;
+    if ([platform isEqualToString:@&quot;Watch3,4&quot;])   return @&quot;Apple Watch Series 3&quot;;
+
+  	&#x2F;&#x2F; 模拟器
+    if ([platform isEqualToString:@&quot;i386&quot;])   return @&quot;iPhone Simulator&quot;;
+    if ([platform isEqualToString:@&quot;x86_64&quot;])  return @&quot;iPhone Simulator&quot;;
+    
+    return platform;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>iOS设备参照<a target="_blank" rel="noopener" href="https://www.theiphonewiki.com/wiki/Models#iPhone">网址</a></p>
 
                 
@@ -929,7 +1079,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             

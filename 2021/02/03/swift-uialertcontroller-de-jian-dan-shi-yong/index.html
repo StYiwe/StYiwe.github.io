@@ -371,14 +371,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    561
+                    609
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -393,6 +393,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -403,23 +406,99 @@
 </blockquote>
 <p>Demo效果如下：</p>
 <p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gitiuyluswg30b10nt190.gif" alt="UIAlertController"></p>
-<h4 id="普通提示框"><a href="#普通提示框" class="headerlink" title="普通提示框"></a>普通提示框</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;温馨提示&quot;</span>, message: <span class="hljs-string">&quot;现在开始走运了&quot;</span>, preferredStyle: .alert)<br>        <br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;好的&quot;</span>, style: .default, handler: <span class="hljs-literal">nil</span>))<br><br>present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="普通提示框"><a href="#普通提示框" class="headerlink" title="普通提示框"></a>普通提示框</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">let alertC &#x3D; UIAlertController.init(title: &quot;温馨提示&quot;, message: &quot;现在开始走运了&quot;, preferredStyle: .alert)
+        
+alertC.addAction(UIAlertAction.init(title: &quot;好的&quot;, style: .default, handler: nil))
+
+present(alertC, animated: true, completion: nil)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="类似删除操作提示框"><a href="#类似删除操作提示框" class="headerlink" title="类似删除操作提示框"></a>类似删除操作提示框</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;温馨提示&quot;</span>, message: <span class="hljs-string">&quot;确定删除BUG吗？&quot;</span>, preferredStyle: .alert)<br>        <br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;删除&quot;</span>, style: .destructive, handler: &#123; (action) <span class="hljs-keyword">in</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;删除&quot;</span>)<br>&#125;))<br><br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;取消&quot;</span>, style: .cancel, handler: <span class="hljs-literal">nil</span>))<br><br>present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="类似删除操作提示框"><a href="#类似删除操作提示框" class="headerlink" title="类似删除操作提示框"></a>类似删除操作提示框</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">let alertC &#x3D; UIAlertController.init(title: &quot;温馨提示&quot;, message: &quot;确定删除BUG吗？&quot;, preferredStyle: .alert)
+        
+alertC.addAction(UIAlertAction.init(title: &quot;删除&quot;, style: .destructive, handler: &#123; (action) in
+    print(&quot;删除&quot;)
+&#125;))
+
+alertC.addAction(UIAlertAction.init(title: &quot;取消&quot;, style: .cancel, handler: nil))
+
+present(alertC, animated: true, completion: nil)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="带一个textField提示框"><a href="#带一个textField提示框" class="headerlink" title="带一个textField提示框"></a>带一个textField提示框</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;添加数据&quot;</span>, message: <span class="hljs-literal">nil</span>, preferredStyle: .alert)<br>        <br><span class="hljs-comment">//添加textField</span><br>alertC.addTextField &#123; (textField) <span class="hljs-keyword">in</span><br>    <span class="hljs-comment">//这里对textField进行设置</span><br>    textField.placeholder <span class="hljs-operator">=</span> <span class="hljs-string">&quot;请添加内容&quot;</span><br><span class="hljs-comment">//            textField.backgroundColor = .green//设置背景色</span><br>&#125;<br><br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;确定&quot;</span>, style: .default, handler: &#123; (action) <span class="hljs-keyword">in</span><br>    <span class="hljs-comment">//这里获取textField的内容进行操作</span><br>    <span class="hljs-keyword">let</span> text <span class="hljs-operator">=</span> (alertC.textFields<span class="hljs-operator">?</span>.first)<span class="hljs-operator">!</span>.text<span class="hljs-operator">!</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;输入的内容:<span class="hljs-subst">\(text)</span>&quot;</span>)<br><br>    <span class="hljs-comment">//也可以先实例个textField</span><br>    <span class="hljs-keyword">let</span> textF1 <span class="hljs-operator">=</span> (alertC.textFields<span class="hljs-operator">?</span>.first)<span class="hljs-operator">!</span> <span class="hljs-keyword">as</span> <span class="hljs-type">UITextField</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;输入的内容：<span class="hljs-subst">\(textF1.text<span class="hljs-operator">!</span>)</span>&quot;</span>)<br><br>&#125;))<br><br>present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="带一个textField提示框"><a href="#带一个textField提示框" class="headerlink" title="带一个textField提示框"></a>带一个textField提示框</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">let alertC &#x3D; UIAlertController.init(title: &quot;添加数据&quot;, message: nil, preferredStyle: .alert)
+        
+&#x2F;&#x2F;添加textField
+alertC.addTextField &#123; (textField) in
+    &#x2F;&#x2F;这里对textField进行设置
+    textField.placeholder &#x3D; &quot;请添加内容&quot;
+&#x2F;&#x2F;            textField.backgroundColor &#x3D; .green&#x2F;&#x2F;设置背景色
+&#125;
+
+alertC.addAction(UIAlertAction.init(title: &quot;确定&quot;, style: .default, handler: &#123; (action) in
+    &#x2F;&#x2F;这里获取textField的内容进行操作
+    let text &#x3D; (alertC.textFields?.first)!.text!
+    print(&quot;输入的内容:\(text)&quot;)
+
+    &#x2F;&#x2F;也可以先实例个textField
+    let textF1 &#x3D; (alertC.textFields?.first)! as UITextField
+    print(&quot;输入的内容：\(textF1.text!)&quot;)
+
+&#125;))
+
+present(alertC, animated: true, completion: nil)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>获取输入框的内容：<code>(alertC.textFields?.first)!.text!</code></p>
 </blockquote>
-<h4 id="类似登录带两个textField的提示框"><a href="#类似登录带两个textField的提示框" class="headerlink" title="类似登录带两个textField的提示框"></a>类似登录带两个textField的提示框</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;登录&quot;</span>, message: <span class="hljs-literal">nil</span>, preferredStyle: .alert)<br>        <br><span class="hljs-comment">//添加textField</span><br>alertC.addTextField &#123; (textField) <span class="hljs-keyword">in</span><br>    <span class="hljs-comment">//这里对textField进行设置</span><br>    textField.placeholder <span class="hljs-operator">=</span> <span class="hljs-string">&quot;输入帐号&quot;</span><br>&#125;<br><br>alertC.addTextField &#123; (textField) <span class="hljs-keyword">in</span><br>    <span class="hljs-comment">//这里对textField进行设置</span><br>    textField.placeholder <span class="hljs-operator">=</span> <span class="hljs-string">&quot;输入密码&quot;</span><br>    textField.isSecureTextEntry <span class="hljs-operator">=</span> <span class="hljs-literal">true</span><span class="hljs-comment">//密文显示</span><br>&#125;<br><br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;登录&quot;</span>, style: .default, handler: &#123; (action) <span class="hljs-keyword">in</span><br>    <span class="hljs-comment">//这里获取textField的内容进行操作</span><br>    <span class="hljs-comment">//输入的帐号</span><br>    <span class="hljs-keyword">let</span> text1 <span class="hljs-operator">=</span> (alertC.textFields<span class="hljs-operator">?</span>.first)<span class="hljs-operator">!</span>.text<span class="hljs-operator">!</span><br><br>    <span class="hljs-comment">//输入的密码</span><br>    <span class="hljs-keyword">let</span> text2 <span class="hljs-operator">=</span> (alertC.textFields<span class="hljs-operator">?</span>.last)<span class="hljs-operator">!</span>.text<span class="hljs-operator">!</span><br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;帐号：<span class="hljs-subst">\(text1)</span><span class="hljs-subst">\n</span>密码：<span class="hljs-subst">\(text2)</span>&quot;</span>)<br><br>&#125;))<br><br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;取消&quot;</span>, style: .cancel, handler: <span class="hljs-literal">nil</span>))<br><br>present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="类似登录带两个textField的提示框"><a href="#类似登录带两个textField的提示框" class="headerlink" title="类似登录带两个textField的提示框"></a>类似登录带两个textField的提示框</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">let alertC &#x3D; UIAlertController.init(title: &quot;登录&quot;, message: nil, preferredStyle: .alert)
+        
+&#x2F;&#x2F;添加textField
+alertC.addTextField &#123; (textField) in
+    &#x2F;&#x2F;这里对textField进行设置
+    textField.placeholder &#x3D; &quot;输入帐号&quot;
+&#125;
+
+alertC.addTextField &#123; (textField) in
+    &#x2F;&#x2F;这里对textField进行设置
+    textField.placeholder &#x3D; &quot;输入密码&quot;
+    textField.isSecureTextEntry &#x3D; true&#x2F;&#x2F;密文显示
+&#125;
+
+alertC.addAction(UIAlertAction.init(title: &quot;登录&quot;, style: .default, handler: &#123; (action) in
+    &#x2F;&#x2F;这里获取textField的内容进行操作
+    &#x2F;&#x2F;输入的帐号
+    let text1 &#x3D; (alertC.textFields?.first)!.text!
+
+    &#x2F;&#x2F;输入的密码
+    let text2 &#x3D; (alertC.textFields?.last)!.text!
+
+    print(&quot;帐号：\(text1)\n密码：\(text2)&quot;)
+
+&#125;))
+
+alertC.addAction(UIAlertAction.init(title: &quot;取消&quot;, style: .cancel, handler: nil))
+
+present(alertC, animated: true, completion: nil)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="提示框弹出后自动消失"><a href="#提示框弹出后自动消失" class="headerlink" title="提示框弹出后自动消失"></a>提示框弹出后自动消失</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;成功&quot;</span>, message: <span class="hljs-literal">nil</span>, preferredStyle: .alert)<br>        <br>present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br><br><span class="hljs-comment">//3秒后提示框消失</span><br><span class="hljs-type">DispatchQueue</span>.main.asyncAfter(deadline: <span class="hljs-type">DispatchTime</span>.now() <span class="hljs-operator">+</span> <span class="hljs-number">3</span>) &#123;<br>    <span class="hljs-comment">//提示框消失</span><br>    alertC.dismiss(animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="提示框弹出后自动消失"><a href="#提示框弹出后自动消失" class="headerlink" title="提示框弹出后自动消失"></a>提示框弹出后自动消失</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">let alertC &#x3D; UIAlertController.init(title: &quot;成功&quot;, message: nil, preferredStyle: .alert)
+        
+present(alertC, animated: true, completion: nil)
+
+&#x2F;&#x2F;3秒后提示框消失
+DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) &#123;
+    &#x2F;&#x2F;提示框消失
+    alertC.dismiss(animated: true, completion: nil)
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h4 id="ActionSheet"><a href="#ActionSheet" class="headerlink" title="ActionSheet"></a>ActionSheet</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-keyword">let</span> alertC <span class="hljs-operator">=</span> <span class="hljs-type">UIAlertController</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;温馨提示&quot;</span>, message: <span class="hljs-string">&quot;你准备好了吗？&quot;</span>, preferredStyle: .actionSheet)<br>        <br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;准备好了&quot;</span>, style: .destructive, handler: &#123; (action) <span class="hljs-keyword">in</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;万事俱备&quot;</span>)<br>&#125;))<br><br>alertC.addAction(<span class="hljs-type">UIAlertAction</span>.<span class="hljs-keyword">init</span>(title: <span class="hljs-string">&quot;取消&quot;</span>, style: .cancel, handler: <span class="hljs-literal">nil</span>))<br><br>present(alertC, animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="ActionSheet"><a href="#ActionSheet" class="headerlink" title="ActionSheet"></a>ActionSheet</h4><pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">let alertC &#x3D; UIAlertController.init(title: &quot;温馨提示&quot;, message: &quot;你准备好了吗？&quot;, preferredStyle: .actionSheet)
+        
+alertC.addAction(UIAlertAction.init(title: &quot;准备好了&quot;, style: .destructive, handler: &#123; (action) in
+    print(&quot;万事俱备&quot;)
+&#125;))
+
+alertC.addAction(UIAlertAction.init(title: &quot;取消&quot;, style: .cancel, handler: nil))
+
+present(alertC, animated: true, completion: nil)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <p>附上<a target="_blank" rel="noopener" href="https://github.com/StYiwe/Swift-UIAlertController.git">Demo</a></p>
@@ -978,7 +1057,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">9.4k</span>&nbsp;字
+                class="white-color">9.8k</span>&nbsp;字
             
             
             
