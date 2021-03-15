@@ -372,14 +372,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    964
+                    993
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -572,6 +572,13 @@ center.delegate &#x3D; self;
     &#125;
         return allDayArr;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="四-移除通知"><a href="#四-移除通知" class="headerlink" title="四.移除通知"></a>四.移除通知</h4><pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;移除所有通知
+[[UNUserNotificationCenter currentNotificationCenter] removeAllPendingNotificationRequests];
+
+&#x2F;&#x2F;根据ID移除通知
+[[UNUserNotificationCenter currentNotificationCenter] removePendingNotificationRequestsWithIdentifiers:@[requestID]];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
