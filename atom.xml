@@ -6,7 +6,7 @@
   <link href="https://styiwe.github.io/atom.xml" rel="self"/>
   
   <link href="https://styiwe.github.io/"/>
-  <updated>2021-02-04T08:45:14.157Z</updated>
+  <updated>2021-03-15T07:28:53.537Z</updated>
   <id>https://styiwe.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS - 推送</title>
+    <link href="https://styiwe.github.io/2021/03/15/ios-tui-song/"/>
+    <id>https://styiwe.github.io/2021/03/15/ios-tui-song/</id>
+    <published>2021-03-15T06:48:31.000Z</published>
+    <updated>2021-03-15T07:28:53.537Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;本地推送&quot;&gt;&lt;a href=&quot;#本地推送&quot; class=&quot;headerlink&quot; title=&quot;本地推送&quot;&gt;&lt;/a&gt;本地推送&lt;/h1&gt;&lt;h4 id=&quot;一-创建UNUserNotificationCenter，设置推送模式和代理&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Objective-C笔记" scheme="https://styiwe.github.io/categories/Objective-C%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="推送" scheme="https://styiwe.github.io/tags/%E6%8E%A8%E9%80%81/"/>
+    
+    <category term="UNUserNotificationCenter" scheme="https://styiwe.github.io/tags/UNUserNotificationCenter/"/>
+    
+  </entry>
   
   <entry>
     <title>Swift UIAlertController的简单使用</title>
