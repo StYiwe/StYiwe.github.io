@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://styiwe.github.io/2021/03/15/ios-huo-qu-liang-ge-ri-qi-zhi-jian-suo-you-ri-qi/</loc>
+    
+    <lastmod>2021-03-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://styiwe.github.io/2021/03/15/ios-tui-song/</loc>
     
     <lastmod>2021-03-15</lastmod>
@@ -250,6 +257,13 @@
   
   <url>
     <loc>https://styiwe.github.io/tags/Git/</loc>
+    <lastmod>2021-03-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://styiwe.github.io/tags/%E6%97%A5%E6%9C%9F/</loc>
     <lastmod>2021-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

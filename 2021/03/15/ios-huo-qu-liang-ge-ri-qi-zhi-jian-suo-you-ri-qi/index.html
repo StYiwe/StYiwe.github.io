@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Swift UISearchController简单使用, 风露微">
+    <meta name="keywords" content="iOS - 获取两个日期之间所有日期, 风露微">
     <meta name="description" content="寻常巷陌，人道寄奴曾住">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Swift UISearchController简单使用 | 风露微</title>
+    <title>iOS - 获取两个日期之间所有日期 | 风露微</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -208,12 +208,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Swift UISearchController简单使用</h1>
+                    <h1 class="description center-align post-title">iOS - 获取两个日期之间所有日期</h1>
                 </div>
             </div>
         </div>
@@ -329,12 +329,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Swift/">
-                                <span class="chip bg-color">Swift</span>
-                            </a>
-                        
-                            <a href="/tags/UISearchController/">
-                                <span class="chip bg-color">UISearchController</span>
+                            <a href="/tags/%E6%97%A5%E6%9C%9F/">
+                                <span class="chip bg-color">日期</span>
                             </a>
                         
                     </div>
@@ -345,8 +341,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Swift%E7%AC%94%E8%AE%B0/" class="post-category">
-                                Swift笔记
+                            <a href="/categories/Objective-C%E7%AC%94%E8%AE%B0/" class="post-category">
+                                Objective-C笔记
                             </a>
                         
                     </div>
@@ -358,21 +354,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-03
+                    2021-03-15
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-03
+                    2021-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    318
+                    246
                 </div>
                 
 
@@ -402,50 +398,42 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Swift-UISearchController的简单使用"><a href="#Swift-UISearchController的简单使用" class="headerlink" title="Swift - UISearchController的简单使用"></a>Swift - UISearchController的简单使用</h1><blockquote>
-<p>记录下UISearchController的简单使用，方便后期查找。此次是将UISearchController添加到导航栏上使用的</p>
-</blockquote>
-<p>Demo效果如下</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gismu9exwsg30b10ntai6.gif" alt="UISearchController"></p>
-<h4 id="UISearchController的初始化"><a href="#UISearchController的初始化" class="headerlink" title="UISearchController的初始化"></a>UISearchController的初始化</h4><ul>
-<li>代码如下</li>
-</ul>
-<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;&#x2F; 初始化搜索控制器
-func initSearchController() &#123;
-    searchC &#x3D; UISearchController.init(searchResultsController: nil)
-    searchC.searchResultsUpdater &#x3D; self
-    &#x2F;&#x2F;设置placeholder
-    searchC.searchBar.placeholder &#x3D; &quot;搜索内容&quot;
-    &#x2F;&#x2F;设置为false，则搜索出来的内容可点击等操作
-    searchC.obscuresBackgroundDuringPresentation &#x3D; false
-    &#x2F;&#x2F;总是显示搜索框,如果不设置，会随着滚动而消失
-    navigationItem.hidesSearchBarWhenScrolling &#x3D; false
-    &#x2F;&#x2F;将搜索控制器加到导航栏上
-    navigationItem.searchController &#x3D; searchC
+                <pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;&#x2F; 获取两个日期之间所有日期数组，精确到天
+&#x2F;&#x2F;&#x2F; @param startDateStr 开始日期
+&#x2F;&#x2F;&#x2F; @param endDateStr 结束日期
+- (NSArray *)getDateArrWithStartDate:(NSString *)startDateStr endDate:(NSString *)endDateStr &#123;
+    
+    &#x2F;&#x2F; 计算两个时间的差值
+    NSCalendar *calendar &#x3D; [NSCalendar currentCalendar];
+    &#x2F;&#x2F; 需要对比的时间数据 NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSCalendarUnit unit &#x3D; NSCalendarUnitDay;
+    
+    NSDateFormatter *dateMatter &#x3D; [[NSDateFormatter alloc] init];
+    dateMatter.dateFormat &#x3D; @&quot;yyyy-MM-dd&quot;;
+    NSDate *beginDate &#x3D; [dateMatter dateFromString:startDateStr];
+    NSDate *endDate &#x3D; [dateMatter dateFromString:endDateStr];
+    
+    &#x2F;&#x2F; 对比时间差
+    NSDateComponents *dateCom &#x3D; [calendar components:unit fromDate:beginDate toDate:endDate options:0];
+     
+    &#x2F;&#x2F; 两个日期之间所有天数组成的数组
+    NSMutableArray *allDayArr &#x3D; [NSMutableArray new];
+    for (int i &#x3D; 0 ; i &lt; dateCom.day+1 ; i ++) &#123;
+        &#x2F;&#x2F; n天后的天数
+        int days &#x3D; i;
+        &#x2F;&#x2F; 一天一共有多少秒
+        NSTimeInterval oneDay &#x3D; 24 * 60 * 60;
+        &#x2F;&#x2F; 指定的日期
+        NSDate *appointDate &#x3D; [NSDate dateWithTimeInterval:oneDay * days sinceDate:beginDate];
+        &#x2F;&#x2F; 转字符串
+        NSDateFormatter *dateFormatter &#x3D; [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@&quot;yyyy-MM-dd&quot;]; &#x2F;&#x2F; @&quot;yyyy-MM-dd&quot;
+        NSString *appointTime &#x3D; [dateFormatter stringFromDate:appointDate];
+        [allDayArr addObject:appointTime];
 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>注：以下两个属性需要注意下</p>
-<p>//设置为false，则搜索出来的内容可点击等操作</p>
-<p>searchC.obscuresBackgroundDuringPresentation = <strong>false</strong></p>
-<p>//总是显示搜索框,如果不设置，会随着滚动而消失</p>
-<p>navigationItem.hidesSearchBarWhenScrolling = <strong>false</strong></p>
-</blockquote>
-<ul>
-<li>实现代理，进行实时搜索</li>
-</ul>
-<pre class="line-numbers language-swift" data-language="swift"><code class="language-swift">&#x2F;&#x2F;&#x2F; UISearchController代理，实时进行搜索
-func updateSearchResults(for searchController: UISearchController) &#123;
-    searchArr &#x3D; dataList.filter(&#123; (str) -&gt; Bool in
-        &#x2F;&#x2F;localizedCaseInsensitiveContains 返回不区分大小写，包含的数据
-        return str.localizedCaseInsensitiveContains(searchC.searchBar.text!)
-    &#125;)
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>这里使用了Swift数组自带filter方法,返回一个符合条件的新数组</p>
-</blockquote>
-<p><code>以上就是的UISearchController简单使用，不涉及.searchBar.scopeButtonTitles</code></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/StYiwe/Swift-UISearchController.git">Demo地址</a></p>
+    &#125;
+        return allDayArr;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -472,7 +460,7 @@ func updateSearchResults(for searchController: UISearchController) &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://styiwe.github.io/2021/02/03/swift-uisearchcontroller-jian-dan-shi-yong/">https://styiwe.github.io/2021/02/03/swift-uisearchcontroller-jian-dan-shi-yong/</a>
+                    <a href="https://styiwe.github.io/2021/03/15/ios-huo-qu-liang-ge-ri-qi-zhi-jian-suo-you-ri-qi/">https://styiwe.github.io/2021/03/15/ios-huo-qu-liang-ge-ri-qi-zhi-jian-suo-you-ri-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -510,12 +498,8 @@ func updateSearchResults(for searchController: UISearchController) &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Swift/">
-                                    <span class="chip bg-color">Swift</span>
-                                </a>
-                            
-                                <a href="/tags/UISearchController/">
-                                    <span class="chip bg-color">UISearchController</span>
+                                <a href="/tags/%E6%97%A5%E6%9C%9F/">
+                                    <span class="chip bg-color">日期</span>
                                 </a>
                             
                         </div>
@@ -687,50 +671,48 @@ func updateSearchResults(for searchController: UISearchController) &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/03/swift-uialertcontroller-de-jian-dan-shi-yong/">
+                <a href="/2021/03/15/ios-huo-qu-liang-ge-ri-qi-zhi-jian-suo-you-ri-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Swift UIAlertController的简单使用">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="iOS - 获取两个日期之间所有日期">
                         
-                        <span class="card-title">Swift UIAlertController的简单使用</span>
+                        <span class="card-title">iOS - 获取两个日期之间所有日期</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Swift UIAlertController的使用
+                            获取两个日期之间所有日期数组，精确到天
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Swift%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    Swift笔记
+                            <a href="/categories/Objective-C%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    Objective-C笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Swift/">
-                        <span class="chip bg-color">Swift</span>
-                    </a>
-                    
-                    <a href="/tags/UIAlertController/">
-                        <span class="chip bg-color">UIAlertController</span>
+                    <a href="/tags/%E6%97%A5%E6%9C%9F/">
+                        <span class="chip bg-color">日期</span>
                     </a>
                     
                 </div>
@@ -744,31 +726,31 @@ func updateSearchResults(for searchController: UISearchController) &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/03/swift-uitableview-de-jian-dan-shi-yong/">
+                <a href="/2021/03/15/ios-tui-song/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Swift UITableView的简单使用">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="iOS - 推送">
                         
-                        <span class="card-title">Swift UITableView的简单使用</span>
+                        <span class="card-title">iOS - 推送</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Swift UITableView的一些基本使用
+                            本地推送的简单使用，根据起止时间进行推送
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Swift%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    Swift笔记
+                            <a href="/categories/Objective-C%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    Objective-C笔记
                                 </a>
                             
                             
@@ -778,12 +760,12 @@ func updateSearchResults(for searchController: UISearchController) &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Swift/">
-                        <span class="chip bg-color">Swift</span>
+                    <a href="/tags/%E6%8E%A8%E9%80%81/">
+                        <span class="chip bg-color">推送</span>
                     </a>
                     
-                    <a href="/tags/UITableView/">
-                        <span class="chip bg-color">UITableView</span>
+                    <a href="/tags/UNUserNotificationCenter/">
+                        <span class="chip bg-color">UNUserNotificationCenter</span>
                     </a>
                     
                 </div>

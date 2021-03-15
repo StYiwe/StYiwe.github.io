@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>iOS - 获取两个日期之间所有日期</title>
+      <link href="2021/03/15/ios-huo-qu-liang-ge-ri-qi-zhi-jian-suo-you-ri-qi/"/>
+      <url>2021/03/15/ios-huo-qu-liang-ge-ri-qi-zhi-jian-suo-you-ri-qi/</url>
+      
+        <content type="html"><![CDATA[<pre class="line-numbers language-objective-c" data-language="objective-c"><code class="language-objective-c">&#x2F;&#x2F;&#x2F; 获取两个日期之间所有日期数组，精确到天&#x2F;&#x2F;&#x2F; @param startDateStr 开始日期&#x2F;&#x2F;&#x2F; @param endDateStr 结束日期- (NSArray *)getDateArrWithStartDate:(NSString *)startDateStr endDate:(NSString *)endDateStr &#123;        &#x2F;&#x2F; 计算两个时间的差值    NSCalendar *calendar &#x3D; [NSCalendar currentCalendar];    &#x2F;&#x2F; 需要对比的时间数据 NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;    NSCalendarUnit unit &#x3D; NSCalendarUnitDay;        NSDateFormatter *dateMatter &#x3D; [[NSDateFormatter alloc] init];    dateMatter.dateFormat &#x3D; @&quot;yyyy-MM-dd&quot;;    NSDate *beginDate &#x3D; [dateMatter dateFromString:startDateStr];    NSDate *endDate &#x3D; [dateMatter dateFromString:endDateStr];        &#x2F;&#x2F; 对比时间差    NSDateComponents *dateCom &#x3D; [calendar components:unit fromDate:beginDate toDate:endDate options:0];         &#x2F;&#x2F; 两个日期之间所有天数组成的数组    NSMutableArray *allDayArr &#x3D; [NSMutableArray new];    for (int i &#x3D; 0 ; i &lt; dateCom.day+1 ; i ++) &#123;        &#x2F;&#x2F; n天后的天数        int days &#x3D; i;        &#x2F;&#x2F; 一天一共有多少秒        NSTimeInterval oneDay &#x3D; 24 * 60 * 60;        &#x2F;&#x2F; 指定的日期        NSDate *appointDate &#x3D; [NSDate dateWithTimeInterval:oneDay * days sinceDate:beginDate];        &#x2F;&#x2F; 转字符串        NSDateFormatter *dateFormatter &#x3D; [[NSDateFormatter alloc] init];        [dateFormatter setDateFormat:@&quot;yyyy-MM-dd&quot;]; &#x2F;&#x2F; @&quot;yyyy-MM-dd&quot;        NSString *appointTime &#x3D; [dateFormatter stringFromDate:appointDate];        [allDayArr addObject:appointTime];    &#125;        return allDayArr;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Objective-C笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日期 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>iOS - 推送</title>
       <link href="2021/03/15/ios-tui-song/"/>
       <url>2021/03/15/ios-tui-song/</url>
